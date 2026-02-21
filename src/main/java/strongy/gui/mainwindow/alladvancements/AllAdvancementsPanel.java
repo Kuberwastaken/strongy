@@ -1,0 +1,62 @@
+package strongy.gui.mainwindow.alladvancements;
+
+import java.util.ArrayList;
+import java.util.Objects;
+
+import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
+
+import strongy.Main;
+import strongy.gui.components.panels.ThemedPanel;
+import strongy.gui.style.StyleManager;
+import strongy.io.preferences.StrongyPreferences;
+import strongy.model.datastate.alladvancements.AllAdvancementsStructureType;
+import strongy.model.datastate.alladvancements.IAllAdvancementsDataState;
+import strongy.model.input.IButtonInputHandler;
+
+public class AllAdvancementsPanel extends ThemedPanel {
+
+	private final StrongyPreferences preferences;
+	private static final ImageIcon strongholdIcon = new ImageIcon(Objects.requireNonNull(Main.class.getResource("/stronghold_icon.png")));
+	private static final ImageIcon shulkerIcon = new ImageIcon(Objects.requireNonNull(Main.class.getResource("/spawn_icon.png")));
+	private static final ImageIcon outpostIcon = new ImageIcon(Objects.requireNonNull(Main.class.getResource("/outpost_icon.png")));
+	private static final ImageIcon monumentIcon = new ImageIcon(Objects.requireNonNull(Main.class.getResource("/monument_icon.png")));
+	private static final ImageIcon deepDarkIcon = new ImageIcon(Objects.requireNonNull(Main.class.getResource("/deep_dark_icon.png")));
+	private static final ImageIcon shulkerTransportIcon = new ImageIcon(Objects.requireNonNull(Main.class.getResource("/shulker_transport_icon.png")));
+	private static final ImageIcon cityQueryIcon = new ImageIcon(Objects.requireNonNull(Main.class.getResource("/city_query_icon.png")));
+	private static final ImageIcon generalLocationIcon = new ImageIcon(Objects.requireNonNull(Main.class.getResource("/general_location_icon.png")));
+
+	private final ArrayList<StructurePanel> oneDotTwentyPlusPanels = new ArrayList<>();
+
+	public AllAdvancementsPanel(StyleManager styleManager, IButtonInputHandler buttonInputHandler, IAllAdvancementsDataState allAdvancementsDataState, StrongyPreferences preferences) {
+		super(styleManager);
+		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+		add(new AllAdvancementsHeader(styleManager));
+		add(new StructurePanel(styleManager, buttonInputHandler, allAdvancementsDataState.getStructureInformation(AllAdvancementsStructureType.Stronghold), strongholdIcon, false, true, true));
+		add(new StructurePanel(styleManager, buttonInputHandler, allAdvancementsDataState.getStructureInformation(AllAdvancementsStructureType.Spawn), shulkerIcon, true, true, true));
+		add(new StructurePanel(styleManager, buttonInputHandler, allAdvancementsDataState.getStructureInformation(AllAdvancementsStructureType.Outpost), outpostIcon, true, true, true));
+		add(new StructurePanel(styleManager, buttonInputHandler, allAdvancementsDataState.getStructureInformation(AllAdvancementsStructureType.Monument), monumentIcon, true, true, true));
+		oneDotTwentyPlusPanels.add(new StructurePanel(styleManager, buttonInputHandler, allAdvancementsDataState.getStructureInformation(AllAdvancementsStructureType.DeepDark), deepDarkIcon, true, true, true));
+		oneDotTwentyPlusPanels.add(new StructurePanel(styleManager, buttonInputHandler, allAdvancementsDataState.getStructureInformation(AllAdvancementsStructureType.ShulkerTransport), shulkerTransportIcon, true, true, false));
+		oneDotTwentyPlusPanels.add(new StructurePanel(styleManager, buttonInputHandler, allAdvancementsDataState.getStructureInformation(AllAdvancementsStructureType.CityQuery), cityQueryIcon, true, true, false));
+		oneDotTwentyPlusPanels.add(new StructurePanel(styleManager, buttonInputHandler, allAdvancementsDataState.getStructureInformation(AllAdvancementsStructureType.GeneralLocation), generalLocationIcon, true, false, false));
+		for (StructurePanel panel : oneDotTwentyPlusPanels) {
+			add(panel);
+		}
+		for (StructurePanel panel : oneDotTwentyPlusPanels) {
+			panel.setEnabled(preferences.oneDotTwentyPlusAA.get());
+			panel.setVisible(preferences.oneDotTwentyPlusAA.get());
+		}
+		this.preferences = preferences;
+	}
+
+	public void updateOneDotTwentyPlusAAEnabled() {
+		for (StructurePanel panel : oneDotTwentyPlusPanels) {
+			panel.setEnabled(preferences.oneDotTwentyPlusAA.get());
+			panel.setVisible(preferences.oneDotTwentyPlusAA.get());
+		}
+
+		this.revalidate();
+		this.repaint();
+	}
+}

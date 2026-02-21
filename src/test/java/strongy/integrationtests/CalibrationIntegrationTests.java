@@ -1,0 +1,52 @@
+package strongy.integrationtests;
+
+import java.util.Locale;
+
+import javax.swing.SwingUtilities;
+
+import strongy.gui.frames.CalibrationDialog;
+import strongy.model.datastate.calibrator.CalibratorFactory;
+import strongy.util.TestUtils;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.DisabledIfEnvironmentVariable;
+
+public class CalibrationIntegrationTests {
+
+	@DisabledIfEnvironmentVariable(named = "CI", matches = "true")
+	@Test
+	public void canOpenDialog() {
+		// Arrange
+		IntegrationTestBuilder integrationTestBuilder = new IntegrationTestBuilder();
+		Locale.setDefault(Locale.US);
+		CalibratorFactory calibratorFactory = integrationTestBuilder.createCalibratorFactory();
+
+		// Act + Assert
+		try {
+			SwingUtilities.invokeAndWait(() -> {
+				CalibrationDialog dialog = new CalibrationDialog(TestUtils.createStyleManager(), integrationTestBuilder.preferences, calibratorFactory, integrationTestBuilder.actionExecutor, null, false);
+			});
+		} catch (Exception e) {
+			Assertions.fail(e);
+		}
+	}
+
+	@DisabledIfEnvironmentVariable(named = "CI", matches = "true")
+	@Test
+	public void canOpenDialog_manualCalibration() {
+		// Arrange
+		IntegrationTestBuilder integrationTestBuilder = new IntegrationTestBuilder();
+		Locale.setDefault(Locale.US);
+		CalibratorFactory calibratorFactory = integrationTestBuilder.createCalibratorFactory();
+
+		// Act + Assert
+		try {
+			SwingUtilities.invokeAndWait(() -> {
+				CalibrationDialog dialog = new CalibrationDialog(TestUtils.createStyleManager(), integrationTestBuilder.preferences, calibratorFactory, integrationTestBuilder.actionExecutor, null, true);
+			});
+		} catch (Exception e) {
+			Assertions.fail(e);
+		}
+	}
+
+}
