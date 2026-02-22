@@ -32,6 +32,9 @@ jobs:
   Run-Tests:
     needs: Build
     runs-on: ubuntu-latest
+    permissions:
+      checks: write
+      pull-requests: write
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 17
@@ -48,6 +51,6 @@ jobs:
         uses: EnricoMi/publish-unit-test-result-action@v2
         if: always()
         with:
-          junit_files: "target/surefire-reports/**/*.xml"
+          files: "target/surefire-reports/**/*.xml"
 
 
