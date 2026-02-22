@@ -1,73 +1,55 @@
 package strongy.gui.components.panels;
 
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Point;
-import java.awt.Window;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionAdapter;
-import java.util.ArrayList;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
+import javafx.stage.Stage;
+import javafx.stage.Window;
 
+import strongy.gui.components.ThemedComponent;
 import strongy.gui.style.StyleManager;
 
 /**
- * A JPanel that allows the user to drag the application window.
+ * Title bar panel — JavaFX replacement using HBox.
  */
-public class TitleBarPanel extends ThemedPanel {
+public class TitleBarPanel extends HBox implements ThemedComponent {
 
-	private Point initialClick;
+	private final HBox buttonsBox;
+	private double dragOffsetX, dragOffsetY;
 
-	final ArrayList<Component> buttons;
+	public TitleBarPanel(StyleManager styleManager, Window owner) {
+		getStyleClass().add("title-bar");
+		setAlignment(Pos.CENTER_LEFT);
 
-	public TitleBarPanel(StyleManager styleManager, final Window frame) {
-		super(styleManager);
-		buttons = new ArrayList<Component>();
-		this.addMouseListener(new MouseAdapter() {
-			public void mousePressed(MouseEvent e) {
-				initialClick = e.getPoint();
-				getComponentAt(initialClick);
-			}
-		});
-		setLayout(null);
-		this.addMouseMotionListener(new MouseMotionAdapter() {
-			@Override
-			public void mouseDragged(MouseEvent e) {
-				int thisX = frame.getLocation().x;
-				int thisY = frame.getLocation().y;
+		Region spacer = new Region();
+		HBox.setHgrow(spacer, Priority.ALWAYS);
 
-				int xMoved = e.getX() - initialClick.x;
-				int yMoved = e.getY() - initialClick.y;
+		buttonsBox = new HBox();
+		buttonsBox.setAlignment(Pos.CENTER_RIGHT);
 
-				int X = thisX + xMoved;
-				int Y = thisY + yMoved;
-				frame.setLocation(X, Y);
-			}
-		});
-		setBackgroundColor(styleManager.currentTheme.COLOR_STRONGEST);
-	}
+		getChildren().addAll(spacer, buttonsBox);
 
-	@Override
-	public void setBounds(int x, int y, int width, int height) {
-		super.setBounds(x, y, width, height);
-		x = width - height;
-		for (int i = 0; i < buttons.size(); i++) {
-			buttons.get(i).setBounds(x, 0, height, height);
-			if (buttons.get(i).isVisible())
-				x -= height;
+		// Drag support
+		if (owner instanceof Stage stage) {
+			setOnMousePressed(e -> {
+				dragOffsetX = e.getScreenX() - stage.getX();
+				dragOffsetY = e.getScreenY() - stage.getY();
+			});
+			setOnMouseDragged(e -> {
+				stage.setX(e.getScreenX() - dragOffsetX);
+				stage.setY(e.getScreenY() - dragOffsetY);
+			});
 		}
 	}
 
-	@Override
-	public void updateSize(StyleManager styleManager) {
-		setPreferredSize(new Dimension(styleManager.size.WIDTH, styleManager.size.TEXT_SIZE_TITLE_LARGE + styleManager.size.PADDING_TITLE * 2 + 1));
-		super.updateSize(styleManager);
+	public void addButton(Button button) {
+		buttonsBox.getChildren().add(button);
 	}
 
-	public <T extends Component> T addButton(T button) {
-		add(button);
-		buttons.add(button);
-		return button;
+	public void insertContent(int index, Node node) {
+		getChildren().add(index, node);
 	}
-
 }

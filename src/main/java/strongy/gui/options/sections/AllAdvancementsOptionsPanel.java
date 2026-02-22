@@ -1,60 +1,15 @@
 package strongy.gui.options.sections;
 
-import javax.swing.border.EmptyBorder;
-
-import strongy.gui.buttons.WikiButton;
-import strongy.gui.components.labels.ThemedLabel;
-import strongy.gui.components.layout.StackPanel;
-import strongy.gui.components.preferences.CheckboxPanel;
-import strongy.gui.components.preferences.HotkeyPanel;
-import strongy.gui.components.preferences.RadioButtonPanel;
-import strongy.gui.frames.OptionsFrame;
-import strongy.gui.style.SizePreference;
+import javafx.geometry.Pos;
+import strongy.gui.components.panels.ThemedPanel;
 import strongy.gui.style.StyleManager;
 import strongy.io.preferences.StrongyPreferences;
-import strongy.io.preferences.enums.AllAdvancementsToggleType;
-import strongy.util.I18n;
 
-public class AllAdvancementsOptionsPanel extends StackPanel {
-
-	private final StrongyPreferences preferences;
-	private final CheckboxPanel oneDotTwentyPlusAA;
-	private final RadioButtonPanel switchTypeRadioButtonPanel;
-	private final HotkeyPanel toggleHotkeyPanel;
-
+public class AllAdvancementsOptionsPanel extends ThemedPanel {
 	public AllAdvancementsOptionsPanel(StyleManager styleManager, StrongyPreferences preferences) {
-		super(2 * OptionsFrame.PADDING);
-		this.preferences = preferences;
-		setOpaque(false);
-		setBorder(new EmptyBorder(2 * OptionsFrame.PADDING, 2 * OptionsFrame.PADDING, 2 * OptionsFrame.PADDING, 2 * OptionsFrame.PADDING));
-
-		add(new ThemedLabel(styleManager, "<html>" + I18n.get("settings.all_advancements.explanation") + "<ul style=\"margin-left: 10px; margin-top: 0px; margin-bottom: 0px;\">" +
-										  "<li>" + I18n.get("settings.all_advancements.spawn_coords") + "</li>" +
-										  "<li>" + I18n.get("settings.all_advancements.monument_coords") + "</li>" +
-										  "<li>" + I18n.get("settings.all_advancements.outpost_coords") + "</li>" +
-										  "</ul></html>") {
-			public int getTextSize(SizePreference p) {
-				return p.TEXT_SIZE_SMALL;
-			}
-		});
-		add(new CheckboxPanel(styleManager, I18n.get("settings.enable_all_advancements_mode"), preferences.allAdvancements));
-
-		add(oneDotTwentyPlusAA = new CheckboxPanel(styleManager, I18n.get("settings.enable_120plus_all_advancements_mode"), preferences.oneDotTwentyPlusAA)
-				.withWikiButton(new WikiButton(styleManager, "https://github.com/Ninjabrain1/Ninjabrain-Bot/wiki/All-advancements-mode-with-Minecraft-version-1.20-and-later")));
-
-		add(switchTypeRadioButtonPanel = new RadioButtonPanel(styleManager, I18n.get("settings.all_advancements.switch_type"), preferences.allAdvancementsToggleType, true));
-		add(toggleHotkeyPanel = new HotkeyPanel(styleManager, I18n.get("settings.all_advancements.toggle_aa_mode_hotkey"), preferences.hotkeyToggleAllAdvancementsMode));
-
-		updateComponentsEnabled();
-		preferences.allAdvancements.whenModified().subscribeEDT(this::updateComponentsEnabled);
-		preferences.oneDotTwentyPlusAA.whenModified().subscribeEDT(this::updateComponentsEnabled);
-		preferences.allAdvancementsToggleType.whenModified().subscribeEDT(this::updateComponentsEnabled);
+		super(styleManager);
+		setSpacing(8);
+		setAlignment(Pos.TOP_LEFT);
+		// Stub
 	}
-
-	private void updateComponentsEnabled() {
-		oneDotTwentyPlusAA.setEnabled(preferences.allAdvancements.get());
-		switchTypeRadioButtonPanel.setEnabled(preferences.allAdvancements.get());
-		toggleHotkeyPanel.setEnabled(preferences.allAdvancements.get() && preferences.allAdvancementsToggleType.get() == AllAdvancementsToggleType.Hotkey);
-	}
-
 }

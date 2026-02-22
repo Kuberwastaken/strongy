@@ -2,18 +2,24 @@ package strongy.gui.components.inputfields;
 
 import strongy.gui.style.StyleManager;
 
+/**
+ * A text field with a maximum character limit.
+ */
 public class LimitedThemedTextField extends ThemedTextField {
 
-	private final int maxNumberOfCharacters;
+	private final int maxLength;
 
-	public LimitedThemedTextField(StyleManager styleManager, int maxNumberOfCharacters) {
+	public LimitedThemedTextField(StyleManager styleManager, int maxLength) {
 		super(styleManager);
-		this.maxNumberOfCharacters = maxNumberOfCharacters;
+		this.maxLength = maxLength;
+		setupFilter();
 	}
 
-	@Override
-	protected boolean verifyInput(String text) {
-		return text.length() <= maxNumberOfCharacters;
+	private void setupFilter() {
+		textProperty().addListener((obs, oldVal, newVal) -> {
+			if (newVal != null && newVal.length() > maxLength) {
+				setText(oldVal);
+			}
+		});
 	}
-
 }

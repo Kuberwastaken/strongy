@@ -1,0 +1,549 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------------< strongy:strongy >---------------------------
+[INFO] Building Strongy 2.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] 6 problems were encountered while building the effective model for org.openjfx:javafx-controls:jar:21 during dependency collection step for project (use -X to see details)
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ strongy ---
+[WARNING] Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 54 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ strongy ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ strongy ---
+[WARNING] Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory X:\Bigger-Projects\Ninjabrain-Bot\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ strongy ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- surefire:2.22.0:test (default-test) @ strongy ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running strongy.event.DisposeHandlerTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.902 s - in strongy.event.DisposeHandlerTest
+[INFO] Running strongy.gui.themeeditor.ThemeSerializerTests
+[ERROR] Tests run: 8, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.116 s <<< FAILURE! - in strongy.gui.themeeditor.ThemeSerializerTests
+[ERROR] serialize_deserialize_shouldBeIdenticalToOriginal_light  Time elapsed: 0.015 s  <<< FAILURE!
+java.lang.AssertionError
+	at strongy.gui.themeeditor.ThemeSerializerTests.serialize_deserialize_shouldBeIdenticalToOriginal_light(ThemeSerializerTests.java:95)
+
+[ERROR] serializeColor  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at strongy.gui.themeeditor.ThemeSerializerTests.serializeColor(ThemeSerializerTests.java:36)
+
+[ERROR] deserializeColor  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at strongy.gui.themeeditor.ThemeSerializerTests.deserializeColor(ThemeSerializerTests.java:43)
+
+[ERROR] serialize_deserialize_shouldBeIdenticalToOriginal_blue  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at strongy.gui.themeeditor.ThemeSerializerTests.serialize_deserialize_shouldBeIdenticalToOriginal_blue(ThemeSerializerTests.java:119)
+
+[INFO] Running strongy.integrationtests.AllAdvancementsIntegrationTests
+[main] Time to construct prior: 0.005 seconds.
+[main] Time to construct prior: 0.003 seconds.
+[main] Time to construct prior: 0.002 seconds.
+[main] Time to calculate blind features: 0.018 seconds.
+[main] Time to construct prior: 0.001 seconds.
+[main] Time to construct prior: 0.002 seconds.
+[main] Time to construct prior: 0.001 seconds.
+[main] Time to calculate blind features: 0.004 seconds.
+[ERROR] Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.571 s <<< FAILURE! - in strongy.integrationtests.AllAdvancementsIntegrationTests
+[ERROR] uiUpdatesAsExpected_TypicalAASpeedrun{String, String, String, int, int, String, int, int, String, int, int, String, int, int}[1]  Time elapsed: 0.522 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at strongy.integrationtests.AllAdvancementsIntegrationTests.doAnyPercentSplit(AllAdvancementsIntegrationTests.java:100)
+	at strongy.integrationtests.AllAdvancementsIntegrationTests.uiUpdatesAsExpected_TypicalAASpeedrun(AllAdvancementsIntegrationTests.java:36)
+
+[ERROR] uiUpdatesAsExpected_HotkeysAreDisabledInAaMode{String, String, String, int, int}[1]  Time elapsed: 0.009 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at strongy.integrationtests.AllAdvancementsIntegrationTests.doAnyPercentSplit(AllAdvancementsIntegrationTests.java:100)
+	at strongy.integrationtests.AllAdvancementsIntegrationTests.uiUpdatesAsExpected_HotkeysAreDisabledInAaMode(AllAdvancementsIntegrationTests.java:75)
+
+[INFO] Running strongy.integrationtests.ApiV1IntegrationTests
+[main] Time to construct prior: 0.008 seconds.
+[main] Time to triangulate: 0.022 seconds.
+[main] Received request: /api/v1/all-advancements
+{"generalLocation":{},"spawn":{"overworldDistance":5007,"xInOverworld":-215,"zInOverworld":185,"travelAngle":134.48365647425098},"cityQuery":{},"monument":{"overworldDistance":1,"xInOverworld":3357,"zInOverworld":3693,"travelAngle":141.5819446551723},"shulkerTransport":{},"stronghold":{"overworldDistance":4247,"xInOverworld":2212,"zInOverworld":-396,"travelAngle":164.35091545590393},"deepDark":{},"isAllAdvancementsModeEnabled":true,"outpost":{}}
+[main] Received request: /api/v1/divine
+[main] Received request: /api/v1/boat/events
+[main] Sent query result strongy.io.api.queries.BoatQuery@38320e34 to subscriber 1030384622
+[main] Added subscriber to query strongy.io.api.queries.BoatQuery@38320e34
+[pool-4-thread-1] Sent query result strongy.io.api.queries.BoatQuery@38320e34 to subscriber 1030384622
+[main] Time to construct prior: 0.001 seconds.
+[main] Time to triangulate: 0.002 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.001 seconds.
+[main] Received request: /api/v1/stronghold
+[main] Received request: /api/v1/boat/events
+[main] Sent query result strongy.io.api.queries.BoatQuery@49c8f6e8 to subscriber 1795560878
+[main] Added subscriber to query strongy.io.api.queries.BoatQuery@49c8f6e8
+[main] Time to construct prior: 0.001 seconds.
+[main] Time to triangulate: 0.003 seconds.
+[main] Received request: /api/v1/boat
+[main] Received request: /api/v1/ping
+[main] Time to construct prior: 0.009 seconds.
+[main] Time to construct prior: 0.008 seconds.
+[main] Time to construct prior: 0.007 seconds.
+[main] Time to calculate blind features: 0.025 seconds.
+[main] Received request: /api/v1/blind
+[main] Received request: /api/v1/version
+[main] Received request: /api/v1/information-messages/events
+[main] Sent query result strongy.io.api.queries.InformationMessagesQuery@771cbb1a to subscriber 605440398
+[main] Added subscriber to query strongy.io.api.queries.InformationMessagesQuery@771cbb1a
+[main] Time to construct prior: 0.001 seconds.
+[main] Time to triangulate: 0.002 seconds.
+[pool-11-thread-1] Sent query result strongy.io.api.queries.InformationMessagesQuery@771cbb1a to subscriber 605440398
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.002 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.001 seconds.
+[main] Received request: /api/v1/information-messages
+{"informationMessages":[{"severity":"WARNING","type":"MC_VERSION","message":"Detected wrong Minecraft version, make sure the correct version is chosen in the settings."},{"severity":"WARNING","type":"PORTAL_LINKING","message":"You might not be able to nether travel into the stronghold due to portal linking."},{"severity":"WARNING","type":"MISMEASURE","message":"Detected unusually large errors, you probably mismeasured or your standard deviation is too low."},{"severity":"INFO","type":"COMBINED_CERTAINTY","message":"Nether coords (300, 3) have <span style=\"color:#00CE29;\">86.1%<\/span> chance to hit the stronghold (it is between the top 2 offsets)."},{"severity":"INFO","type":"NEXT_THROW_DIRECTION","message":"Go left 1 blocks, or right 1 blocks, for ~95% certainty after next measurement."}]}
+[ERROR] Tests run: 11, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.136 s <<< FAILURE! - in strongy.integrationtests.ApiV1IntegrationTests
+[ERROR] blind  Time elapsed: 0.026 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <{"isBlindModeEnabled":true,"hasDivine":false,"blindResult":{"evaluation":"HIGHROLL_GOOD","xInNether":-217.82,"improveDistance":8.071372233935255,"zInNether":6.88,"averageDistance":1086.9952915836398,"improveDirection":1.5392211114431098,"highrollProbability":0.10072320582001268,"highrollThreshold":400}}> but was: <{"isBlindModeEnabled":true,"hasDivine":false,"blindResult":{"evaluation":"HIGHROLL_GOOD","xInNether":-217.82,"improveDistance":8.071372233935255,"zInNether":6.88,"averageDistance":1086.9952915836398,"improveDirection":1.5392211114431098,"highrollProbability":0.10072320582001267,"highrollThreshold":400}}>
+	at strongy.integrationtests.ApiV1IntegrationTests.blind(ApiV1IntegrationTests.java:188)
+
+[INFO] Running strongy.integrationtests.ApplicationTests
+[WARNING] Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0 s - in strongy.integrationtests.ApplicationTests
+[INFO] Running strongy.integrationtests.BlindTests
+[main] Time to construct prior: 0.01 seconds.
+[main] Time to construct prior: 0.007 seconds.
+[main] Time to construct prior: 0.006 seconds.
+[main] Time to calculate blind features: 0.023 seconds.
+[main] Time to construct prior: 0.009 seconds.
+[main] Time to construct prior: 0.005 seconds.
+[main] Time to construct prior: 0.006 seconds.
+[main] Time to calculate blind features: 0.021 seconds.
+[main] Time to construct prior: 0.005 seconds.
+[main] Time to construct prior: 0.006 seconds.
+[main] Time to construct prior: 0.004 seconds.
+[main] Time to calculate blind features: 0.015 seconds.
+[main] Time to construct prior: 0.009 seconds.
+[main] Time to construct prior: 0.007 seconds.
+[main] Time to construct prior: 0.006 seconds.
+[main] Time to calculate blind features: 0.022 seconds.
+[main] Time to construct prior: 0.009 seconds.
+[main] Time to construct prior: 0.007 seconds.
+[main] Time to construct prior: 0.005 seconds.
+[main] Time to calculate blind features: 0.021 seconds.
+[main] Time to construct prior: 0.007 seconds.
+[main] Time to construct prior: 0.007 seconds.
+[main] Time to construct prior: 0.011 seconds.
+[main] Time to calculate blind features: 0.025 seconds.
+[main] Time to construct prior: 0.009 seconds.
+[main] Time to construct prior: 0.007 seconds.
+[main] Time to construct prior: 0.007 seconds.
+[main] Time to calculate blind features: 0.023 seconds.
+[main] Time to construct prior: 0.003 seconds.
+[main] Time to construct prior: 0.003 seconds.
+[main] Time to construct prior: 0.003 seconds.
+[main] Time to calculate blind features: 0.009 seconds.
+[main] Time to construct prior: 0.003 seconds.
+[main] Time to construct prior: 0.002 seconds.
+[main] Time to construct prior: 0.005 seconds.
+[main] Time to calculate blind features: 0.01 seconds.
+[main] Time to construct prior: 0.007 seconds.
+[main] Time to construct prior: 0.007 seconds.
+[main] Time to construct prior: 0.005 seconds.
+[main] Time to calculate blind features: 0.019 seconds.
+[main] Time to construct prior: 0.007 seconds.
+[main] Time to construct prior: 0.007 seconds.
+[main] Time to construct prior: 0.005 seconds.
+[main] Time to calculate blind features: 0.019 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to calculate blind features: 0.001 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to construct prior: 0.002 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to calculate blind features: 0.002 seconds.
+[main] Time to construct prior: 0.001 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to calculate blind features: 0.002 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to construct prior: 0.005 seconds.
+[main] Time to construct prior: 0.001 seconds.
+[main] Time to calculate blind features: 0.008 seconds.
+[main] Time to construct prior: 0.003 seconds.
+[main] Time to construct prior: 0.001 seconds.
+[main] Time to construct prior: 0.001 seconds.
+[main] Time to calculate blind features: 0.005 seconds.
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.252 s - in strongy.integrationtests.BlindTests
+[INFO] Running strongy.integrationtests.BoatCalculatedTravelTests
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.001 seconds.
+Chunk: (-81, 37), Certainty: 0.9594877486456316, Error: 0.012480395667950006
+Chunk: (-18, 80), Certainty: 0.04051225117098037, Error: 0.0016708432694940711
+Chunk: (23, 108), Certainty: 1.8338798016810104E-10, Error: -0.004306195383371403
+Chunk: (45, 123), Certainty: 1.3586930623591184E-16, Error: 0.0015720368437541765
+Chunk: (4, 95), Certainty: 4.519837323778363E-34, Error: 0.008821205323201298
+Chunk: (-40, 65), Certainty: 2.4204644046538353E-74, Error: -0.012937716018086576
+Chunk: (1, 93), Certainty: 7.204264738277261E-77, Error: -0.013292917971341467
+Chunk: (26, 110), Certainty: 4.754711102503319E-78, Error: 0.013063409033691187
+Chunk: (42, 121), Certainty: 1.8016327316695513E-94, Error: -0.013413535045096125
+Chunk: (48, 125), Certainty: 0.0, Error: 0.015871818260976056
+Chunk: (61, 134), Certainty: 0.0, Error: -0.02010223012045742
+Chunk: (64, 136), Certainty: 0.0, Error: -0.0069297304648543445
+Chunk: (67, 138), Certainty: 0.0, Error: 0.005716801189805665
+Chunk: (70, 140), Certainty: 0.0, Error: 0.017868249321395524
+Chunk: (83, 149), Certainty: 0.0, Error: -0.013474267933695216
+Chunk: (86, 151), Certainty: 0.0, Error: -0.0021417811418729116
+Chunk: (89, 153), Certainty: 0.0, Error: 0.008796353955894176
+Chunk: (92, 155), Certainty: 0.0, Error: 0.01936036875435576
+Chunk: (102, 162), Certainty: 0.0, Error: -0.018667682114411832
+Chunk: (105, 164), Certainty: 0.0, Error: -0.008403765258428564
+Chunk: (108, 166), Certainty: 0.0, Error: 0.0015386987391821094
+Chunk: (111, 168), Certainty: 0.0, Error: 0.01117457772058117
+Chunk: (114, 170), Certainty: 0.0, Error: 0.020517836592780725
+Chunk: (124, 177), Certainty: 0.0, Error: -0.013510844607594663
+Chunk: (127, 179), Certainty: 0.0, Error: -0.004399474477772003
+Chunk: (130, 181), Certainty: 0.0, Error: 0.004456119801091063
+Chunk: (133, 183), Certainty: 0.0, Error: 0.01306655901460374
+Chunk: (143, 190), Certainty: 0.0, Error: -0.017755544326817585
+Chunk: (146, 192), Certainty: 0.0, Error: -0.009348015087901729
+Chunk: (149, 194), Certainty: 0.0, Error: -0.0011570896245416407
+Chunk: (152, 196), Certainty: 0.0, Error: 0.006825495854357655
+Chunk: (155, 198), Certainty: 0.0, Error: 0.014607590064763087
+Chunk: (165, 205), Certainty: 0.0, Error: -0.013535286383806522
+Chunk: (168, 207), Certainty: 0.0, Error: -0.0059170571606514955
+Chunk: (171, 209), Certainty: 0.0, Error: 0.00152195315405379
+Chunk: (174, 211), Certainty: 0.0, Error: 0.00878799498418914
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.001 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.0 seconds.
+[main] Time to construct prior: 0.003 seconds.
+[main] Time to triangulate: 0.003 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.002 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.001 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.001 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.001 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.001 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.001 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.001 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.001 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.001 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.001 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.001 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.002 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.001 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.001 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.0 seconds.
+[main] Time to construct prior: 0.001 seconds.
+[main] Time to triangulate: 0.002 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.001 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.001 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.001 seconds.
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.068 s - in strongy.integrationtests.BoatCalculatedTravelTests
+[INFO] Running strongy.integrationtests.CalculatedTravelTests
+[main] Time to construct prior: 0.001 seconds.
+[main] Time to triangulate: 0.001 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.001 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.002 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.001 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.001 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.002 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.001 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.001 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.001 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.002 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.003 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.002 seconds.
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 s - in strongy.integrationtests.CalculatedTravelTests
+[INFO] Running strongy.integrationtests.CalibrationIntegrationTests
+[ERROR] Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.008 s <<< FAILURE! - in strongy.integrationtests.CalibrationIntegrationTests
+[ERROR] canOpenDialog  Time elapsed: 0.006 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+	at strongy.integrationtests.CalibrationIntegrationTests.canOpenDialog(CalibrationIntegrationTests.java:33)
+Caused by: java.lang.IllegalStateException: Toolkit already initialized
+	at strongy.integrationtests.CalibrationIntegrationTests.canOpenDialog(CalibrationIntegrationTests.java:26)
+
+[ERROR] canOpenDialog_manualCalibration  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+	at strongy.integrationtests.CalibrationIntegrationTests.canOpenDialog_manualCalibration(CalibrationIntegrationTests.java:54)
+Caused by: java.lang.IllegalStateException: Toolkit already initialized
+	at strongy.integrationtests.CalibrationIntegrationTests.canOpenDialog_manualCalibration(CalibrationIntegrationTests.java:47)
+
+[INFO] Running strongy.integrationtests.DataStateIntegrationTests
+[main] Time to construct prior: 0.005 seconds.
+[main] Time to triangulate: 0.005 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.001 seconds.
+[main] Time to construct prior: 0.006 seconds.
+[main] Time to construct prior: 0.006 seconds.
+[main] Time to construct prior: 0.005 seconds.
+[main] Time to calculate blind features: 0.017 seconds.
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 s - in strongy.integrationtests.DataStateIntegrationTests
+[INFO] Running strongy.integrationtests.JsonIntegrationTests
+[WARNING] Tests run: 3, Failures: 0, Errors: 0, Skipped: 3, Time elapsed: 0 s - in strongy.integrationtests.JsonIntegrationTests
+[INFO] Running strongy.integrationtests.LanguageIntegrationTests
+Checking locale: en_US
+Checking locale: es_ES
+Checking locale: it_IT
+Checking locale: ja_JP
+Checking locale: ja_RYUKYUAN
+Checking locale: ko_KR
+Checking locale: pl_PL
+Checking locale: pt_PT
+Checking locale: pt_BR
+Checking locale: ru_RU
+Checking locale: zh_CN
+Checking locale: zh_TW
+Checking locale: fr_FR
+Checking locale: uk_UA
+Checking locale: cs_CZ
+Checking locale: tr_TR
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s - in strongy.integrationtests.LanguageIntegrationTests
+[INFO] Running strongy.integrationtests.NextDirectionProviderIntegrationTests
+0.9769689455829255, 74
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.149 s - in strongy.integrationtests.NextDirectionProviderIntegrationTests
+[INFO] Running strongy.integrationtests.PreferencesIntegrationTests
+[main] Time to construct prior: 0.001 seconds.
+[main] Time to triangulate: 0.001 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.001 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.001 seconds.
+[main] Time to construct prior: 0.002 seconds.
+[main] Time to triangulate: 0.003 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.002 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to triangulate: 0.001 seconds.
+[ERROR] Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0.067 s <<< FAILURE! - in strongy.integrationtests.PreferencesIntegrationTests
+[ERROR] crosshairCorrectionIntegrationTest{float}[1]  Time elapsed: 0.018 s  <<< ERROR!
+java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at strongy.integrationtests.PreferencesIntegrationTests.crosshairCorrectionIntegrationTest(PreferencesIntegrationTests.java:41)
+
+[ERROR] crosshairCorrectionIntegrationTest{float}[2]  Time elapsed: 0.007 s  <<< ERROR!
+java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at strongy.integrationtests.PreferencesIntegrationTests.crosshairCorrectionIntegrationTest(PreferencesIntegrationTests.java:41)
+
+[ERROR] crosshairCorrectionIntegrationTest{float}[3]  Time elapsed: 0.007 s  <<< ERROR!
+java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at strongy.integrationtests.PreferencesIntegrationTests.crosshairCorrectionIntegrationTest(PreferencesIntegrationTests.java:41)
+
+[ERROR] crosshairCorrectionIntegrationTest{float}[4]  Time elapsed: 0.008 s  <<< ERROR!
+java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at strongy.integrationtests.PreferencesIntegrationTests.crosshairCorrectionIntegrationTest(PreferencesIntegrationTests.java:41)
+
+[ERROR] crosshairCorrectionIntegrationTest{float}[5]  Time elapsed: 0.008 s  <<< ERROR!
+java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at strongy.integrationtests.PreferencesIntegrationTests.crosshairCorrectionIntegrationTest(PreferencesIntegrationTests.java:41)
+
+[ERROR] crosshairCorrectionIntegrationTest{float}[6]  Time elapsed: 0.009 s  <<< ERROR!
+java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at strongy.integrationtests.PreferencesIntegrationTests.crosshairCorrectionIntegrationTest(PreferencesIntegrationTests.java:41)
+
+[INFO] Running strongy.integrationtests.ThemeEditorIntegrationTests
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in strongy.integrationtests.ThemeEditorIntegrationTests
+[ERROR] canOpenDialog  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+	at strongy.integrationtests.ThemeEditorIntegrationTests.canOpenDialog(ThemeEditorIntegrationTests.java:33)
+Caused by: java.lang.IllegalStateException: Toolkit already initialized
+	at strongy.integrationtests.ThemeEditorIntegrationTests.canOpenDialog(ThemeEditorIntegrationTests.java:26)
+
+[INFO] Running strongy.io.LanguageResourcesTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in strongy.io.LanguageResourcesTest
+[INFO] Running strongy.io.preferences.enums.McVersionTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in strongy.io.preferences.enums.McVersionTest
+[INFO] Running strongy.model.domainmodel.DomainModelTests
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.091 s - in strongy.model.domainmodel.DomainModelTests
+[INFO] Running strongy.model.domainmodel.ListComponentTests
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in strongy.model.domainmodel.ListComponentTests
+[INFO] Running strongy.model.input.ActiveInstanceInputHandlerTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.202 s - in strongy.model.input.ActiveInstanceInputHandlerTest
+[INFO] Running strongy.model.ResultTypeProviderTests
+[main] Time to construct prior: 0.01 seconds.
+[main] Time to construct prior: 0.01 seconds.
+[main] Time to construct prior: 0.009 seconds.
+[main] Time to calculate blind features: 0.029 seconds.
+[main] Time to construct prior: 0.002 seconds.
+[main] Time to triangulate: 0.005 seconds.
+[main] Time to construct prior: 0.003 seconds.
+[main] Time to triangulate: 0.004 seconds.
+[main] Time to construct prior: 0.002 seconds.
+[main] Time to triangulate: 0.005 seconds.
+[main] Time to construct prior: 0.003 seconds.
+[main] Time to triangulate: 0.006 seconds.
+[main] Time to construct prior: 0.009 seconds.
+[main] Time to construct prior: 0.012 seconds.
+[main] Time to construct prior: 0.027 seconds.
+[main] Time to calculate blind features: 0.048 seconds.
+[main] Time to construct prior: 0.016 seconds.
+[main] Time to construct prior: 0.018 seconds.
+[main] Time to construct prior: 0.014 seconds.
+[main] Time to calculate blind features: 0.05 seconds.
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.146 s - in strongy.model.ResultTypeProviderTests
+[INFO] Running strongy.model.statistics.ApproximatedPriorTests
+[main] Time to construct prior: 0.075 seconds.
+[main] Time to construct prior: 0.198 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to construct prior: 0.01 seconds.
+[main] Time to construct prior: 0.069 seconds.
+[main] Time to construct prior: 0.138 seconds.
+[main] Time to construct prior: 0.183 seconds.
+[main] Time to construct prior: 0.007 seconds.
+[main] Time to construct prior: 0.122 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.32 s - in strongy.model.statistics.ApproximatedPriorTests
+[INFO] Running strongy.model.statistics.PriorTests
+[main] Time to construct prior: 0.001 seconds.
+[main] Time to construct prior: 0.002 seconds.
+[main] Time to construct prior: 0.001 seconds.
+[main] Time to construct prior: 0.133 seconds.
+[main] Time to construct prior: 0.43 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to construct prior: 0.001 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to construct prior: 0.003 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to construct prior: 0.001 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to construct prior: 0.006 seconds.
+[main] Time to construct prior: 0.12 seconds.
+[main] Time to construct prior: 0.12 seconds.
+[main] Time to construct prior: 0.099 seconds.
+[main] Time to construct prior: 0.096 seconds.
+[main] Time to construct prior: 0.095 seconds.
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.148 s - in strongy.model.statistics.PriorTests
+[INFO] Running strongy.model.statistics.RayApproximatedPriorTests
+[main] Time to construct prior: 0.423 seconds.
+[main] Time to construct prior: 0.001 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to construct prior: 0.007 seconds.
+[main] Time to construct prior: 0.001 seconds.
+[main] Time to construct prior: 0.005 seconds.
+[main] Time to construct prior: 0.002 seconds.
+[main] Time to construct prior: 0.006 seconds.
+[main] Time to construct prior: 0.001 seconds.
+[main] Time to construct prior: 0.006 seconds.
+[main] Time to construct prior: 0.001 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to construct prior: 0.001 seconds.
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.616 s - in strongy.model.statistics.RayApproximatedPriorTests
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   ThemeSerializerTests.deserializeColor:43
+[ERROR]   ThemeSerializerTests.serializeColor:36
+[ERROR]   ThemeSerializerTests.serialize_deserialize_shouldBeIdenticalToOriginal_blue:119
+[ERROR]   ThemeSerializerTests.serialize_deserialize_shouldBeIdenticalToOriginal_light:95
+[ERROR]   AllAdvancementsIntegrationTests.uiUpdatesAsExpected_HotkeysAreDisabledInAaMode:75->doAnyPercentSplit:100 expected: <true> but was: <false>
+[ERROR]   AllAdvancementsIntegrationTests.uiUpdatesAsExpected_TypicalAASpeedrun:36->doAnyPercentSplit:100 expected: <true> but was: <false>
+[ERROR]   ApiV1IntegrationTests.blind:188 expected: <{"isBlindModeEnabled":true,"hasDivine":false,"blindResult":{"evaluation":"HIGHROLL_GOOD","xInNether":-217.82,"improveDistance":8.071372233935255,"zInNether":6.88,"averageDistance":1086.9952915836398,"improveDirection":1.5392211114431098,"highrollProbability":0.10072320582001268,"highrollThreshold":400}}> but was: <{"isBlindModeEnabled":true,"hasDivine":false,"blindResult":{"evaluation":"HIGHROLL_GOOD","xInNether":-217.82,"improveDistance":8.071372233935255,"zInNether":6.88,"averageDistance":1086.9952915836398,"improveDirection":1.5392211114431098,"highrollProbability":0.10072320582001267,"highrollThreshold":400}}>
+[ERROR]   CalibrationIntegrationTests.canOpenDialog:33
+[ERROR]   CalibrationIntegrationTests.canOpenDialog_manualCalibration:54
+[ERROR]   ThemeEditorIntegrationTests.canOpenDialog:33
+[ERROR] Errors: 
+[ERROR]   PreferencesIntegrationTests.crosshairCorrectionIntegrationTest:41 ? IndexOutOfBounds
+[ERROR]   PreferencesIntegrationTests.crosshairCorrectionIntegrationTest:41 ? IndexOutOfBounds
+[ERROR]   PreferencesIntegrationTests.crosshairCorrectionIntegrationTest:41 ? IndexOutOfBounds
+[ERROR]   PreferencesIntegrationTests.crosshairCorrectionIntegrationTest:41 ? IndexOutOfBounds
+[ERROR]   PreferencesIntegrationTests.crosshairCorrectionIntegrationTest:41 ? IndexOutOfBounds
+[ERROR]   PreferencesIntegrationTests.crosshairCorrectionIntegrationTest:41 ? IndexOutOfBounds
+[INFO] 
+[ERROR] Tests run: 115, Failures: 10, Errors: 6, Skipped: 4
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  9.460 s
+[INFO] Finished at: 2026-02-23T00:08:45+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project strongy: There are test failures.
+[ERROR] 
+[ERROR] Please refer to X:\Bigger-Projects\Ninjabrain-Bot\target\surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date]-jvmRun[N].dump, [date].dumpstream and [date]-jvmRun[N].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

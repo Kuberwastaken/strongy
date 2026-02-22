@@ -28,7 +28,8 @@ public class OBSOverlay implements IDisposable {
 
 	final DisposeHandler disposeHandler = new DisposeHandler();
 
-	public OBSOverlay(StrongyFrame frame, StrongyPreferences preferences, IDataState dataState, IDomainModel domainModel, IImageWriter imageWriter, int updateDelayMillis) {
+	public OBSOverlay(StrongyFrame frame, StrongyPreferences preferences, IDataState dataState,
+			IDomainModel domainModel, IImageWriter imageWriter, int updateDelayMillis) {
 		this.StrongyFrame = frame;
 		this.preferences = preferences;
 		this.imageWriter = imageWriter;
@@ -64,28 +65,21 @@ public class OBSOverlay implements IDisposable {
 		disposeHandler.add(preferences.showNetherCoords.whenModified().subscribeEDT(this::markShouldUpdate));
 		disposeHandler.add(preferences.showAngleErrors.whenModified().subscribeEDT(this::markShouldUpdate));
 		disposeHandler.add(preferences.showAngleUpdates.whenModified().subscribeEDT(this::markShouldUpdate));
-		disposeHandler.add(preferences.informationCombinedCertaintyEnabled.whenModified().subscribeEDT(this::markShouldUpdate));
-		disposeHandler.add(preferences.informationDirectionHelpEnabled.whenModified().subscribeEDT(this::markShouldUpdate));
-		disposeHandler.add(preferences.informationMismeasureEnabled.whenModified().subscribeEDT(this::markShouldUpdate));
-		disposeHandler.add(preferences.informationPortalLinkingEnabled.whenModified().subscribeEDT(this::markShouldUpdate));
+		disposeHandler.add(
+				preferences.informationCombinedCertaintyEnabled.whenModified().subscribeEDT(this::markShouldUpdate));
+		disposeHandler
+				.add(preferences.informationDirectionHelpEnabled.whenModified().subscribeEDT(this::markShouldUpdate));
+		disposeHandler
+				.add(preferences.informationMismeasureEnabled.whenModified().subscribeEDT(this::markShouldUpdate));
+		disposeHandler
+				.add(preferences.informationPortalLinkingEnabled.whenModified().subscribeEDT(this::markShouldUpdate));
 		disposeHandler.add(preferences.view.whenModified().subscribeEDT(this::markShouldUpdate));
 		disposeHandler.add(preferences.theme.whenModified().subscribeEDT(this::markShouldUpdate));
 		disposeHandler.add(preferences.size.whenModified().subscribeEDT(this::markShouldUpdate));
 	}
 
 	private void markShouldUpdate() {
-		// Delay to let the frame render. I'll find a better solution later.
-		SwingUtilities.invokeLater(() ->
-				SwingUtilities.invokeLater(() ->
-						SwingUtilities.invokeLater(() ->
-								SwingUtilities.invokeLater(() ->
-										SwingUtilities.invokeLater(
-												this::markShouldUpdate2
-										)
-								)
-						)
-				)
-		);
+		javafx.application.Platform.runLater(this::markShouldUpdate2);
 	}
 
 	private void markShouldUpdate2() {
@@ -101,11 +95,17 @@ public class OBSOverlay implements IDisposable {
 
 	private void clear() {
 		if (preferences.useOverlay.get()) {
-			BufferedImage img = new BufferedImage(StrongyFrame.getWidth(), StrongyFrame.getHeight(), BufferedImage.TYPE_INT_ARGB);
-			imageWriter.write(img);
-			if (preferences.overlayAutoHide.get()) {
-				overlayClearTimer.stop();
-			}
+			javafx.application.Platform.runLater(() -> {
+				int w = (int) StrongyFrame.getStage().getWidth();
+				int h = (int) StrongyFrame.getStage().getHeight();
+				if (w <= 0 || h <= 0)
+					return;
+				BufferedImage img = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+				imageWriter.write(img);
+				if (preferences.overlayAutoHide.get()) {
+					overlayClearTimer.stop();
+				}
+			});
 		}
 	}
 
@@ -116,13 +116,20 @@ public class OBSOverlay implements IDisposable {
 
 	private void drawAndWriteToFile() {
 		if (preferences.useOverlay.get()) {
-			BufferedImage img = new BufferedImage(StrongyFrame.getWidth(), StrongyFrame.getHeight(), BufferedImage.TYPE_INT_ARGB);
-			boolean hideBecauseLocked = preferences.overlayHideWhenLocked.get() && calculatorLocked.get();
-			if (!StrongyFrame.isIdle() && !hideBecauseLocked) {
-				StrongyFrame.paint(img.createGraphics());
-				resetClearTimer();
-			}
-			imageWriter.write(img);
+			javafx.application.Platform.runLater(() -> {
+				int w = (int) StrongyFrame.getStage().getWidth();
+				int h = (int) StrongyFrame.getStage().getHeight();
+				if (w <= 0 || h <= 0)
+					return;
+				boolean hideBecauseLocked = preferences.overlayHideWhenLocked.get() && calculatorLocked.get();
+				if (!StrongyFrame.isIdle() && !hideBecauseLocked) {
+					javafx.scene.image.WritableImage snapshot = StrongyFrame.getStage().getScene().getRoot()
+							.snapshot(new javafx.scene.SnapshotParameters(), null);
+					BufferedImage img = javafx.embed.swing.SwingFXUtils.fromFXImage(snapshot, null);
+					imageWriter.write(img);
+					resetClearTimer();
+				}
+			});
 		}
 	}
 

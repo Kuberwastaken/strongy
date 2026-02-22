@@ -1,6 +1,6 @@
 package strongy.gui.themeeditor;
 
-import java.awt.Color;
+import javafx.scene.paint.Color;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -34,7 +34,8 @@ public class ThemeSerializer {
 			Color c = pr.colors.get(i);
 			char tag = pr.tags.get(i);
 			String uid = String.valueOf(tag);
-			Optional<ConfigurableColor> optionalCC = configurableColors.stream().filter(cc -> cc.uid.contentEquals(uid)).findFirst();
+			Optional<ConfigurableColor> optionalCC = configurableColors.stream().filter(cc -> cc.uid.contentEquals(uid))
+					.findFirst();
 			if (!optionalCC.isPresent())
 				continue;
 			ConfigurableColor cc = optionalCC.get();
@@ -65,13 +66,17 @@ public class ThemeSerializer {
 	}
 
 	public static String serializeColor(Color c) {
-		return serializeInt(c.getRGB(), 24);
+		return serializeInt(toAwtRGB(c), 24);
 	}
 
 	public static Color deserializeColor(String s) throws IllegalArgumentException {
 		if (s.length() != 4)
 			return null;
-		return new Color(deserializeInt(s));
+		int rgb = deserializeInt(s);
+		int r = (rgb >> 16) & 0xFF;
+		int g = (rgb >> 8) & 0xFF;
+		int b = rgb & 0xFF;
+		return Color.rgb(r, g, b, 1.0);
 	}
 
 	private static String serializeInt(int i, int bits) {
@@ -105,6 +110,13 @@ public class ThemeSerializer {
 		return value;
 	}
 
+	private static int toAwtRGB(Color c) {
+		int r = (int) Math.round(c.getRed() * 255.0);
+		int g = (int) Math.round(c.getGreen() * 255.0);
+		int b = (int) Math.round(c.getBlue() * 255.0);
+		int a = (int) Math.round(c.getOpacity() * 255.0);
+		return (a << 24) | (r << 16) | (g << 8) | b;
+	}
 }
 
 class ParseResult {

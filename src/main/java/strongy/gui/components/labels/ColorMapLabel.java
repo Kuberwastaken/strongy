@@ -1,66 +1,43 @@
 package strongy.gui.components.labels;
 
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-
-import javax.swing.Box;
-import javax.swing.JPanel;
-
+import javafx.scene.paint.Color;
+import strongy.gui.components.ThemedComponent;
+import strongy.gui.style.SizePreference;
 import strongy.gui.style.StyleManager;
-import strongy.gui.style.theme.WrappedColor;
+import strongy.gui.style.theme.ColorMap;
 
-public class ColorMapLabel extends JPanel implements ILabel {
+/**
+ * A label that interpolates its text color based on a certainty value.
+ */
+public class ColorMapLabel extends ThemedLabel {
 
-	public final ThemedLabel textLabel;
-	public final ColoredLabel coloredLabel;
+	private ColorMap colorMap;
 
-	public ColorMapLabel(StyleManager styleManager, boolean textFirst) {
-		this(styleManager, textFirst, false);
+	public ColorMapLabel(StyleManager styleManager) {
+		super(styleManager);
+		this.colorMap = styleManager.currentTheme.CERTAINTY_COLOR_MAP.get();
+		styleManager.currentTheme.whenModified().subscribe(ct ->
+			javafx.application.Platform.runLater(() -> this.colorMap = ct.CERTAINTY_COLOR_MAP.get())
+		);
 	}
 
-	public ColorMapLabel(StyleManager styleManager, boolean textFirst, boolean centered) {
-		textLabel = new ThemedLabel(styleManager, "");
-		coloredLabel = new ColoredLabel(styleManager);
-		setLayout(new GridBagLayout());
-		setOpaque(false);
+	public ColorMapLabel(StyleManager styleManager, String text) {
+		super(styleManager, text);
+		this.colorMap = styleManager.currentTheme.CERTAINTY_COLOR_MAP.get();
+	}
 
-		GridBagConstraints gbc = new GridBagConstraints();
-		gbc.gridx = GridBagConstraints.RELATIVE;
-		gbc.gridy = 0;
-		gbc.anchor = GridBagConstraints.NORTH;
-		gbc.fill = GridBagConstraints.VERTICAL;
-		gbc.weightx = 0;
-		if (textFirst) {
-			add(textLabel, gbc);
-			add(coloredLabel, gbc);
-		} else {
-			add(coloredLabel, gbc);
-			add(textLabel, gbc);
+	public void setCertainty(double certainty) {
+		if (colorMap != null) {
+			Color c = colorMap.getColor(certainty);
+			setStyle(String.format("-fx-text-fill: #%02X%02X%02X;",
+					(int)(c.getRed() * 255),
+					(int)(c.getGreen() * 255),
+					(int)(c.getBlue() * 255)));
 		}
-		gbc.weightx = 1;
-		add(Box.createGlue(), gbc);
-		setAlignmentX(0);
 	}
 
-	public void setForegroundColor(WrappedColor color) {
-		textLabel.setForegroundColor(color);
+	@Override
+	public int getTextSize(SizePreference p) {
+		return p.TEXT_SIZE_MEDIUM;
 	}
-
-	public void setColoredText(String text, float color) {
-		coloredLabel.setText(text, color);
-	}
-
-	public void setText(String text) {
-		textLabel.setText(text);
-	}
-
-	public void updateColor() {
-		coloredLabel.updateColors();
-	}
-
-	public void clear() {
-		textLabel.setText("");
-		coloredLabel.setText("");
-	}
-
 }

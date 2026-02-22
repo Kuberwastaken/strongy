@@ -1,0 +1,2717 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------------< strongy:strongy >---------------------------
+[INFO] Building Strongy 2.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] 6 problems were encountered while building the effective model for org.openjfx:javafx-controls:jar:21 during dependency collection step for project (use -X to see details)
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ strongy ---
+[WARNING] Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 54 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ strongy ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ strongy ---
+[WARNING] Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory X:\Bigger-Projects\Ninjabrain-Bot\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ strongy ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- surefire:2.22.0:test (default-test) @ strongy ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running strongy.event.DisposeHandlerTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.96 s - in strongy.event.DisposeHandlerTest
+[INFO] Running strongy.gui.themeeditor.ThemeSerializerTests
+[ERROR] Tests run: 8, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.103 s <<< FAILURE! - in strongy.gui.themeeditor.ThemeSerializerTests
+[ERROR] serializeColor  Time elapsed: 0.007 s  <<< FAILURE!
+java.lang.AssertionError
+	at strongy.gui.themeeditor.ThemeSerializerTests.serializeColor(ThemeSerializerTests.java:36)
+
+[ERROR] deserializeColor  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at strongy.gui.themeeditor.ThemeSerializerTests.deserializeColor(ThemeSerializerTests.java:46)
+
+[INFO] Running strongy.integrationtests.AllAdvancementsIntegrationTests
+[ERROR] Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.095 s <<< FAILURE! - in strongy.integrationtests.AllAdvancementsIntegrationTests
+[ERROR] uiUpdatesAsExpected_TypicalAASpeedrun{String, String, String, int, int, String, int, int, String, int, int, String, int, int}[1]  Time elapsed: 0.033 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.AllAdvancementsIntegrationTests.uiUpdatesAsExpected_TypicalAASpeedrun(AllAdvancementsIntegrationTests.java:32)
+
+[ERROR] uiUpdatesAsExpected_HotkeysAreDisabledInAaMode{String, String, String, int, int}[1]  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.AllAdvancementsIntegrationTests.uiUpdatesAsExpected_HotkeysAreDisabledInAaMode(AllAdvancementsIntegrationTests.java:71)
+
+[INFO] Running strongy.integrationtests.ApiV1IntegrationTests
+[ERROR] Tests run: 11, Failures: 0, Errors: 11, Skipped: 0, Time elapsed: 0.013 s <<< FAILURE! - in strongy.integrationtests.ApiV1IntegrationTests
+[ERROR] allAdvancements  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.ApiV1IntegrationTests.allAdvancements(ApiV1IntegrationTests.java:101)
+
+[ERROR] divine  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.ApiV1IntegrationTests.divine(ApiV1IntegrationTests.java:195)
+
+[ERROR] subscribe_pushesNewDataWhenModified  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.ApiV1IntegrationTests.subscribe_pushesNewDataWhenModified(ApiV1IntegrationTests.java:353)
+
+[ERROR] stronghold  Time elapsed: 0 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.ApiV1IntegrationTests.stronghold(ApiV1IntegrationTests.java:37)
+
+[ERROR] subscribe_doesNotPushNewDataWhenIrrelevantDataIsModified  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.ApiV1IntegrationTests.subscribe_doesNotPushNewDataWhenIrrelevantDataIsModified(ApiV1IntegrationTests.java:381)
+
+[ERROR] boat  Time elapsed: 0 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.ApiV1IntegrationTests.boat(ApiV1IntegrationTests.java:224)
+
+[ERROR] ping  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.ApiV1IntegrationTests.ping(ApiV1IntegrationTests.java:333)
+
+[ERROR] blind  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.ApiV1IntegrationTests.blind(ApiV1IntegrationTests.java:162)
+
+[ERROR] version  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.ApiV1IntegrationTests.version(ApiV1IntegrationTests.java:311)
+
+[ERROR] subscribeInformationMessage_includesAllMessages  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.ApiV1IntegrationTests.subscribeInformationMessage_includesAllMessages(ApiV1IntegrationTests.java:412)
+
+[ERROR] informationMessages  Time elapsed: 0 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.ApiV1IntegrationTests.informationMessages(ApiV1IntegrationTests.java:250)
+
+[INFO] Running strongy.integrationtests.ApplicationTests
+[WARNING] Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0 s - in strongy.integrationtests.ApplicationTests
+[INFO] Running strongy.integrationtests.BlindTests
+[ERROR] Tests run: 14, Failures: 0, Errors: 14, Skipped: 0, Time elapsed: 0.024 s <<< FAILURE! - in strongy.integrationtests.BlindTests
+[ERROR] blindCalculationGivesExpectedResult_Excellent{String, double}[1]  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.BlindTests.blindTestBase(BlindTests.java:70)
+	at strongy.integrationtests.BlindTests.blindCalculationGivesExpectedResult_Excellent(BlindTests.java:52)
+
+[ERROR] blindCalculationGivesExpectedResult_Excellent{String, double}[2]  Time elapsed: 0 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.BlindTests.blindTestBase(BlindTests.java:70)
+	at strongy.integrationtests.BlindTests.blindCalculationGivesExpectedResult_Excellent(BlindTests.java:52)
+
+[ERROR] blindCalculationGivesExpectedResult_Excellent{String, double}[3]  Time elapsed: 0 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.BlindTests.blindTestBase(BlindTests.java:70)
+	at strongy.integrationtests.BlindTests.blindCalculationGivesExpectedResult_Excellent(BlindTests.java:52)
+
+[ERROR] blindCalculationGivesExpectedResult_Excellent{String, double}[4]  Time elapsed: 0 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.BlindTests.blindTestBase(BlindTests.java:70)
+	at strongy.integrationtests.BlindTests.blindCalculationGivesExpectedResult_Excellent(BlindTests.java:52)
+
+[ERROR] blindCalculationGivesExpectedResult_Excellent{String, double}[5]  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.BlindTests.blindTestBase(BlindTests.java:70)
+	at strongy.integrationtests.BlindTests.blindCalculationGivesExpectedResult_Excellent(BlindTests.java:52)
+
+[ERROR] blindWithDivine_InDivineSector{String, String, double, double}[1]  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.BlindTests.blindWithDivine_InDivineSector(BlindTests.java:116)
+
+[ERROR] blindCalculationGivesExpectedResult_Bad{String, double}[1]  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.BlindTests.blindTestBase(BlindTests.java:70)
+	at strongy.integrationtests.BlindTests.blindCalculationGivesExpectedResult_Bad(BlindTests.java:65)
+
+[ERROR] blindCalculationGivesExpectedResult_Bad{String, double}[2]  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.BlindTests.blindTestBase(BlindTests.java:70)
+	at strongy.integrationtests.BlindTests.blindCalculationGivesExpectedResult_Bad(BlindTests.java:65)
+
+[ERROR] blindWithDivine_NotInDivineSector{String, String, double}[1]  Time elapsed: 0 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.BlindTests.blindWithDivine_NotInDivineSector(BlindTests.java:90)
+
+[ERROR] blindCalculationGivesExpectedResult_NotInRing{String, double}[1]  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.BlindTests.blindTestBase(BlindTests.java:70)
+	at strongy.integrationtests.BlindTests.blindCalculationGivesExpectedResult_NotInRing(BlindTests.java:30)
+
+[ERROR] blindCalculationGivesExpectedResult_NotInRing{String, double}[2]  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.BlindTests.blindTestBase(BlindTests.java:70)
+	at strongy.integrationtests.BlindTests.blindCalculationGivesExpectedResult_NotInRing(BlindTests.java:30)
+
+[ERROR] blindCalculationGivesExpectedResult_NotInRing{String, double}[3]  Time elapsed: 0 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.BlindTests.blindTestBase(BlindTests.java:70)
+	at strongy.integrationtests.BlindTests.blindCalculationGivesExpectedResult_NotInRing(BlindTests.java:30)
+
+[ERROR] blindCalculationGivesExpectedResult_NotInRing{String, double}[4]  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.BlindTests.blindTestBase(BlindTests.java:70)
+	at strongy.integrationtests.BlindTests.blindCalculationGivesExpectedResult_NotInRing(BlindTests.java:30)
+
+[ERROR] blindCalculationGivesExpectedResult_NotInRing{String, double}[5]  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.BlindTests.blindTestBase(BlindTests.java:70)
+	at strongy.integrationtests.BlindTests.blindCalculationGivesExpectedResult_NotInRing(BlindTests.java:30)
+
+[INFO] Running strongy.integrationtests.BoatCalculatedTravelTests
+[ERROR] Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in strongy.integrationtests.BoatCalculatedTravelTests
+[ERROR] oneEyeBoatCalculatedTravelEyeSpies_doogilePositionImprecision{String, String, int, int, int}[1]  Time elapsed: 0 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.BoatCalculatedTravelTests.oneEyeBoatCalculatedTravelEyeSpies_doogilePositionImprecision(BoatCalculatedTravelTests.java:92)
+
+[ERROR] oneEyeBoatCalculatedTravelEyeSpies{String, String, int, int, int}[1]  Time elapsed: 0 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.BoatCalculatedTravelTests.oneEyeBoatCalculatedTravelEyeSpies(BoatCalculatedTravelTests.java:36)
+
+[ERROR] oneEyeBoatCalculatedTravelEyeSpies{String, String, int, int, int}[2]  Time elapsed: 0 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.BoatCalculatedTravelTests.oneEyeBoatCalculatedTravelEyeSpies(BoatCalculatedTravelTests.java:36)
+
+[ERROR] oneEyeBoatCalculatedTravelEyeSpies{String, String, int, int, int}[3]  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.BoatCalculatedTravelTests.oneEyeBoatCalculatedTravelEyeSpies(BoatCalculatedTravelTests.java:36)
+
+[INFO] Running strongy.integrationtests.CalculatedTravelTests
+[ERROR] Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in strongy.integrationtests.CalculatedTravelTests
+[ERROR] twoEyeCalculatedTravelFailsWhenMoving{String, String}[1]  Time elapsed: 0 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.CalculatedTravelTests.twoEyeCalculatedTravelFailsWhenMoving(CalculatedTravelTests.java:54)
+
+[ERROR] twoEyeCalculatedTravelFailsWhenMoving{String, String}[2]  Time elapsed: 0 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.CalculatedTravelTests.twoEyeCalculatedTravelFailsWhenMoving(CalculatedTravelTests.java:54)
+
+[ERROR] twoEyeCalculatedTravelFailsWhenMoving{String, String}[3]  Time elapsed: 0 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.CalculatedTravelTests.twoEyeCalculatedTravelFailsWhenMoving(CalculatedTravelTests.java:54)
+
+[ERROR] twoEyeCalculatedTravelEyeSpies{String, String, int, int}[1]  Time elapsed: 0 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.CalculatedTravelTests.twoEyeCalculatedTravelEyeSpies(CalculatedTravelTests.java:27)
+
+[ERROR] twoEyeCalculatedTravelEyeSpies{String, String, int, int}[2]  Time elapsed: 0 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.CalculatedTravelTests.twoEyeCalculatedTravelEyeSpies(CalculatedTravelTests.java:27)
+
+[ERROR] twoEyeCalculatedTravelEyeSpies{String, String, int, int}[3]  Time elapsed: 0 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.CalculatedTravelTests.twoEyeCalculatedTravelEyeSpies(CalculatedTravelTests.java:27)
+
+[INFO] Running strongy.integrationtests.CalibrationIntegrationTests
+[ERROR] Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in strongy.integrationtests.CalibrationIntegrationTests
+[ERROR] canOpenDialog  Time elapsed: 0 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.CalibrationIntegrationTests.canOpenDialog(CalibrationIntegrationTests.java:20)
+
+[ERROR] canOpenDialog_manualCalibration  Time elapsed: 0 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.CalibrationIntegrationTests.canOpenDialog_manualCalibration(CalibrationIntegrationTests.java:40)
+
+[INFO] Running strongy.integrationtests.DataStateIntegrationTests
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in strongy.integrationtests.DataStateIntegrationTests
+[ERROR] dataComponentsOnlySendsOneEventOnReset  Time elapsed: 0 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.DataStateIntegrationTests.dataComponentsOnlySendsOneEventOnReset(DataStateIntegrationTests.java:20)
+
+[INFO] Running strongy.integrationtests.JsonIntegrationTests
+[WARNING] Tests run: 3, Failures: 0, Errors: 0, Skipped: 3, Time elapsed: 0 s - in strongy.integrationtests.JsonIntegrationTests
+[INFO] Running strongy.integrationtests.LanguageIntegrationTests
+Checking locale: en_US
+Checking locale: es_ES
+Checking locale: it_IT
+Checking locale: ja_JP
+Checking locale: ja_RYUKYUAN
+Checking locale: ko_KR
+Checking locale: pl_PL
+Checking locale: pt_PT
+Checking locale: pt_BR
+Checking locale: ru_RU
+Checking locale: zh_CN
+Checking locale: zh_TW
+Checking locale: fr_FR
+Checking locale: uk_UA
+Checking locale: cs_CZ
+Checking locale: tr_TR
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in strongy.integrationtests.LanguageIntegrationTests
+[INFO] Running strongy.integrationtests.NextDirectionProviderIntegrationTests
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in strongy.integrationtests.NextDirectionProviderIntegrationTests
+[ERROR] expectedCertaintyOnNextThrowIsAtLeastAsGoodAsPromised  Time elapsed: 0 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	RandomPlayerPositionProvider cannot be resolved to a type
+	RandomPlayerPositionProvider cannot be resolved to a type
+
+	at strongy.integrationtests.NextDirectionProviderIntegrationTests.expectedCertaintyOnNextThrowIsAtLeastAsGoodAsPromised(NextDirectionProviderIntegrationTests.java:28)
+
+[INFO] Running strongy.integrationtests.PreferencesIntegrationTests
+[ERROR] Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0.011 s <<< FAILURE! - in strongy.integrationtests.PreferencesIntegrationTests
+[ERROR] crosshairCorrectionIntegrationTest{float}[1]  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.PreferencesIntegrationTests.crosshairCorrectionIntegrationTest(PreferencesIntegrationTests.java:25)
+
+[ERROR] crosshairCorrectionIntegrationTest{float}[2]  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.PreferencesIntegrationTests.crosshairCorrectionIntegrationTest(PreferencesIntegrationTests.java:25)
+
+[ERROR] crosshairCorrectionIntegrationTest{float}[3]  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.PreferencesIntegrationTests.crosshairCorrectionIntegrationTest(PreferencesIntegrationTests.java:25)
+
+[ERROR] crosshairCorrectionIntegrationTest{float}[4]  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.PreferencesIntegrationTests.crosshairCorrectionIntegrationTest(PreferencesIntegrationTests.java:25)
+
+[ERROR] crosshairCorrectionIntegrationTest{float}[5]  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.PreferencesIntegrationTests.crosshairCorrectionIntegrationTest(PreferencesIntegrationTests.java:25)
+
+[ERROR] crosshairCorrectionIntegrationTest{float}[6]  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.PreferencesIntegrationTests.crosshairCorrectionIntegrationTest(PreferencesIntegrationTests.java:25)
+
+[INFO] Running strongy.integrationtests.ThemeEditorIntegrationTests
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in strongy.integrationtests.ThemeEditorIntegrationTests
+[ERROR] canOpenDialog  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The import strongy.io.mcinstance.McInstanceTestAdapter cannot be resolved
+	The import strongy.util.FakeCoordinateInputSource cannot be resolved
+	The import strongy.util.FakeMinecraftWorldFile cannot be resolved
+	The import strongy.util.FakeUpdateChecker cannot be resolved
+	The import strongy.util.MockedClipboardReader cannot be resolved
+	The import strongy.util.MockedInstanceProvider cannot be resolved
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	McInstanceTestAdapter cannot be resolved
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeUpdateChecker cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedInstanceProvider cannot be resolved to a type
+	FakeMinecraftWorldFile cannot be resolved to a type
+	MockedClipboardReader cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+	FakeCoordinateInputSource cannot be resolved to a type
+
+	at strongy.integrationtests.ThemeEditorIntegrationTests.canOpenDialog(ThemeEditorIntegrationTests.java:21)
+
+[INFO] Running strongy.io.LanguageResourcesTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in strongy.io.LanguageResourcesTest
+[INFO] Running strongy.io.preferences.enums.McVersionTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in strongy.io.preferences.enums.McVersionTest
+[INFO] Running strongy.model.domainmodel.DomainModelTests
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.083 s - in strongy.model.domainmodel.DomainModelTests
+[INFO] Running strongy.model.domainmodel.ListComponentTests
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in strongy.model.domainmodel.ListComponentTests
+[INFO] Running strongy.model.input.ActiveInstanceInputHandlerTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.15 s - in strongy.model.input.ActiveInstanceInputHandlerTest
+[INFO] Running strongy.model.ResultTypeProviderTests
+[main] Time to construct prior: 0.013 seconds.
+[main] Time to construct prior: 0.009 seconds.
+[main] Time to construct prior: 0.01 seconds.
+[main] Time to calculate blind features: 0.039 seconds.
+[main] Time to construct prior: 0.014 seconds.
+[main] Time to triangulate: 0.027 seconds.
+[main] Time to construct prior: 0.002 seconds.
+[main] Time to triangulate: 0.004 seconds.
+[main] Time to construct prior: 0.003 seconds.
+[main] Time to triangulate: 0.006 seconds.
+[main] Time to construct prior: 0.002 seconds.
+[main] Time to triangulate: 0.004 seconds.
+[main] Time to construct prior: 0.009 seconds.
+[main] Time to construct prior: 0.008 seconds.
+[main] Time to construct prior: 0.008 seconds.
+[main] Time to calculate blind features: 0.026 seconds.
+[main] Time to construct prior: 0.007 seconds.
+[main] Time to construct prior: 0.008 seconds.
+[main] Time to construct prior: 0.008 seconds.
+[main] Time to calculate blind features: 0.024 seconds.
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.163 s - in strongy.model.ResultTypeProviderTests
+[INFO] Running strongy.model.statistics.ApproximatedPriorTests
+[main] Time to construct prior: 0.028 seconds.
+[main] Time to construct prior: 0.115 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to construct prior: 0.017 seconds.
+[main] Time to construct prior: 0.039 seconds.
+[main] Time to construct prior: 0.069 seconds.
+[main] Time to construct prior: 0.17 seconds.
+[main] Time to construct prior: 0.018 seconds.
+[main] Time to construct prior: 0.119 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.888 s - in strongy.model.statistics.ApproximatedPriorTests
+[INFO] Running strongy.model.statistics.PriorTests
+[main] Time to construct prior: 0.001 seconds.
+[main] Time to construct prior: 0.003 seconds.
+[main] Time to construct prior: 0.001 seconds.
+[main] Time to construct prior: 0.114 seconds.
+[main] Time to construct prior: 0.381 seconds.
+[main] Time to construct prior: 0.001 seconds.
+[main] Time to construct prior: 0.001 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to construct prior: 0.001 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to construct prior: 0.001 seconds.
+[main] Time to construct prior: 0.001 seconds.
+[main] Time to construct prior: 0.005 seconds.
+[main] Time to construct prior: 0.096 seconds.
+[main] Time to construct prior: 0.093 seconds.
+[main] Time to construct prior: 0.097 seconds.
+[main] Time to construct prior: 0.096 seconds.
+[main] Time to construct prior: 0.103 seconds.
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.026 s - in strongy.model.statistics.PriorTests
+[INFO] Running strongy.model.statistics.RayApproximatedPriorTests
+[main] Time to construct prior: 0.358 seconds.
+[main] Time to construct prior: 0.003 seconds.
+[main] Time to construct prior: 0.0 seconds.
+[main] Time to construct prior: 0.001 seconds.
+[main] Time to construct prior: 0.002 seconds.
+[main] Time to construct prior: 0.006 seconds.
+[main] Time to construct prior: 0.001 seconds.
+[main] Time to construct prior: 0.006 seconds.
+[main] Time to construct prior: 0.001 seconds.
+[main] Time to construct prior: 0.008 seconds.
+[main] Time to construct prior: 0.001 seconds.
+[main] Time to construct prior: 0.005 seconds.
+[main] Time to construct prior: 0.001 seconds.
+[main] Time to construct prior: 0.005 seconds.
+[main] Time to construct prior: 0.001 seconds.
+[main] Time to construct prior: 0.002 seconds.
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.487 s - in strongy.model.statistics.RayApproximatedPriorTests
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   ThemeSerializerTests.deserializeColor:46
+[ERROR]   ThemeSerializerTests.serializeColor:36
+[ERROR] Errors: 
+[ERROR]   AllAdvancementsIntegrationTests.uiUpdatesAsExpected_HotkeysAreDisabledInAaMode:71 ? 
+[ERROR]   AllAdvancementsIntegrationTests.uiUpdatesAsExpected_TypicalAASpeedrun:32 ?  Un...
+[ERROR]   ApiV1IntegrationTests.allAdvancements:101 ?  Unresolved compilation problems: ...
+[ERROR]   ApiV1IntegrationTests.blind:162 ?  Unresolved compilation problems: 
+	The impo...
+[ERROR]   ApiV1IntegrationTests.boat:224 ?  Unresolved compilation problems: 
+	The impor...
+[ERROR]   ApiV1IntegrationTests.divine:195 ?  Unresolved compilation problems: 
+	The imp...
+[ERROR]   ApiV1IntegrationTests.informationMessages:250 ?  Unresolved compilation proble...
+[ERROR]   ApiV1IntegrationTests.ping:333 ?  Unresolved compilation problems: 
+	The impor...
+[ERROR]   ApiV1IntegrationTests.stronghold:37 ?  Unresolved compilation problems: 
+	The ...
+[ERROR]   ApiV1IntegrationTests.subscribeInformationMessage_includesAllMessages:412 ?  U...
+[ERROR]   ApiV1IntegrationTests.subscribe_doesNotPushNewDataWhenIrrelevantDataIsModified:381 ? 
+[ERROR]   ApiV1IntegrationTests.subscribe_pushesNewDataWhenModified:353 ?  Unresolved co...
+[ERROR]   ApiV1IntegrationTests.version:311 ?  Unresolved compilation problems: 
+	The im...
+[ERROR]   BlindTests.blindCalculationGivesExpectedResult_Bad:65->blindTestBase:70 ?  Unr...
+[ERROR]   BlindTests.blindCalculationGivesExpectedResult_Bad:65->blindTestBase:70 ?  Unr...
+[ERROR]   BlindTests.blindCalculationGivesExpectedResult_Excellent:52->blindTestBase:70 ? 
+[ERROR]   BlindTests.blindCalculationGivesExpectedResult_Excellent:52->blindTestBase:70 ? 
+[ERROR]   BlindTests.blindCalculationGivesExpectedResult_Excellent:52->blindTestBase:70 ? 
+[ERROR]   BlindTests.blindCalculationGivesExpectedResult_Excellent:52->blindTestBase:70 ? 
+[ERROR]   BlindTests.blindCalculationGivesExpectedResult_Excellent:52->blindTestBase:70 ? 
+[ERROR]   BlindTests.blindCalculationGivesExpectedResult_NotInRing:30->blindTestBase:70 ? 
+[ERROR]   BlindTests.blindCalculationGivesExpectedResult_NotInRing:30->blindTestBase:70 ? 
+[ERROR]   BlindTests.blindCalculationGivesExpectedResult_NotInRing:30->blindTestBase:70 ? 
+[ERROR]   BlindTests.blindCalculationGivesExpectedResult_NotInRing:30->blindTestBase:70 ? 
+[ERROR]   BlindTests.blindCalculationGivesExpectedResult_NotInRing:30->blindTestBase:70 ? 
+[ERROR]   BlindTests.blindWithDivine_InDivineSector:116 ?  Unresolved compilation proble...
+[ERROR]   BlindTests.blindWithDivine_NotInDivineSector:90 ?  Unresolved compilation prob...
+[ERROR]   BoatCalculatedTravelTests.oneEyeBoatCalculatedTravelEyeSpies_doogilePositionImprecision:92 ? 
+[ERROR]   BoatCalculatedTravelTests.oneEyeBoatCalculatedTravelEyeSpies:36 ?  Unresolved ...
+[ERROR]   BoatCalculatedTravelTests.oneEyeBoatCalculatedTravelEyeSpies:36 ?  Unresolved ...
+[ERROR]   BoatCalculatedTravelTests.oneEyeBoatCalculatedTravelEyeSpies:36 ?  Unresolved ...
+[ERROR]   CalculatedTravelTests.twoEyeCalculatedTravelEyeSpies:27 ?  Unresolved compilat...
+[ERROR]   CalculatedTravelTests.twoEyeCalculatedTravelEyeSpies:27 ?  Unresolved compilat...
+[ERROR]   CalculatedTravelTests.twoEyeCalculatedTravelEyeSpies:27 ?  Unresolved compilat...
+[ERROR]   CalculatedTravelTests.twoEyeCalculatedTravelFailsWhenMoving:54 ?  Unresolved c...
+[ERROR]   CalculatedTravelTests.twoEyeCalculatedTravelFailsWhenMoving:54 ?  Unresolved c...
+[ERROR]   CalculatedTravelTests.twoEyeCalculatedTravelFailsWhenMoving:54 ?  Unresolved c...
+[ERROR]   CalibrationIntegrationTests.canOpenDialog:20 ?  Unresolved compilation problem...
+[ERROR]   CalibrationIntegrationTests.canOpenDialog_manualCalibration:40 ?  Unresolved c...
+[ERROR]   DataStateIntegrationTests.dataComponentsOnlySendsOneEventOnReset:20 ?  Unresol...
+[ERROR]   NextDirectionProviderIntegrationTests.expectedCertaintyOnNextThrowIsAtLeastAsGoodAsPromised:28 
+[ERROR]   PreferencesIntegrationTests.crosshairCorrectionIntegrationTest:25 ?  Unresolve...
+[ERROR]   PreferencesIntegrationTests.crosshairCorrectionIntegrationTest:25 ?  Unresolve...
+[ERROR]   PreferencesIntegrationTests.crosshairCorrectionIntegrationTest:25 ?  Unresolve...
+[ERROR]   PreferencesIntegrationTests.crosshairCorrectionIntegrationTest:25 ?  Unresolve...
+[ERROR]   PreferencesIntegrationTests.crosshairCorrectionIntegrationTest:25 ?  Unresolve...
+[ERROR]   PreferencesIntegrationTests.crosshairCorrectionIntegrationTest:25 ?  Unresolve...
+[ERROR]   ThemeEditorIntegrationTests.canOpenDialog:21 ?  Unresolved compilation problem...
+[INFO] 
+[ERROR] Tests run: 115, Failures: 2, Errors: 48, Skipped: 4
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  7.522 s
+[INFO] Finished at: 2026-02-23T00:12:46+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project strongy: There are test failures.
+[ERROR] 
+[ERROR] Please refer to X:\Bigger-Projects\Ninjabrain-Bot\target\surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date]-jvmRun[N].dump, [date].dumpstream and [date]-jvmRun[N].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

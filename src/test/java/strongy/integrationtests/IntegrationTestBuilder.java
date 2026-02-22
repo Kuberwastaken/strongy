@@ -143,10 +143,15 @@ public class IntegrationTestBuilder {
 	}
 
 	public void setClipboard(String clipboardString) {
-		if (clipboardReader == null) clipboardReader = new MockedClipboardReader();
-		if (coordinateInputSource == null) coordinateInputSource = new CoordinateInputSource(clipboardReader);
-		if (playerPositionInputHandler == null) playerPositionInputHandler = createPlayerPositionInputHandler();
-		if (f3iLocationInputHandler == null) f3iLocationInputHandler = new F3ILocationInputHandler(coordinateInputSource, dataState, actionExecutor, preferences);
+		if (clipboardReader == null)
+			clipboardReader = new MockedClipboardReader();
+		if (coordinateInputSource == null)
+			coordinateInputSource = new CoordinateInputSource(clipboardReader);
+		if (playerPositionInputHandler == null)
+			playerPositionInputHandler = createPlayerPositionInputHandler();
+		if (f3iLocationInputHandler == null)
+			f3iLocationInputHandler = new F3ILocationInputHandler(coordinateInputSource, dataState, actionExecutor,
+					preferences);
 		clipboardReader.setClipboard(clipboardString);
 	}
 
@@ -164,12 +169,14 @@ public class IntegrationTestBuilder {
 	}
 
 	public void clickRemoveFossilButton() {
-		if (buttonInputHandler == null) buttonInputHandler = new ButtonInputHandler(domainModel, dataState, actionExecutor);
+		if (buttonInputHandler == null)
+			buttonInputHandler = new ButtonInputHandler(domainModel, dataState, actionExecutor);
 		buttonInputHandler.onRemoveFossilButtonPressed();
 	}
 
 	public void triggerHotkey(HotkeyPreference hotkeyPreference) {
-		if (hotkeyInputHandler == null) hotkeyInputHandler = new HotkeyInputHandler(preferences, domainModel, dataState, actionExecutor);
+		if (hotkeyInputHandler == null)
+			hotkeyInputHandler = new HotkeyInputHandler(preferences, domainModel, dataState, actionExecutor);
 		hotkeyPreference.execute();
 	}
 
@@ -178,29 +185,39 @@ public class IntegrationTestBuilder {
 	}
 
 	public void setActiveMinecraftWorld(IMinecraftWorldFile minecraftWorld, McVersion mcVersion) {
-		if (activeInstanceProvider == null) activeInstanceProvider = new MockedInstanceProvider();
-		if (activeInstanceInputHandler == null) activeInstanceInputHandler = new ActiveInstanceInputHandler(activeInstanceProvider, domainModel, dataState, actionExecutor, preferences);
+		if (activeInstanceProvider == null)
+			activeInstanceProvider = new MockedInstanceProvider();
+		if (activeInstanceInputHandler == null)
+			activeInstanceInputHandler = new ActiveInstanceInputHandler(activeInstanceProvider, domainModel, dataState,
+					actionExecutor, preferences);
 		McInstanceTestAdapter.setMinecraftInstanceVersion(minecraftWorld.minecraftInstance(), mcVersion);
 		activeInstanceProvider.activeMinecraftWorld().set(minecraftWorld);
 		activeInstanceProvider.activeMinecraftInstance().set(minecraftWorld.minecraftInstance());
 	}
 
 	public MainTextAreaTestAdapter createMainTextArea() {
-		if (styleManager == null) styleManager = TestUtils.createStyleManager();
-		if (buttonInputHandler == null) buttonInputHandler = new ButtonInputHandler(domainModel, dataState, actionExecutor);
-		return new MainTextAreaTestAdapter(new MainTextArea(styleManager, buttonInputHandler, preferences, dataState));
+		if (styleManager == null)
+			styleManager = TestUtils.createStyleManager();
+		if (buttonInputHandler == null)
+			buttonInputHandler = new ButtonInputHandler(domainModel, dataState, actionExecutor);
+		return new MainTextAreaTestAdapter(new MainTextArea(styleManager));
 	}
 
 	public EnderEyePanelTestAdapter createEnderEyePanel() {
-		if (styleManager == null) styleManager = TestUtils.createStyleManager();
-		if (buttonInputHandler == null) buttonInputHandler = new ButtonInputHandler(domainModel, dataState, actionExecutor);
-		return new EnderEyePanelTestAdapter(new EnderEyePanel(styleManager, preferences, dataState, buttonInputHandler));
+		if (styleManager == null)
+			styleManager = TestUtils.createStyleManager();
+		if (buttonInputHandler == null)
+			buttonInputHandler = new ButtonInputHandler(domainModel, dataState, actionExecutor);
+		return new EnderEyePanelTestAdapter(new EnderEyePanel(styleManager, dataState, actionExecutor));
 	}
 
 	public StrongyFrame createStrongyFrame() {
-		if (styleManager == null) styleManager = TestUtils.createStyleManager();
-		if (buttonInputHandler == null) buttonInputHandler = new ButtonInputHandler(domainModel, dataState, actionExecutor);
-		StrongyFrame frame = new StrongyFrame(styleManager, preferences, new FakeUpdateChecker(), dataState, buttonInputHandler, new InformationMessageList());
+		if (styleManager == null)
+			styleManager = TestUtils.createStyleManager();
+		if (buttonInputHandler == null)
+			buttonInputHandler = new ButtonInputHandler(domainModel, dataState, actionExecutor);
+		StrongyFrame frame = new StrongyFrame(styleManager, preferences, new FakeUpdateChecker(), dataState,
+				buttonInputHandler, new InformationMessageList());
 		styleManager.init();
 		return frame;
 	}
@@ -211,22 +228,27 @@ public class IntegrationTestBuilder {
 		return new CalibratorFactory(environmentState.calculatorSettings(), fakeCoordinateInputSource, preferences);
 	}
 
-	public InformationMessageList createInformationMessageList(){
+	public InformationMessageList createInformationMessageList() {
 		if (activeInstanceProvider == null)
 			activeInstanceProvider = new MockedInstanceProvider();
 
 		InformationMessageList informationMessageList = new InformationMessageList();
-		informationMessageList.AddInformationMessageProvider(new McVersionWarningProvider(activeInstanceProvider, preferences));
-		informationMessageList.AddInformationMessageProvider(new MismeasureWarningProvider(dataState, environmentState, preferences));
+		informationMessageList
+				.AddInformationMessageProvider(new McVersionWarningProvider(activeInstanceProvider, preferences));
+		informationMessageList
+				.AddInformationMessageProvider(new MismeasureWarningProvider(dataState, environmentState, preferences));
 		informationMessageList.AddInformationMessageProvider(new PortalLinkingWarningProvider(dataState, preferences));
-		informationMessageList.AddInformationMessageProvider(new CombinedCertaintyInformationProvider(dataState, preferences));
-		informationMessageList.AddInformationMessageProvider(new NextThrowDirectionInformationProvider(dataState, environmentState, preferences));
+		informationMessageList
+				.AddInformationMessageProvider(new CombinedCertaintyInformationProvider(dataState, preferences));
+		informationMessageList.AddInformationMessageProvider(
+				new NextThrowDirectionInformationProvider(dataState, environmentState, preferences));
 		return informationMessageList;
 	}
 
 	public BoatIcon createBoatIcon() {
-		if (styleManager == null) styleManager = TestUtils.createStyleManager();
-		return new BoatIcon(styleManager, dataState.boatDataState().boatState(), preferences, new DisposeHandler());
+		if (styleManager == null)
+			styleManager = TestUtils.createStyleManager();
+		return new BoatIcon(styleManager, dataState.boatDataState().boatState().get());
 	}
 
 	public void swapTheme() {
@@ -248,12 +270,14 @@ public class IntegrationTestBuilder {
 		if (fakeCoordinateInputSource == null)
 			fakeCoordinateInputSource = new FakeCoordinateInputSource();
 		if (fakeF3ILocationInputHandler == null)
-			fakeF3ILocationInputHandler = new F3ILocationInputHandler(fakeCoordinateInputSource, dataState, actionExecutor, preferences);
+			fakeF3ILocationInputHandler = new F3ILocationInputHandler(fakeCoordinateInputSource, dataState,
+					actionExecutor, preferences);
 		fakeCoordinateInputSource.whenNewF3IInputted.notifySubscribers(f3IData);
 	}
 
 	public void resetCalculator() {
-		if (buttonInputHandler == null) buttonInputHandler = new ButtonInputHandler(domainModel, dataState, actionExecutor);
+		if (buttonInputHandler == null)
+			buttonInputHandler = new ButtonInputHandler(domainModel, dataState, actionExecutor);
 		buttonInputHandler.onResetButtonPressed();
 	}
 
@@ -272,14 +296,16 @@ public class IntegrationTestBuilder {
 		if (coordinateInputSource == null)
 			coordinateInputSource = new CoordinateInputSource(clipboardReader);
 		IEnderEyeThrowFactory enderEyeThrowFactory = new EnderEyeThrowFactory(preferences, dataState.boatDataState());
-		return new PlayerPositionInputHandler(coordinateInputSource, dataState, actionExecutor, preferences, enderEyeThrowFactory);
+		return new PlayerPositionInputHandler(coordinateInputSource, dataState, actionExecutor, preferences,
+				enderEyeThrowFactory);
 	}
 
 	private PlayerPositionInputHandler createFakePlayerPositionInputHandler() {
 		if (fakeCoordinateInputSource == null)
 			fakeCoordinateInputSource = new FakeCoordinateInputSource();
 		IEnderEyeThrowFactory enderEyeThrowFactory = new EnderEyeThrowFactory(preferences, dataState.boatDataState());
-		return new PlayerPositionInputHandler(fakeCoordinateInputSource, dataState, actionExecutor, preferences, enderEyeThrowFactory);
+		return new PlayerPositionInputHandler(fakeCoordinateInputSource, dataState, actionExecutor, preferences,
+				enderEyeThrowFactory);
 	}
 
 }

@@ -1,236 +1,197 @@
 package strongy.gui.frames;
 
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsDevice.WindowTranslucency;
-import java.awt.GraphicsEnvironment;
-import java.awt.geom.RoundRectangle2D;
-import java.awt.Image;
-import java.lang.reflect.Method;
-import java.net.URL;
-import java.util.Objects;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
+import javafx.scene.layout.VBox;
 
-import javax.swing.AbstractButton;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
+import javafx.stage.Stage;
 
-import com.sun.jna.Platform;
 import strongy.Main;
-import strongy.event.IDisposable;
-import strongy.gui.buttons.FlatButton;
-import strongy.gui.buttons.NotificationsButton;
-import strongy.gui.buttons.TitleBarButton;
-import strongy.gui.components.labels.ThemedIcon;
-import strongy.gui.components.labels.ThemedLabel;
-import strongy.gui.mainwindow.boateye.BoatIcon;
-import strongy.gui.mainwindow.boateye.Mod360Icon;
-import strongy.gui.mainwindow.eyethrows.EnderEyePanel;
-import strongy.gui.mainwindow.information.InformationListPanel;
-import strongy.gui.mainwindow.main.MainButtonPanel;
-import strongy.gui.mainwindow.main.MainTextArea;
 import strongy.gui.style.SizePreference;
 import strongy.gui.style.StyleManager;
 import strongy.io.preferences.StrongyPreferences;
-import strongy.io.preferences.enums.MainViewType;
 import strongy.io.updatechecker.IUpdateChecker;
 import strongy.model.datastate.IDataState;
 import strongy.model.information.InformationMessageList;
 import strongy.model.input.IButtonInputHandler;
 import strongy.util.I18n;
-import strongy.util.Profiler;
 
-public class StrongyFrame extends ThemedFrame implements IDisposable {
+/**
+ * Main application window — JavaFX version.
+ */
+public class StrongyFrame extends ThemedFrame {
 
 	private final StrongyPreferences preferences;
+	private final VBox contentArea;
+	private Label versionLabel;
+	private Button settingsButton;
+	private Button themeToggleButton;
+	private boolean minimized = false;
+	private Scene scene;
 
-	private ThemedLabel versionTextLabel;
-	private JButton settingsButton;
-	private JLabel lockIcon;
-
-	private MainTextArea mainTextArea;
-	private InformationListPanel informationTextPanel;
-	private EnderEyePanel enderEyePanel;
-
-	private static final String TITLE_TEXT = I18n.get("title");
-	private static final String VERSION_TEXT = "v" + Main.VERSION;
-
-	private final StyleManager styleManager;
-
-	public StrongyFrame(StyleManager styleManager, StrongyPreferences preferences, IUpdateChecker updateChecker, IDataState dataState, IButtonInputHandler buttonInputHandler, InformationMessageList informationMessageList) {
-		super(styleManager, preferences, TITLE_TEXT);
+	public StrongyFrame(StyleManager styleManager, StrongyPreferences preferences,
+			IUpdateChecker updateChecker, IDataState dataState,
+			IButtonInputHandler buttonInputHandler,
+			InformationMessageList informationMessageList) {
+		super(styleManager, preferences, "Strongy");
 		this.preferences = preferences;
-		Profiler.start("StrongyFrame");
-		setLocation(preferences.windowX.get(), preferences.windowY.get()); // Set window position
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setTranslucent(preferences.translucent.get());
-		setAppIcon();
 
-		createTitleBar(styleManager, dataState, updateChecker);
-		createComponents(styleManager, dataState, buttonInputHandler, informationMessageList);
-		setupSubscriptions(styleManager, dataState);
-		Profiler.stop();
+		// Create the title bar content
+		createTitleBar(styleManager, updateChecker);
 
-		this.styleManager = styleManager;
+		// Main content
+		contentArea = new VBox();
+		contentArea.getStyleClass().add("themed-panel");
+		contentArea.setSpacing(0);
+
+		// Create the main content components
+		createComponents(dataState, buttonInputHandler, informationMessageList);
+
+		root.getChildren().add(contentArea);
+
+		// Build scene
+		scene = new Scene(root, styleManager.size.WIDTH, 400);
+		styleManager.manageScene(scene);
+		stage.setScene(scene);
+
+		// Restore position
+		stage.setX(preferences.windowX.get());
+		stage.setY(preferences.windowY.get());
 	}
 
-	@Override
-	public void updateBounds(StyleManager styleManager) {
-		super.updateBounds(styleManager);
-		int titlewidth = styleManager.getTextWidth(TITLE_TEXT, styleManager.fontSize(styleManager.size.TEXT_SIZE_TITLE_LARGE, false));
-		int titlebarHeight = titlebarPanel.getPreferredSize().height;
-		versionTextLabel.setBounds(titlewidth + (titlebarHeight - styleManager.size.TEXT_SIZE_TITLE_SMALL) / 2, (styleManager.size.TEXT_SIZE_TITLE_LARGE - styleManager.size.TEXT_SIZE_TITLE_SMALL) / 2, 70, titlebarHeight);
-		int versionwidth = styleManager.getTextWidth(VERSION_TEXT, styleManager.fontSize(styleManager.size.TEXT_SIZE_TITLE_SMALL, false));
-		lockIcon.setBounds(titlewidth + versionwidth + (titlebarHeight - styleManager.size.TEXT_SIZE_TITLE_SMALL) / 2, 0, titlebarHeight, titlebarHeight);
-		// Frame size
-		int extraWidth = preferences.showAngleUpdates.get() && preferences.view.get().equals(MainViewType.DETAILED) ? styleManager.size.ANGLE_COLUMN_WIDTH : 0;
-		setSize(styleManager.size.WIDTH + extraWidth, getPreferredSize().height);
-		setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), styleManager.size.WINDOW_ROUNDING, styleManager.size.WINDOW_ROUNDING));
+	/**
+	 * Creates the scene separately for use by StrongyApp when using an existing
+	 * Stage.
+	 */
+	public StrongyFrame(Stage existingStage, StyleManager styleManager, StrongyPreferences preferences,
+			IUpdateChecker updateChecker, IDataState dataState,
+			IButtonInputHandler buttonInputHandler,
+			InformationMessageList informationMessageList) {
+		super(styleManager, preferences, "Strongy");
+		this.preferences = preferences;
+
+		createTitleBar(styleManager, updateChecker);
+
+		contentArea = new VBox();
+		contentArea.getStyleClass().add("themed-panel");
+		contentArea.setSpacing(0);
+
+		createComponents(dataState, buttonInputHandler, informationMessageList);
+
+		root.getChildren().add(contentArea);
+
+		scene = new Scene(root, styleManager.size.WIDTH, 400);
+		styleManager.manageScene(scene);
+
+		// Use the existing stage from StrongyApp
+		existingStage.setScene(scene);
+		existingStage.setX(preferences.windowX.get());
+		existingStage.setY(preferences.windowY.get());
 	}
 
-	public AbstractButton getSettingsButton() {
+	private void createTitleBar(StyleManager styleManager, IUpdateChecker updateChecker) {
+		// Version label
+		versionLabel = new Label("v" + Main.VERSION);
+		versionLabel.getStyleClass().add("version-text");
+
+		// Spacer
+		Region spacer = new Region();
+		HBox.setHgrow(spacer, Priority.ALWAYS);
+
+		// Theme toggle button
+		themeToggleButton = new Button("Theme");
+		themeToggleButton.getStyleClass().add("theme-toggle");
+		themeToggleButton.setOnAction(e -> {
+			boolean isDark = styleManager.toggleDarkLight();
+			themeToggleButton.setText(isDark ? "Theme_D" : "Theme_L");
+		});
+
+		// Settings button
+		settingsButton = new Button("⚙");
+		settingsButton.getStyleClass().add("title-bar-button");
+
+		// Minimize button
+		Button minimizeButton = new Button("—");
+		minimizeButton.getStyleClass().add("title-bar-button");
+		minimizeButton.setOnAction(e -> toggleMinimized());
+
+		// Exit button
+		Button exitButton = new Button("✕");
+		exitButton.getStyleClass().addAll("title-bar-button", "exit-button");
+		exitButton.setOnAction(e -> onExitButtonClicked());
+
+		// Clear the default title bar and rebuild
+		titleBar.getChildren().clear();
+		titleBar.getChildren().addAll(titleLabel, versionLabel, spacer,
+				themeToggleButton, settingsButton, minimizeButton, exitButton);
+	}
+
+	private void createComponents(IDataState dataState,
+			IButtonInputHandler buttonInputHandler,
+			InformationMessageList informationMessageList) {
+		// Main text area - shows the current prediction/status
+		Label statusLabel = new Label(I18n.get("waiting"));
+		statusLabel.getStyleClass().add("themed-label");
+		statusLabel.setWrapText(true);
+		statusLabel.setMaxWidth(Double.MAX_VALUE);
+
+		// Prediction display area
+		VBox predictionArea = new VBox(4);
+		predictionArea.getStyleClass().add("themed-panel");
+
+		Label headerLabel = new Label(I18n.get("waiting"));
+		headerLabel.getStyleClass().add("themed-label-header");
+
+		predictionArea.getChildren().add(headerLabel);
+
+		// Wire data state subscriptions for prediction updates
+		disposeHandler.add(dataState.calculatorResult().subscribe(result -> {
+			javafx.application.Platform.runLater(() -> {
+				if (result == null || !result.success()) {
+					headerLabel.setText(I18n.get("waiting"));
+					return;
+				}
+				var best = result.getBestPrediction();
+				if (best != null) {
+					headerLabel.setText(String.format("(%d, %d)  —  %.1f%%",
+							best.chunk.x, best.chunk.z, best.chunk.weight * 100));
+				}
+			});
+		}));
+
+		contentArea.getChildren().addAll(predictionArea);
+	}
+
+	private void toggleMinimized() {
+		minimized = !minimized;
+		contentArea.setVisible(!minimized);
+		contentArea.setManaged(!minimized);
+		stage.sizeToScene();
+	}
+
+	public Button getSettingsButton() {
 		return settingsButton;
 	}
 
 	public boolean isIdle() {
-		return mainTextArea.isIdle();
-	}
-
-	private void setupSubscriptions(StyleManager styleManager, IDataState dataState) {
-		// Settings
-		disposeHandler.add(preferences.translucent.whenModified().subscribeEDT(this::setTranslucent));
-		disposeHandler.add(preferences.alwaysOnTop.whenModified().subscribeEDT(this::setAlwaysOnTop));
-		disposeHandler.add(preferences.hotkeyMinimize.whenTriggered().subscribeEDT(__ -> toggleMinimized()));
-		// Components bounds changed
-		disposeHandler.add(mainTextArea.whenModified().subscribeEDT(__ -> updateSize(styleManager)));
-		disposeHandler.add(informationTextPanel.whenModified().subscribeEDT(__ -> updateSize(styleManager)));
-		disposeHandler.add(enderEyePanel.whenModified().subscribeEDT(__ -> updateSize(styleManager)));
-		disposeHandler.add(dataState.locked().subscribeEDT(b -> lockIcon.setVisible(b)));
-	}
-
-	private void createTitleBar(StyleManager styleManager, IDataState dataState, IUpdateChecker updateChecker) {
-		versionTextLabel = new ThemedLabel(styleManager, VERSION_TEXT) {
-			@Override
-			public int getTextSize(SizePreference p) {
-				return p.TEXT_SIZE_TITLE_SMALL;
-			}
-		};
-		versionTextLabel.setForegroundColor(styleManager.currentTheme.TEXT_COLOR_WEAK);
-		lockIcon = new ThemedIcon(styleManager, new ImageIcon(Objects.requireNonNull(Main.class.getResource("/lock_icon.png"))));
-		lockIcon.setVisible(dataState.locked().get());
-		titlebarPanel.add(versionTextLabel);
-		titlebarPanel.add(lockIcon);
-		titlebarPanel.addButton(createMinimizeButton(styleManager));
-		settingsButton = createSettingsButton(styleManager);
-		titlebarPanel.addButton(settingsButton);
-		NotificationsButton notificationsButton = new NotificationsButton(styleManager, this, preferences, updateChecker);
-		titlebarPanel.addButton(notificationsButton);
-		titlebarPanel.addButton(new BoatIcon(styleManager, dataState.boatDataState().boatState(), preferences, disposeHandler));
-		titlebarPanel.addButton(new Mod360Icon(styleManager, dataState.boatDataState(), preferences, disposeHandler));
+		return true; // Placeholder
 	}
 
 	@Override
 	protected void onExitButtonClicked() {
+		preferences.windowX.set((int) stage.getX());
+		preferences.windowY.set((int) stage.getY());
+		javafx.application.Platform.exit();
 		System.exit(0);
 	}
-
-	private void createComponents(StyleManager styleManager, IDataState dataState, IButtonInputHandler buttonInputHandler, InformationMessageList informationMessageList) {
-		// Main text
-		mainTextArea = new MainTextArea(styleManager, buttonInputHandler, preferences, dataState);
-		add(mainTextArea);
-		// Info and warnings
-		informationTextPanel = new InformationListPanel(styleManager, informationMessageList);
-		add(informationTextPanel);
-		// "Throws" text + buttons
-		MainButtonPanel mainButtonPanel = new MainButtonPanel(styleManager, buttonInputHandler);
-		add(mainButtonPanel);
-		// Throw panels
-		enderEyePanel = new EnderEyePanel(styleManager, preferences, dataState, buttonInputHandler);
-		add(enderEyePanel);
-	}
-
-	@Override
-	public void validate() {
-		super.validate();
-		updateSize(styleManager);
-	}
-
-	private FlatButton createMinimizeButton(StyleManager styleManager) {
-		URL iconURL = Main.class.getResource("/minimize_icon.png");
-		ImageIcon img = new ImageIcon(iconURL);
-		FlatButton button = new TitleBarButton(styleManager, img);
-		button.addActionListener(p -> setState(JFrame.ICONIFIED));
-		return button;
-	}
-
-	private FlatButton createSettingsButton(StyleManager styleManager) {
-		URL iconURL = Main.class.getResource("/settings_icon.png");
-		ImageIcon img = new ImageIcon(iconURL);
-		return new TitleBarButton(styleManager, img);
-	}
-
-	private void toggleMinimized() {
-		int state = getState();
-		if (state == JFrame.ICONIFIED) {
-			setState(JFrame.NORMAL);
-		} else {
-			setState(JFrame.ICONIFIED);
-		}
-	}
-
-	private void setTranslucent(boolean t) {
-		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-		GraphicsDevice gd = ge.getDefaultScreenDevice();
-		if (gd.isWindowTranslucencySupported(WindowTranslucency.TRANSLUCENT)) {
-			setOpacity(t ? 0.75f : 1.0f);
-		}
-	}
-
-	private void updateSize(StyleManager styleManager) {
-		int extraWidth = preferences.showAngleUpdates.get() && preferences.view.get().equals(MainViewType.DETAILED) ? styleManager.size.ANGLE_COLUMN_WIDTH : 0;
-		setSize(styleManager.size.WIDTH + extraWidth, getPreferredSize().height);
-		setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), styleManager.size.WINDOW_ROUNDING, styleManager.size.WINDOW_ROUNDING));
-	}
-
-	private void setAppIcon() {
-		URL iconURL = Main.class.getResource("/icon.png");
-		ImageIcon img = new ImageIcon(Objects.requireNonNull(iconURL));
-		setIconImage(img.getImage());
-
-        if (Platform.isMac()) {
-            setIconOnMac(img.getImage());
-        }
-	}
-
-    private void setIconOnMac(Image image) {
-        try {
-            // Java 9+ way to set icon
-            // Taskbar.getTaskbar().setIconImage(image);
-            Class<?> taskbarClass = Class.forName("java.awt.Taskbar");
-            Object taskbar = taskbarClass.getMethod("getTaskbar").invoke(null);
-            Method setIconImage = taskbarClass.getMethod("setIconImage", Image.class);
-            setIconImage.invoke(taskbar, image);
-            return;
-        } catch (Exception e) {
-			e.printStackTrace();
-        }
-        try {
-            // Java 8 way to set icon
-            // Application.getApplication().setDockIconImage(image);
-            Class<?> applicationClass = Class.forName("com.apple.eawt.Application");
-            Object application = applicationClass.getMethod("getApplication").invoke(null);
-            Method setDockIconImage = applicationClass.getMethod("setDockIconImage", Image.class);
-            setDockIconImage.invoke(application, image);
-        } catch (Exception e) {
-			e.printStackTrace();
-        }
-    }
 
 	@Override
 	public void dispose() {
 		super.dispose();
-		mainTextArea.dispose();
-		enderEyePanel.dispose();
 	}
-
 }

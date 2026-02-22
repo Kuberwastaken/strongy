@@ -1,6 +1,6 @@
 package strongy.gui.style.theme;
 
-import java.awt.Color;
+import javafx.scene.paint.Color;
 import java.util.ArrayList;
 
 import strongy.event.ISubscribable;
@@ -23,29 +23,29 @@ public class CustomTheme extends Theme {
 		this.themeString.set(themeString);
 		configurableColors = new ArrayList<ConfigurableColor>();
 
-		COLOR_STRONGEST = createColor(Color.decode("#1C1C27"), "Title bar", "a");
-		COLOR_STRONG = createColor(Color.decode("#2D3238"), "Header background", "b");
-		COLOR_SLIGHTLY_WEAK = createColor(Color.decode("#2B2D44"), "Result background", "c");
-		COLOR_NEUTRAL = createColor(Color.decode("#28293D"), "Throws background", "d");
-		COLOR_DIVIDER = createColor(Color.decode("#212130"), "Dividers", "e");
-		COLOR_DIVIDER_DARK = createColor(Color.decode("#1C1C27"), "Header Dividers", "f");
+		COLOR_STRONGEST = createColor(Color.web("#1C1C27"), "Title bar", "a");
+		COLOR_STRONG = createColor(Color.web("#2D3238"), "Header background", "b");
+		COLOR_SLIGHTLY_WEAK = createColor(Color.web("#2B2D44"), "Result background", "c");
+		COLOR_NEUTRAL = createColor(Color.web("#28293D"), "Throws background", "d");
+		COLOR_DIVIDER = createColor(Color.web("#212130"), "Dividers", "e");
+		COLOR_DIVIDER_DARK = createColor(Color.web("#1C1C27"), "Header Dividers", "f");
 		TEXT_COLOR_SLIGHTLY_WEAK = createColor(Color.WHITE, "Text", "h");
 		TEXT_COLOR_TITLE = createColor(Color.WHITE, "Title text", "n");
-		TEXT_COLOR_NEUTRAL = createColor(Color.LIGHT_GRAY, "Throws text", "k");
-		TEXT_COLOR_SLIGHTLY_STRONG = createColor(Color.decode("#E5E5E5"), "Divine text", "i");
+		TEXT_COLOR_NEUTRAL = createColor(Color.LIGHTGRAY, "Throws text", "k");
+		TEXT_COLOR_SLIGHTLY_STRONG = createColor(Color.web("#E5E5E5"), "Divine text", "i");
 		TEXT_COLOR_WEAK = createColor(Color.GRAY, "Version text", "j");
-		TEXT_COLOR_HEADER = createColor(Color.decode("#E5E5E5"), "Header text", "o");
-		COLOR_POSITIVE = createColor(Color.decode("#75CC6C"), "Subpixel +", "l");
-		COLOR_NEGATIVE = createColor(Color.decode("#CC6E72"), "Subpixel -", "m");
+		TEXT_COLOR_HEADER = createColor(Color.web("#E5E5E5"), "Header text", "o");
+		COLOR_POSITIVE = createColor(Color.web("#75CC6C"), "Subpixel +", "l");
+		COLOR_NEGATIVE = createColor(Color.web("#CC6E72"), "Subpixel -", "m");
 
-		COLOR_GRADIENT_100 = createColor(Color.decode("#00CE29"), "Certainty 100%", "r");
+		COLOR_GRADIENT_100 = createColor(Color.web("#00CE29"), "Certainty 100%", "r");
 		COLOR_GRADIENT_50 = createColor(Color.YELLOW, "Certainty 50%", "q");
 		COLOR_GRADIENT_0 = createColor(Color.RED, "Certainty 0%", "p");
 
-		COLOR_SLIGHTLY_STRONG = createColor(Color.decode("#31353A"), COLOR_STRONG);
-		COLOR_SATURATED = createColor(Color.decode("#57EBA3"), COLOR_STRONG);
+		COLOR_SLIGHTLY_STRONG = createColor(Color.web("#31353A"), COLOR_STRONG);
+		COLOR_SATURATED = createColor(Color.web("#57EBA3"), COLOR_STRONG);
 
-		COLOR_EXIT_BUTTON_HOVER = createColor(Color.decode("#F04747"));
+		COLOR_EXIT_BUTTON_HOVER = createColor(Color.web("#F04747"));
 	}
 
 	@Override
@@ -114,19 +114,22 @@ public class CustomTheme extends Theme {
 
 	protected WrappedColor createColor(Color color, WrappedColor parent) {
 		WrappedColor wc = super.createColor(color);
-		int dr = color.getRed() - parent.color().getRed();
-		int dg = color.getGreen() - parent.color().getGreen();
-		int db = color.getBlue() - parent.color().getBlue();
-		parent.whenColorChanged().subscribe(c -> wc.set(new Color(clamp(c.getRed() + dr), clamp(c.getGreen() + dg), clamp(c.getBlue() + db))));
+		double dr = color.getRed() - parent.color().getRed();
+		double dg = color.getGreen() - parent.color().getGreen();
+		double db = color.getBlue() - parent.color().getBlue();
+		parent.whenColorChanged().subscribe(c -> wc.set(Color.color(
+				clamp(c.getRed() + dr),
+				clamp(c.getGreen() + dg),
+				clamp(c.getBlue() + db))));
 		return wc;
 	}
 
-	private static int clamp(int i) {
-		if (i < 0)
+	private static double clamp(double v) {
+		if (v < 0)
 			return 0;
-		if (i > 255)
-			return 255;
-		return i;
+		if (v > 1)
+			return 1;
+		return v;
 	}
 
 	protected WrappedColor createColor(Color color, String name, String uid) {

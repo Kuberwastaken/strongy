@@ -1,52 +1,28 @@
 package strongy.gui.components.preferences;
 
-import java.awt.Cursor;
-import java.awt.Insets;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import java.util.Objects;
+import javafx.scene.control.CheckBox;
+import strongy.gui.components.ThemedComponent;
+import strongy.gui.style.StyleManager;
+import strongy.io.preferences.BooleanPreference;
 
-import javax.swing.ImageIcon;
-import javax.swing.JCheckBox;
+/**
+ * A Checkbox that binds to a BooleanPreference.
+ */
+public class CustomCheckbox extends CheckBox implements ThemedComponent {
 
-import strongy.Main;
+	private final BooleanPreference preference;
 
-public class CustomCheckbox extends JCheckBox {
+	public CustomCheckbox(StyleManager styleManager, BooleanPreference preference) {
+		this.preference = preference;
+		getStyleClass().add("check-box");
 
-	private static final ImageIcon icon = new ImageIcon(Objects.requireNonNull(Main.class.getResource("/checkbox_icon.png")));
-	private static final ImageIcon selected_icon = new ImageIcon(Objects.requireNonNull(Main.class.getResource("/checkbox_selected_icon.png")));
-	private static final ImageIcon pressed_icon = new ImageIcon(Objects.requireNonNull(Main.class.getResource("/checkbox_pressed_icon.png")));
-	private static final ImageIcon rollover_icon = new ImageIcon(Objects.requireNonNull(Main.class.getResource("/checkbox_rollover_icon.png")));
-	private static final ImageIcon selected_rollover_icon = new ImageIcon(Objects.requireNonNull(Main.class.getResource("/checkbox_selected_rollover_icon.png")));
+		// Bind from preference to UI
+		setSelected(preference.get());
+		preference.whenModified().subscribe(value -> javafx.application.Platform.runLater(() -> setSelected(value)));
 
-	public CustomCheckbox() {
-		this(false);
-	}
-
-	public CustomCheckbox(boolean ticked) {
-		setSelected(ticked);
-		setMargin(new Insets(-2, -2, -2, -2));
-		setBorderPainted(false);
-		setBorderPaintedFlat(false);
-		setFocusPainted(false);
-		setFocusable(false);
-		setOpaque(false);
-		setIcon(icon);
-		setSelectedIcon(selected_icon);
-		setPressedIcon(pressed_icon);
-		setRolloverIcon(rollover_icon);
-		setRolloverSelectedIcon(selected_rollover_icon);
-		setCursor(new Cursor(Cursor.HAND_CURSOR));
-		addItemListener(new ItemListener() {
-			@Override
-			public void itemStateChanged(ItemEvent e) {
-				boolean ticked = ((JCheckBox) e.getSource()).isSelected();
-				onChanged(ticked);
-			}
+		// Bind from UI to preference
+		setOnAction(e -> {
+			preference.set(isSelected());
 		});
 	}
-
-	public void onChanged(boolean ticked) {
-	}
-
 }

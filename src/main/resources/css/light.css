@@ -1,0 +1,33 @@
+/* Strongy — Light Theme
+ * Color tokens derived from the original LightTheme in StandardThemes.java
+ */
+
+.root {
+    /* Background colors */
+    -strongy-bg-strongest: #C1C1C1;
+    -strongy-bg-strong: #E5E5E5;
+    -strongy-bg-slightly-strong: #EFEFEF;
+    -strongy-bg-neutral: #F5F5F5;
+    -strongy-bg-slightly-weak: #F9F9F9;
+    -strongy-bg-divider: #D8D8D8;
+    -strongy-bg-divider-dark: #C1C1C1;
+
+    /* Text colors */
+    -strongy-text-title: #373737;
+    -strongy-text-header: #191919;
+    -strongy-text-slightly-strong: #191919;
+    -strongy-text-neutral: #404040;
+    -strongy-text-slightly-weak: #000000;
+    -strongy-text-weak: #888888;
+
+    /* Semantic colors */
+    -strongy-accent: #BAD7EF;
+    -strongy-positive: #1E9910;
+    -strongy-negative: #991017;
+    -strongy-exit-hover: #F04747;
+
+    /* Certainty gradient */
+    -strongy-gradient-0: #FF0000;
+    -strongy-gradient-50: #FFFF00;
+    -strongy-gradient-100: #00CE29;
+}

@@ -1,0 +1,47 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------------< strongy:strongy >---------------------------
+[INFO] Building Strongy 2.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] 6 problems were encountered while building the effective model for org.openjfx:javafx-controls:jar:21 during dependency collection step for project (use -X to see details)
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ strongy ---
+[INFO] Deleting X:\Bigger-Projects\Ninjabrain-Bot\target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ strongy ---
+[WARNING] Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 54 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ strongy ---
+[INFO] Changes detected - recompiling the module! :source
+[WARNING] File encoding has not been set, using platform encoding Cp1252, i.e. build is platform dependent!
+[INFO] Compiling 320 source files with javac [debug target 17] to target\classes
+[INFO] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/components/preferences/RadioButtonPanel.java: X:\Bigger-Projects\Ninjabrain-Bot\src\main\java\strongy\gui\components\preferences\RadioButtonPanel.java uses unchecked or unsafe operations.
+[INFO] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/components/preferences/RadioButtonPanel.java: Recompile with -Xlint:unchecked for details.
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/mainwindow/eyethrows/EnderEyePanel.java:[27,74] cannot find symbol
+  symbol:   method getStyleManager()
+  location: class strongy.gui.mainwindow.eyethrows.EnderEyePanel
+[INFO] 1 error
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.128 s
+[INFO] Finished at: 2026-02-23T00:15:03+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (default-compile) on project strongy: Compilation failure
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/mainwindow/eyethrows/EnderEyePanel.java:[27,74] cannot find symbol
+[ERROR]   symbol:   method getStyleManager()
+[ERROR]   location: class strongy.gui.mainwindow.eyethrows.EnderEyePanel
+[ERROR] 
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

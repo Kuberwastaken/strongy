@@ -1,78 +1,29 @@
 package strongy.gui.components.preferences;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-
-import javax.swing.Box;
-
-import strongy.gui.buttons.WikiButton;
-import strongy.gui.components.labels.ThemedLabel;
-import strongy.gui.components.panels.ThemedPanel;
-import strongy.gui.frames.OptionsFrame;
-import strongy.gui.style.SizePreference;
+import javafx.geometry.Pos;
+import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
+import strongy.gui.components.ThemedComponent;
 import strongy.gui.style.StyleManager;
-import strongy.gui.style.theme.WrappedColor;
 import strongy.io.preferences.BooleanPreference;
 
-public class CheckboxPanel extends ThemedPanel {
+public class CheckboxPanel extends HBox implements ThemedComponent {
 
-	public final ThemedLabel descLabel;
-	CustomCheckbox checkbox;
-	final BooleanPreference preference;
+	public CheckboxPanel(StyleManager styleManager, String text, BooleanPreference preference) {
+		getStyleClass().add("preference-row");
+		setAlignment(Pos.CENTER_LEFT);
 
-	WrappedColor disabledCol;
+		Label label = new Label(text);
+		label.getStyleClass().add("themed-label-strong");
 
-	public CheckboxPanel(StyleManager styleManager, String description, BooleanPreference preference) {
-		super(styleManager);
-		this.preference = preference;
-		setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
-		CheckboxPanel t = this;
-		descLabel = new ThemedLabel(styleManager, "<html>" + description + "</html>") {
+		CustomCheckbox checkbox = new CustomCheckbox(styleManager, preference);
 
-			@Override
-			public int getTextSize(SizePreference p) {
-				return p.TEXT_SIZE_SMALL;
+		getChildren().addAll(label, checkbox);
+
+		setOnMouseClicked(e -> {
+			if (e.getTarget() != checkbox) {
+				checkbox.fire();
 			}
-
-			public Dimension getPreferredSize() {
-				Dimension superPreferredSize = super.getPreferredSize();
-				int preferredWidth = Math.min(superPreferredSize.width, t.getWidth() - 2 * OptionsFrame.PADDING - 32);
-				return new Dimension(preferredWidth, superPreferredSize.height);
-			}
-
-			@Override
-			public Color getForegroundColor() {
-				if (checkbox.isEnabled()) {
-					return super.getForegroundColor();
-				}
-				return disabledCol.color();
-			}
-		};
-		checkbox = new CustomCheckbox(preference.get()) {
-			@Override
-			public void onChanged(boolean ticked) {
-				preference.set(ticked);
-			}
-		};
-		add(checkbox);
-		add(Box.createHorizontalStrut(OptionsFrame.PADDING));
-		add(descLabel);
-		setOpaque(true);
-
-		disabledCol = styleManager.currentTheme.TEXT_COLOR_WEAK;
+		});
 	}
-
-	public CheckboxPanel withWikiButton(WikiButton wikiButton) {
-		add(Box.createHorizontalStrut(OptionsFrame.PADDING));
-		add(wikiButton);
-		return this;
-	}
-
-	@Override
-	public void setEnabled(boolean enabled) {
-		super.setEnabled(enabled);
-		checkbox.setEnabled(enabled);
-	}
-
 }

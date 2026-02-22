@@ -1,116 +1,37 @@
 package strongy.gui.splash;
 
-import java.awt.AlphaComposite;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics2D;
-import java.awt.Rectangle;
-import java.awt.SplashScreen;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import strongy.gui.style.StyleManager;
 
-import javax.swing.Timer;
-
-import strongy.util.Logger;
-
+// Simple splash stub 
 public class Splash {
+	private Stage stage;
 
-	final SplashScreen splashScreen;
-	Graphics2D g;
-
-	private Timer timer;
-	private long startTime;
-	private float progressRate;
-	private float maxProgress;
-	private String progressString;
-
-	private static final int LOADING_BAR_HEIGHT = 12;
-	private static final int LOADING_PROGRESS_FONT_SIZE = 12;
-	private static final int PADDING = 4;
-
-	private static final Color LOADING_BAR_COLOR = new Color(249, 255, 173);
-	private static final Color TEXT_COLOR = LOADING_BAR_COLOR;
-
-	public Splash(boolean disabled) {
-		splashScreen = SplashScreen.getSplashScreen();
-		if (splashScreen == null) {
-			System.err.println("Could not load splash screen");
-			return;
-		}
-		if (disabled) {
-			splashScreen.close();
-			return;
-		}
-
-		g = splashScreen.createGraphics();
-		g.setFont(new Font("Arial", Font.PLAIN, LOADING_PROGRESS_FONT_SIZE));
-		if (g == null) {
-			System.err.println("Could not create graphics for splash screen");
-			return;
-		}
-		timer = new Timer(10, new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				float dt = (System.currentTimeMillis() - startTime) / 1000f;
-				float progress = Math.min(progressRate * dt, maxProgress);
-				if (progressString == null)
-					render(progress); // interpolate
-				else
-					render(progressString, progress); // interpolate
-				progressString = null;
-			}
-		});
-		timer.start();
-		startTime = System.currentTimeMillis();
-	}
-
-	public void setProgress(String text, float percentage, float nextPercentage) {
-		float dt = (System.currentTimeMillis() - startTime) / 1000f;
-		progressRate = percentage / dt;
-		maxProgress = nextPercentage;
-		progressString = text;
-	}
-
-	private void render(String text, float percentage) {
+	public Splash() {
 		try {
-			if (checkIfStopped())
-				return;
-			Rectangle r = splashScreen.getBounds();
-			g.setComposite(AlphaComposite.Clear);
-			g.fillRect(PADDING, r.height - LOADING_BAR_HEIGHT - LOADING_PROGRESS_FONT_SIZE - PADDING, 400, LOADING_PROGRESS_FONT_SIZE + PADDING);
-			g.setPaintMode();
-			g.setColor(TEXT_COLOR);
-			g.drawString(text + "...", PADDING, r.height - LOADING_BAR_HEIGHT - PADDING - 2);
-			g.setColor(LOADING_BAR_COLOR);
-			g.fillRect(0, r.height - LOADING_BAR_HEIGHT, (int) (r.width * percentage), LOADING_BAR_HEIGHT);
-			if (splashScreen.isVisible())
-				splashScreen.update();
-		} catch (IllegalStateException e) {
-			Logger.log("Warning: Splash screen tried to render when application had finished loading.");
+			// Using Platform.runLater just in case this is called off-thread,
+			// though StrongyApp.java doesn't explicitly use the old Splash anymore.
+			javafx.application.Platform.runLater(() -> {
+				stage = new Stage(StageStyle.UNDECORATED);
+				VBox root = new VBox();
+				root.getChildren().add(new Label("Loading Strongy..."));
+				stage.setScene(new Scene(root, 300, 200));
+				stage.show();
+			});
+		} catch (Exception ignored) {
 		}
 	}
 
-	private void render(float percentage) {
-		try {
-			checkIfStopped();
-			if (!splashScreen.isVisible())
-				return;
-			Rectangle r = splashScreen.getBounds();
-			g.setPaintMode();
-			g.setColor(LOADING_BAR_COLOR);
-			g.fillRect(0, r.height - LOADING_BAR_HEIGHT, (int) (r.width * percentage), LOADING_BAR_HEIGHT);
-			if (splashScreen.isVisible())
-				splashScreen.update();
-		} catch (IllegalStateException e) {
-			Logger.log("Warning: Splash screen tried to render when application had finished loading.");
+	public void dispose() {
+		if (stage != null) {
+			javafx.application.Platform.runLater(() -> stage.close());
 		}
 	}
 
-	private boolean checkIfStopped() {
-		if (!splashScreen.isVisible()) {
-			timer.stop();
-			return true;
-		}
-		return false;
+	public void setProgress(float p) {
 	}
 }

@@ -13,12 +13,12 @@ public class Progress {
 
 	public static void setTask(String name, float progressWhenComplete) {
 		float totalProgress = pk.setCurrentTask(name, progressWhenComplete);
-		splash.setProgress(pk.label(), totalProgress, progressWhenComplete);
+		splash.setProgress(totalProgress);
 	}
 
 	public static void startCompoundTask(String name, float progressWhenComplete) {
 		float totalProgress = pk.startCompoundTask(name, progressWhenComplete);
-		splash.setProgress(pk.label(), totalProgress, progressWhenComplete);
+		splash.setProgress(totalProgress);
 	}
 
 	public static void endCompoundTask() {
@@ -46,15 +46,18 @@ class ProgressKeeper {
 	}
 
 	public float setCurrentTask(String name, float progressWhenComplete) {
-		float totalProgress = ((1f - currentSubTaskProgress) * progressWhenStarted()) + (currentSubTaskProgress * progressWhenComplete());
+		float totalProgress = ((1f - currentSubTaskProgress) * progressWhenStarted())
+				+ (currentSubTaskProgress * progressWhenComplete());
 		currentSubTaskProgress = progressWhenComplete;
 		currentName = name;
 		return totalProgress;
 	}
 
 	public float startCompoundTask(String name, float progressWhenComplete) {
-		float totalProgress = ((1f - currentSubTaskProgress) * progressWhenStarted()) + (currentSubTaskProgress * progressWhenComplete());
-		float totalProgressComplete = ((1f - progressWhenComplete) * progressWhenStarted()) + (progressWhenComplete * progressWhenComplete());
+		float totalProgress = ((1f - currentSubTaskProgress) * progressWhenStarted())
+				+ (currentSubTaskProgress * progressWhenComplete());
+		float totalProgressComplete = ((1f - progressWhenComplete) * progressWhenStarted())
+				+ (progressWhenComplete * progressWhenComplete());
 		labels.add(parentLabel() + name);
 		currentName = "";
 		this.progressWhenStarted.add(totalProgress);
@@ -67,7 +70,8 @@ class ProgressKeeper {
 		float totalProgress = progressWhenComplete();
 		progressWhenStarted.remove(progressWhenStarted.size() - 1);
 		progressWhenComplete.remove(progressWhenComplete.size() - 1);
-		currentSubTaskProgress = progressWhenStarted() + (totalProgress - progressWhenComplete()) / progressWhenComplete();
+		currentSubTaskProgress = progressWhenStarted()
+				+ (totalProgress - progressWhenComplete()) / progressWhenComplete();
 	}
 
 	public String parentLabel() {

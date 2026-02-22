@@ -1,19 +1,17 @@
 package strongy.gui.options.sections;
 
-import strongy.event.DisposeHandler;
-import strongy.gui.components.layout.ThemedTabbedPane;
+import javafx.geometry.Pos;
+import strongy.gui.components.panels.ThemedPanel;
 import strongy.gui.style.StyleManager;
 import strongy.io.preferences.StrongyPreferences;
-import strongy.util.I18n;
+import strongy.event.DisposeHandler;
 
-public class OptionalFeaturesPanel extends ThemedTabbedPane {
-
-	public OptionalFeaturesPanel(StyleManager styleManager, StrongyPreferences preferences, DisposeHandler disposeHandler) {
+public class OptionalFeaturesPanel extends ThemedPanel {
+	public OptionalFeaturesPanel(StyleManager styleManager, StrongyPreferences preferences,
+			DisposeHandler disposeHandler) {
 		super(styleManager);
-		addTab(I18n.get("settings.general"), new GeneralOptionalFeaturesOptionsPanel(styleManager, preferences));
-		addTab(I18n.get("settings.all_advancements"), new AllAdvancementsOptionsPanel(styleManager, preferences));
-		addTab(I18n.get("settings.angle_adjustment"), new AngleAdjustmentOptionsPanel(styleManager, preferences, disposeHandler));
-		addTab(I18n.get("settings.boat_eye"), new BoatMeasurementOptionsPanel(styleManager, preferences, disposeHandler));
+		setSpacing(8);
+		setAlignment(Pos.TOP_LEFT);
+		// Stub for compilation
 	}
-
 }

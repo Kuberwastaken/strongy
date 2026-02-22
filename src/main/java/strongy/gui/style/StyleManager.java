@@ -1,164 +1,121 @@
 package strongy.gui.style;
 
-import java.awt.Font;
-import java.awt.FontFormatException;
-import java.awt.GraphicsEnvironment;
-import java.awt.font.FontRenderContext;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Objects;
-
-import javax.swing.SwingUtilities;
+import javafx.application.Platform;
+import javafx.scene.Scene;
+import javafx.scene.text.Font;
 
 import strongy.Main;
-import strongy.gui.components.ThemedComponent;
-import strongy.gui.frames.ThemedDialog;
-import strongy.gui.frames.ThemedFrame;
 import strongy.gui.style.theme.CurrentTheme;
 import strongy.gui.style.theme.Theme;
 import strongy.util.I18n;
-import strongy.util.Profiler;
+import strongy.util.Logger;
 
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Objects;
+
+/**
+ * Manages CSS stylesheets and theme switching for JavaFX scenes.
+ */
 public class StyleManager {
 
 	private boolean initialized = false;
 
 	public final CurrentTheme currentTheme;
 	public SizePreference size;
-	private final ArrayList<ThemedComponent> themedComponents;
-	private final ArrayList<ThemedFrame> themedFrames;
-	private final ArrayList<ThemedDialog> themedDialogs;
+
+	private final ArrayList<Scene> managedScenes = new ArrayList<>();
+	private String currentThemeCssPath = "/css/dark.css";
 
 	private Font font;
-	private Font fallbackFont;
-	private HashMap<String, Font> fonts;
-
-	private final FontRenderContext frc = new FontRenderContext(null, true, false);
 
 	public StyleManager(Theme theme, SizePreference size) {
 		currentTheme = new CurrentTheme();
 		currentTheme.setTheme(theme);
 		this.size = size;
-		font = new Font(null, Font.BOLD, 25);
-        fallbackFont = font;
-		themedComponents = new ArrayList<>();
-		themedFrames = new ArrayList<>();
-		themedDialogs = new ArrayList<>();
 
-		initFonts();
-		currentTheme.whenModified().subscribeEDT(__ -> updateFontsAndColors());
+		loadFont();
+		currentTheme.whenModified().subscribe(__ -> updateAllScenes());
 	}
 
-	private void initFonts() {
-		font = loadFont();
-		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-		ge.registerFont(font);
-		fonts = new HashMap<>();
+	/**
+	 * Register a JavaFX Scene to be managed by this StyleManager.
+	 * Applies base.css + current theme CSS immediately.
+	 */
+	public void manageScene(Scene scene) {
+		managedScenes.add(scene);
+		applyStylesheets(scene);
 	}
 
-    public Font fontSize(float size, boolean light) {
-        return fontSize(size, light, false);
-    }
+	/**
+	 * Switch between dark and light CSS themes.
+	 */
+	public void setThemeCss(String cssPath) {
+		this.currentThemeCssPath = cssPath;
+		updateAllScenes();
+	}
 
-    public Font fontSize(float size, boolean light, boolean useFallbackFont) {
-		String key = size + " " + light + " " + useFallbackFont;
-		if (!fonts.containsKey(key)) {
-			Font f = (useFallbackFont ? fallbackFont : font).deriveFont(light ? Font.PLAIN : Font.BOLD, size);
-			fonts.put(key, f);
-			return f;
+	/**
+	 * Toggle between dark and light themes.
+	 */
+	public boolean toggleDarkLight() {
+		if (currentThemeCssPath.contains("dark")) {
+			currentThemeCssPath = "/css/light.css";
+		} else {
+			currentThemeCssPath = "/css/dark.css";
 		}
-		return fonts.get(key);
+		updateAllScenes();
+		return currentThemeCssPath.contains("dark");
 	}
 
-	public void registerThemedComponent(ThemedComponent c) {
-		themedComponents.add(c);
-		if (initialized)
-			SwingUtilities.invokeLater(() -> initComponent(c));
+	public boolean isDarkTheme() {
+		return currentThemeCssPath.contains("dark");
 	}
 
-	public void registerThemedFrame(ThemedFrame f) {
-		themedFrames.add(f);
+	private void applyStylesheets(Scene scene) {
+		scene.getStylesheets().clear();
+		String baseUrl = Objects.requireNonNull(
+				getClass().getResource("/css/base.css")).toExternalForm();
+		String themeUrl = Objects.requireNonNull(
+				getClass().getResource(currentThemeCssPath)).toExternalForm();
+		scene.getStylesheets().addAll(baseUrl, themeUrl);
 	}
 
-	public void registerThemedDialog(ThemedDialog d) {
-		themedDialogs.add(d);
-	}
-
-	public void unregisterThemedDialog(ThemedDialog d) {
-		themedDialogs.remove(d);
-	}
-
-	private void updateBounds() {
-		for (ThemedComponent tc : themedComponents) {
-			tc.updateSize(this);
-		}
-		for (ThemedFrame tf : themedFrames) {
-			tf.updateBounds(this);
-		}
-		for (ThemedDialog tf : themedDialogs) {
-			tf.updateBounds(this);
+	private void updateAllScenes() {
+		if (Platform.isFxApplicationThread()) {
+			managedScenes.forEach(this::applyStylesheets);
+		} else {
+			Platform.runLater(() -> managedScenes.forEach(this::applyStylesheets));
 		}
 	}
 
-	private void updateFontsAndColors() {
-		for (ThemedFrame tf : themedFrames) {
-			tf.updateFontsAndColors();
-		}
-		for (ThemedDialog tf : themedDialogs) {
-			tf.updateFontsAndColors();
-		}
-		for (ThemedComponent tc : themedComponents) {
-			tc.updateColors();
-			tc.updateSize(this);
-		}
-	}
-
-	public int getTextWidth(String text, Font font) {
-		return (int) font.getStringBounds(text, frc).getWidth();
-	}
-
-	public void setSizePreference(SizePreference size) {
-		if (!SwingUtilities.isEventDispatchThread())
-			SwingUtilities.invokeLater(() -> setSizePreference(size));
-		this.size = size;
-		updateFontsAndColors();
-		updateBounds();
-	}
-
-	private Font loadFont() {
-		Font font = null;
-		try {
-			font = Font.createFont(Font.TRUETYPE_FONT, Objects.requireNonNull(Main.class.getResourceAsStream("/OpenSans-Regular.ttf")));
-		} catch (FontFormatException | IOException e) {
-			e.printStackTrace();
-		}
-		if (font == null || font.canDisplayUpTo(I18n.get("lang")) != -1) {
-			font = new Font(null);
-		}
-		if (font.canDisplayUpTo(I18n.get("lang")) != -1) {
-			Font[] fonts = GraphicsEnvironment.getLocalGraphicsEnvironment().getAllFonts();
-			for (Font f : fonts) {
-				if (f.canDisplayUpTo(I18n.get("lang")) < 0) {
-					return f;
-				}
-			}
-		}
+	public Font getFont() {
 		return font;
 	}
 
+	public void setSizePreference(SizePreference size) {
+		this.size = size;
+		// Size changes will be handled via CSS classes + scene root style
+		updateAllScenes();
+	}
+
+	private void loadFont() {
+		try {
+			InputStream is = Main.class.getResourceAsStream("/OpenSans-Regular.ttf");
+			if (is != null) {
+				font = Font.loadFont(is, 12);
+				is.close();
+			}
+		} catch (Exception e) {
+			Logger.log("Could not load font: " + e.getMessage());
+		}
+		if (font == null) {
+			font = Font.getDefault();
+		}
+	}
+
 	public void init() {
-		Profiler.start("Fonts and colors");
-		updateFontsAndColors();
-		Profiler.stopAndStart("Bounds");
-		updateBounds();
-		Profiler.stop();
 		initialized = true;
+		updateAllScenes();
 	}
-
-	private void initComponent(ThemedComponent component) {
-		component.updateColors();
-		component.updateSize(this);
-	}
-
 }

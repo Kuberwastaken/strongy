@@ -1,6 +1,6 @@
 package strongy.gui.themeeditor;
 
-import java.awt.Color;
+import javafx.scene.paint.Color;
 
 import strongy.gui.style.theme.CustomTheme;
 import strongy.gui.style.theme.Theme;
@@ -30,21 +30,21 @@ public class ThemeSerializerTests {
 	@Test
 	public void serializeColor() {
 		// https://www.cs.cmu.edu/~pattis/15-1XX/common/handouts/ascii.html
-		assert ThemeSerializer.serializeColor(Color.white).contentEquals("oooo");
-		assert ThemeSerializer.serializeColor(Color.black).contentEquals("0000");
-		assert ThemeSerializer.serializeColor(Color.red).contentEquals("o`00");
-		assert ThemeSerializer.serializeColor(Color.green).contentEquals("0?l0");
-		assert ThemeSerializer.serializeColor(Color.blue).contentEquals("003o");
+		assert ThemeSerializer.serializeColor(Color.WHITE).contentEquals("oooo");
+		assert ThemeSerializer.serializeColor(Color.BLACK).contentEquals("0000");
+		assert ThemeSerializer.serializeColor(Color.RED).contentEquals("o`00");
+		assert ThemeSerializer.serializeColor(Color.LIME).contentEquals("0?l0");
+		assert ThemeSerializer.serializeColor(Color.BLUE).contentEquals("003o");
 	}
 
 	@Test
 	public void deserializeColor() {
 		// https://www.cs.cmu.edu/~pattis/15-1XX/common/handouts/ascii.html
-		assert colorsAreEqual(ThemeSerializer.deserializeColor("oooo"), Color.white);
-		assert colorsAreEqual(ThemeSerializer.deserializeColor("0000"), Color.black);
-		assert colorsAreEqual(ThemeSerializer.deserializeColor("o`00"), Color.red);
-		assert colorsAreEqual(ThemeSerializer.deserializeColor("0?l0"), Color.green);
-		assert colorsAreEqual(ThemeSerializer.deserializeColor("003o"), Color.blue);
+		assert colorsAreEqual(ThemeSerializer.deserializeColor("oooo"), Color.WHITE);
+		assert colorsAreEqual(ThemeSerializer.deserializeColor("0000"), Color.BLACK);
+		assert colorsAreEqual(ThemeSerializer.deserializeColor("o`00"), Color.RED);
+		assert colorsAreEqual(ThemeSerializer.deserializeColor("0?l0"), Color.LIME);
+		assert colorsAreEqual(ThemeSerializer.deserializeColor("003o"), Color.BLUE);
 	}
 
 	@Test
@@ -136,7 +136,7 @@ public class ThemeSerializerTests {
 	}
 
 	private boolean colorsAreEqual(Color a, Color b) {
-		return a.getRGB() == b.getRGB();
+		return a != null && a.equals(b);
 	}
 
 }

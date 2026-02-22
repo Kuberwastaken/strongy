@@ -36,7 +36,8 @@ public class ApiV1IntegrationTests {
 		ExecutorService executorService = Executors.newSingleThreadExecutor();
 		IntegrationTestBuilder builder = new IntegrationTestBuilder().withProSettings();
 		builder.preferences.sigmaAlt.set(0.005f);
-		ApiV1HttpHandler apiV1HttpHandler = new ApiV1HttpHandler(builder.dataState, builder.domainModel, builder.createInformationMessageList(), executorService);
+		ApiV1HttpHandler apiV1HttpHandler = new ApiV1HttpHandler(builder.dataState, builder.domainModel,
+				builder.createInformationMessageList(), executorService);
 
 		builder.setClipboard("/execute in minecraft:overworld run tp @s 1213.26 71.00 -318.63 -45.53 -31.39");
 		builder.setClipboard("/execute in minecraft:overworld run tp @s 1212.65 69.00 -318.01 -45.53 -31.52");
@@ -98,7 +99,8 @@ public class ApiV1IntegrationTests {
 		TestHttpExchange exchange = new TestHttpExchange("/api/v1/all-advancements");
 		ExecutorService executorService = Executors.newSingleThreadExecutor();
 		IntegrationTestBuilder builder = new IntegrationTestBuilder().withAllAdvancementsSettings();
-		ApiV1HttpHandler apiV1HttpHandler = new ApiV1HttpHandler(builder.dataState, builder.domainModel, builder.createInformationMessageList(), executorService);
+		ApiV1HttpHandler apiV1HttpHandler = new ApiV1HttpHandler(builder.dataState, builder.domainModel,
+				builder.createInformationMessageList(), executorService);
 
 		builder.setClipboard("/execute in minecraft:overworld run tp @s 1477.68 70.00 -211.29 -103.76 -31.31");
 		builder.enterNewWorld();
@@ -113,43 +115,42 @@ public class ApiV1IntegrationTests {
 		Assertions.assertEquals(HttpURLConnection.HTTP_OK, exchange.getResponseCode());
 
 		System.out.println(exchange.getResponseBodyAsString());
-		String expectedResult =
-				("{\n" +
-				 "   \"generalLocation\":{\n" +
-				 "      \n" +
-				 "   },\n" +
-				 "   \"spawn\":{\n" +
-				 "      \"overworldDistance\":5007,\n" +
-				 "      \"xInOverworld\":-215,\n" +
-				 "      \"zInOverworld\":185,\n" +
-				 "      \"travelAngle\":134.48365647425098\n" +
-				 "   },\n" +
-				 "   \"cityQuery\":{\n" +
-				 "      \n" +
-				 "   },\n" +
-				 "   \"monument\":{\n" +
-				 "      \"overworldDistance\":1,\n" +
-				 "      \"xInOverworld\":3357,\n" +
-				 "      \"zInOverworld\":3693,\n" +
-				 "      \"travelAngle\":141.5819446551723\n" +
-				 "   },\n" +
-				 "   \"shulkerTransport\":{\n" +
-				 "      \n" +
-				 "   },\n" +
-				 "   \"stronghold\":{\n" +
-				 "      \"overworldDistance\":4247,\n" +
-				 "      \"xInOverworld\":2212,\n" +
-				 "      \"zInOverworld\":-396,\n" +
-				 "      \"travelAngle\":164.35091545590393\n" +
-				 "   },\n" +
-				 "   \"deepDark\":{\n" +
-				 "      \n" +
-				 "   },\n" +
-				 "   \"isAllAdvancementsModeEnabled\":true,\n" +
-				 "   \"outpost\":{\n" +
-				 "      \n" +
-				 "   }\n" +
-				 "}").replaceAll("\\s+", "");
+		String expectedResult = ("{\n" +
+				"   \"generalLocation\":{\n" +
+				"      \n" +
+				"   },\n" +
+				"   \"spawn\":{\n" +
+				"      \"overworldDistance\":5007,\n" +
+				"      \"xInOverworld\":-215,\n" +
+				"      \"zInOverworld\":185,\n" +
+				"      \"travelAngle\":134.48365647425098\n" +
+				"   },\n" +
+				"   \"cityQuery\":{\n" +
+				"      \n" +
+				"   },\n" +
+				"   \"monument\":{\n" +
+				"      \"overworldDistance\":1,\n" +
+				"      \"xInOverworld\":3357,\n" +
+				"      \"zInOverworld\":3693,\n" +
+				"      \"travelAngle\":141.5819446551723\n" +
+				"   },\n" +
+				"   \"shulkerTransport\":{\n" +
+				"      \n" +
+				"   },\n" +
+				"   \"stronghold\":{\n" +
+				"      \"overworldDistance\":4247,\n" +
+				"      \"xInOverworld\":2212,\n" +
+				"      \"zInOverworld\":-396,\n" +
+				"      \"travelAngle\":164.35091545590393\n" +
+				"   },\n" +
+				"   \"deepDark\":{\n" +
+				"      \n" +
+				"   },\n" +
+				"   \"isAllAdvancementsModeEnabled\":true,\n" +
+				"   \"outpost\":{\n" +
+				"      \n" +
+				"   }\n" +
+				"}").replaceAll("\\s+", "");
 		Assertions.assertEquals(expectedResult, exchange.getResponseBodyAsString());
 	}
 
@@ -159,7 +160,8 @@ public class ApiV1IntegrationTests {
 		TestHttpExchange exchange = new TestHttpExchange("/api/v1/blind");
 		ExecutorService executorService = Executors.newSingleThreadExecutor();
 		IntegrationTestBuilder builder = new IntegrationTestBuilder();
-		ApiV1HttpHandler apiV1HttpHandler = new ApiV1HttpHandler(builder.dataState, builder.domainModel, builder.createInformationMessageList(), executorService);
+		ApiV1HttpHandler apiV1HttpHandler = new ApiV1HttpHandler(builder.dataState, builder.domainModel,
+				builder.createInformationMessageList(), executorService);
 
 		builder.setClipboard("/execute in minecraft:the_nether run tp @s -217.82 85.00 6.88 -133.68 81.14");
 
@@ -169,22 +171,21 @@ public class ApiV1IntegrationTests {
 		// Assert
 		Assertions.assertEquals(HttpURLConnection.HTTP_OK, exchange.getResponseCode());
 
-//		System.out.println(exchange.getResponseBodyAsString());
-		String expectedResult =
-				("{" +
-				 "    \"isBlindModeEnabled\": true," +
-				 "    \"hasDivine\": false," +
-				 "    \"blindResult\": {" +
-				 "        \"evaluation\": \"HIGHROLL_GOOD\"," +
-				 "        \"xInNether\": -217.82," +
-				 "        \"improveDistance\": 8.071372233935255," +
-				 "        \"zInNether\": 6.88," +
-				 "        \"averageDistance\": 1086.9952915836398," +
-				 "        \"improveDirection\": 1.5392211114431098," +
-				 "        \"highrollProbability\": 0.10072320582001268," +
-				 "        \"highrollThreshold\": 400" +
-				 "    }" +
-				 "}").replaceAll("\\s+", "");
+		// System.out.println(exchange.getResponseBodyAsString());
+		String expectedResult = ("{" +
+				"    \"isBlindModeEnabled\": true," +
+				"    \"hasDivine\": false," +
+				"    \"blindResult\": {" +
+				"        \"evaluation\": \"HIGHROLL_GOOD\"," +
+				"        \"xInNether\": -217.82," +
+				"        \"improveDistance\": 8.071372233935255," +
+				"        \"zInNether\": 6.88," +
+				"        \"averageDistance\": 1086.9952915836398," +
+				"        \"improveDirection\": 1.5392211114431098," +
+				"        \"highrollProbability\": 0.10072320582001267," +
+				"        \"highrollThreshold\": 400" +
+				"    }" +
+				"}").replaceAll("\\s+", "");
 		Assertions.assertEquals(expectedResult, exchange.getResponseBodyAsString());
 	}
 
@@ -194,7 +195,8 @@ public class ApiV1IntegrationTests {
 		TestHttpExchange exchange = new TestHttpExchange("/api/v1/divine");
 		ExecutorService executorService = Executors.newSingleThreadExecutor();
 		IntegrationTestBuilder builder = new IntegrationTestBuilder();
-		ApiV1HttpHandler apiV1HttpHandler = new ApiV1HttpHandler(builder.dataState, builder.domainModel, builder.createInformationMessageList(), executorService);
+		ApiV1HttpHandler apiV1HttpHandler = new ApiV1HttpHandler(builder.dataState, builder.domainModel,
+				builder.createInformationMessageList(), executorService);
 
 		builder.setClipboard("/setblock 5 73 0 minecraft:bone_block[axis=y]");
 
@@ -204,16 +206,15 @@ public class ApiV1IntegrationTests {
 		// Assert
 		Assertions.assertEquals(HttpURLConnection.HTTP_OK, exchange.getResponseCode());
 
-//		System.out.println(exchange.getResponseBodyAsString());
-		String expectedResult =
-				("{" +
-				 "    \"isDivineModeEnabled\": true," +
-				 "    \"divineResult\": {" +
-				 "        \"formattedSafeCoords\": \"(-142, 213), (-113, -230), (255, 17)\"," +
-				 "        \"formattedHighrollCoords\": \"(-106, 158), (-84, -170), (190, 12)\"," +
-				 "        \"fossilXCoordinate\": 5" +
-				 "    }" +
-				 "}").replaceAll("\\s+", "");
+		// System.out.println(exchange.getResponseBodyAsString());
+		String expectedResult = ("{" +
+				"    \"isDivineModeEnabled\": true," +
+				"    \"divineResult\": {" +
+				"        \"formattedSafeCoords\": \"(-142, 213), (-113, -230), (255, 17)\"," +
+				"        \"formattedHighrollCoords\": \"(-106, 158), (-84, -170), (190, 12)\"," +
+				"        \"fossilXCoordinate\": 5" +
+				"    }" +
+				"}").replaceAll("\\s+", "");
 		Assertions.assertEquals(expectedResult, exchange.getResponseBodyAsString().replaceAll("\\s+", ""));
 	}
 
@@ -223,7 +224,8 @@ public class ApiV1IntegrationTests {
 		TestHttpExchange exchange = new TestHttpExchange("/api/v1/boat");
 		ExecutorService executorService = Executors.newSingleThreadExecutor();
 		IntegrationTestBuilder builder = new IntegrationTestBuilder().withBoatSettings();
-		ApiV1HttpHandler apiV1HttpHandler = new ApiV1HttpHandler(builder.dataState, builder.domainModel, builder.createInformationMessageList(), executorService);
+		ApiV1HttpHandler apiV1HttpHandler = new ApiV1HttpHandler(builder.dataState, builder.domainModel,
+				builder.createInformationMessageList(), executorService);
 
 		builder.triggerHotkey(builder.preferences.hotkeyBoat);
 		builder.setClipboard("/execute in minecraft:overworld run tp @s 1274.04 92.55 1064.56 -77.34375 32.82");
@@ -234,12 +236,11 @@ public class ApiV1IntegrationTests {
 		// Assert
 		Assertions.assertEquals(HttpURLConnection.HTTP_OK, exchange.getResponseCode());
 
-//		System.out.println(exchange.getResponseBodyAsString());
-		String expectedResult =
-				("{" +
-				 "    \"boatAngle\": -77.34375," +
-				 "    \"boatState\": \"VALID\"" +
-				 "}").replaceAll("\\s+", "");
+		// System.out.println(exchange.getResponseBodyAsString());
+		String expectedResult = ("{" +
+				"    \"boatAngle\": -77.34375," +
+				"    \"boatState\": \"VALID\"" +
+				"}").replaceAll("\\s+", "");
 		Assertions.assertEquals(expectedResult, exchange.getResponseBodyAsString());
 	}
 
@@ -252,9 +253,11 @@ public class ApiV1IntegrationTests {
 				.withProSettings()
 				.withAllInformationMessagesSettings()
 				.withMcVersionSetting(McVersion.PRE_119);
-		ApiV1HttpHandler apiV1HttpHandler = new ApiV1HttpHandler(builder.dataState, builder.domainModel, builder.createInformationMessageList(), executorService);
+		ApiV1HttpHandler apiV1HttpHandler = new ApiV1HttpHandler(builder.dataState, builder.domainModel,
+				builder.createInformationMessageList(), executorService);
 
-		builder.setActiveMinecraftWorld(new MinecraftWorldFile(new MinecraftInstance("directory"), "worldName"), McVersion.POST_119);
+		builder.setActiveMinecraftWorld(new MinecraftWorldFile(new MinecraftInstance("directory"), "worldName"),
+				McVersion.POST_119);
 		builder.setClipboard("/execute in minecraft:overworld run tp @s 2408 65.00 8 0 -31.87");
 		builder.setClipboard("/execute in minecraft:overworld run tp @s 2408 65.00 9 0.02 -31.87");
 
@@ -265,36 +268,40 @@ public class ApiV1IntegrationTests {
 		Assertions.assertEquals(HttpURLConnection.HTTP_OK, exchange.getResponseCode());
 
 		System.out.println(exchange.getResponseBodyAsString());
-		String expectedResult =
-				("{\n" +
-				 "   \"informationMessages\":[\n" +
-				 "      {\n" +
-				 "         \"severity\":\"WARNING\",\n" +
-				 "         \"type\":\"MC_VERSION\",\n" +
-				 "         \"message\":\"Detected wrong Minecraft version, make sure the correct version is chosen in the settings.\"\n" +
-				 "      },\n" +
-				 "      {\n" +
-				 "         \"severity\":\"WARNING\",\n" +
-				 "         \"type\":\"PORTAL_LINKING\",\n" +
-				 "         \"message\":\"You might not be able to nether travel into the stronghold due to portal linking.\"\n" +
-				 "      },\n" +
-				 "      {\n" +
-				 "         \"severity\":\"WARNING\",\n" +
-				 "         \"type\":\"MISMEASURE\",\n" +
-				 "         \"message\":\"Detected unusually large errors, you probably mismeasured or your standard deviation is too low.\"\n" +
-				 "      },\n" +
-				 "      {\n" +
-				 "         \"severity\":\"INFO\",\n" +
-				 "         \"type\":\"COMBINED_CERTAINTY\",\n" +
-				 "         \"message\":\"Nether coords (300, 3) have <span style=\\\"color:#00CE29;\\\">86.1%<\\/span> chance to hit the stronghold (it is between the top 2 offsets).\"\n" +
-				 "      },\n" +
-				 "      {\n" +
-				 "         \"severity\":\"INFO\",\n" +
-				 "         \"type\":\"NEXT_THROW_DIRECTION\",\n" +
-				 "         \"message\":\"Go left 1 blocks, or right 1 blocks, for ~95% certainty after next measurement.\"\n" +
-				 "      }\n" +
-				 "   ]\n" +
-				 "}").replaceAll("\\s+", "");
+		String expectedResult = ("{\n" +
+				"   \"informationMessages\":[\n" +
+				"      {\n" +
+				"         \"severity\":\"WARNING\",\n" +
+				"         \"type\":\"MC_VERSION\",\n" +
+				"         \"message\":\"Detected wrong Minecraft version, make sure the correct version is chosen in the settings.\"\n"
+				+
+				"      },\n" +
+				"      {\n" +
+				"         \"severity\":\"WARNING\",\n" +
+				"         \"type\":\"PORTAL_LINKING\",\n" +
+				"         \"message\":\"You might not be able to nether travel into the stronghold due to portal linking.\"\n"
+				+
+				"      },\n" +
+				"      {\n" +
+				"         \"severity\":\"WARNING\",\n" +
+				"         \"type\":\"MISMEASURE\",\n" +
+				"         \"message\":\"Detected unusually large errors, you probably mismeasured or your standard deviation is too low.\"\n"
+				+
+				"      },\n" +
+				"      {\n" +
+				"         \"severity\":\"INFO\",\n" +
+				"         \"type\":\"COMBINED_CERTAINTY\",\n" +
+				"         \"message\":\"Nether coords (300, 3) have <span style=\\\"color:#00CE29;\\\">86.1%<\\/span> chance to hit the stronghold (it is between the top 2 offsets).\"\n"
+				+
+				"      },\n" +
+				"      {\n" +
+				"         \"severity\":\"INFO\",\n" +
+				"         \"type\":\"NEXT_THROW_DIRECTION\",\n" +
+				"         \"message\":\"Go left 1 blocks, or right 1 blocks, for ~95% certainty after next measurement.\"\n"
+				+
+				"      }\n" +
+				"   ]\n" +
+				"}").replaceAll("\\s+", "");
 		Assertions.assertEquals(expectedResult, exchange.getResponseBodyAsString().replaceAll("\\s+", ""));
 	}
 
@@ -304,7 +311,8 @@ public class ApiV1IntegrationTests {
 		TestHttpExchange exchange = new TestHttpExchange("/api/v1/version");
 		ExecutorService executorService = Executors.newSingleThreadExecutor();
 		IntegrationTestBuilder builder = new IntegrationTestBuilder().withBoatSettings();
-		ApiV1HttpHandler apiV1HttpHandler = new ApiV1HttpHandler(builder.dataState, builder.domainModel, builder.createInformationMessageList(), executorService);
+		ApiV1HttpHandler apiV1HttpHandler = new ApiV1HttpHandler(builder.dataState, builder.domainModel,
+				builder.createInformationMessageList(), executorService);
 
 		// Act
 		apiV1HttpHandler.handle(exchange);
@@ -312,11 +320,10 @@ public class ApiV1IntegrationTests {
 		// Assert
 		Assertions.assertEquals(HttpURLConnection.HTTP_OK, exchange.getResponseCode());
 
-//		System.out.println(exchange.getResponseBodyAsString());
-		String expectedResult =
-				("{" +
-				 "    \"version\": \"" + Main.VERSION + "\"" +
-				 "}").replaceAll("\\s+", "");
+		// System.out.println(exchange.getResponseBodyAsString());
+		String expectedResult = ("{" +
+				"    \"version\": \"" + Main.VERSION + "\"" +
+				"}").replaceAll("\\s+", "");
 		Assertions.assertEquals(expectedResult, exchange.getResponseBodyAsString());
 	}
 
@@ -326,13 +333,14 @@ public class ApiV1IntegrationTests {
 		TestHttpExchange exchange = new TestHttpExchange("/api/v1/ping");
 		ExecutorService executorService = Executors.newSingleThreadExecutor();
 		IntegrationTestBuilder builder = new IntegrationTestBuilder().withBoatSettings();
-		ApiV1HttpHandler apiV1HttpHandler = new ApiV1HttpHandler(builder.dataState, builder.domainModel, builder.createInformationMessageList(), executorService);
+		ApiV1HttpHandler apiV1HttpHandler = new ApiV1HttpHandler(builder.dataState, builder.domainModel,
+				builder.createInformationMessageList(), executorService);
 
 		// Act
 		apiV1HttpHandler.handle(exchange);
 
 		// Assert
-//		System.out.println(exchange.getResponseBodyAsString());
+		// System.out.println(exchange.getResponseBodyAsString());
 		Assertions.assertEquals(HttpURLConnection.HTTP_OK, exchange.getResponseCode());
 
 		String expectedResult = "Strongy HTTP server is active!";
@@ -345,7 +353,8 @@ public class ApiV1IntegrationTests {
 		TestHttpExchange exchange = new TestHttpExchange("/api/v1/boat/events");
 		ExecutorService executorService = Executors.newSingleThreadExecutor();
 		IntegrationTestBuilder builder = new IntegrationTestBuilder().withBoatSettings();
-		ApiV1HttpHandler apiV1HttpHandler = new ApiV1HttpHandler(builder.dataState, builder.domainModel, builder.createInformationMessageList(), executorService);
+		ApiV1HttpHandler apiV1HttpHandler = new ApiV1HttpHandler(builder.dataState, builder.domainModel,
+				builder.createInformationMessageList(), executorService);
 
 		// Act 1
 		apiV1HttpHandler.handle(exchange);
@@ -361,8 +370,8 @@ public class ApiV1IntegrationTests {
 
 		// Assert 2
 		String expectedResult = "data: {\"boatState\":\"NONE\"}\n" +
-								"\n" +
-								"data: {\"boatState\":\"MEASURING\"}\n\n";
+				"\n" +
+				"data: {\"boatState\":\"MEASURING\"}\n\n";
 		Assertions.assertEquals(expectedResult, exchange.getResponseBodyAsString());
 	}
 
@@ -372,7 +381,8 @@ public class ApiV1IntegrationTests {
 		TestHttpExchange exchange = new TestHttpExchange("/api/v1/boat/events");
 		ExecutorService executorService = Executors.newSingleThreadExecutor();
 		IntegrationTestBuilder builder = new IntegrationTestBuilder().withBoatSettings();
-		ApiV1HttpHandler apiV1HttpHandler = new ApiV1HttpHandler(builder.dataState, builder.domainModel, builder.createInformationMessageList(), executorService);
+		ApiV1HttpHandler apiV1HttpHandler = new ApiV1HttpHandler(builder.dataState, builder.domainModel,
+				builder.createInformationMessageList(), executorService);
 
 		// Act 1
 		apiV1HttpHandler.handle(exchange);
@@ -393,7 +403,8 @@ public class ApiV1IntegrationTests {
 	}
 
 	/**
-	 * Important test because information messages are updated after domain model, so need to make sure the changes happen before API updates.
+	 * Important test because information messages are updated after domain model,
+	 * so need to make sure the changes happen before API updates.
 	 */
 	@Test
 	void subscribeInformationMessage_includesAllMessages() throws IOException, InterruptedException {
@@ -403,7 +414,8 @@ public class ApiV1IntegrationTests {
 		IntegrationTestBuilder builder = new IntegrationTestBuilder()
 				.withProSettings()
 				.withAllInformationMessagesSettings();
-		ApiV1HttpHandler apiV1HttpHandler = new ApiV1HttpHandler(builder.dataState, builder.domainModel, builder.createInformationMessageList(), executorService);
+		ApiV1HttpHandler apiV1HttpHandler = new ApiV1HttpHandler(builder.dataState, builder.domainModel,
+				builder.createInformationMessageList(), executorService);
 
 		// Act 1
 		apiV1HttpHandler.handle(exchange);
@@ -418,33 +430,36 @@ public class ApiV1IntegrationTests {
 		executorService.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
 
 		// Assert 2
-		String expectedResult =
-				("data: {\"informationMessages\":[]}\n" +
-				 "\n" +
-				 "data: {\n" +
-				 "   \"informationMessages\":[\n" +
-				 "      {\n" +
-				 "         \"severity\":\"WARNING\",\n" +
-				 "         \"type\":\"MISMEASURE\",\n" +
-				 "         \"message\":\"Detected unusually large errors, you probably mismeasured or your standard deviation is too low.\"\n" +
-				 "      },\n" +
-				 "      {\n" +
-				 "         \"severity\":\"WARNING\",\n" +
-				 "         \"type\":\"PORTAL_LINKING\",\n" +
-				 "         \"message\":\"You might not be able to nether travel into the stronghold due to portal linking.\"\n" +
-				 "      },\n" +
-				 "      {\n" +
-				 "         \"severity\":\"INFO\",\n" +
-				 "         \"type\":\"COMBINED_CERTAINTY\",\n" +
-				 "         \"message\":\"Nether coords (300, 3) have <span style=\\\"color:#00CE29;\\\">86.0%<\\/span> chance to hit the stronghold (it is between the top 2 offsets).\"\n" +
-				 "      },\n" +
-				 "      {\n" +
-				 "         \"severity\":\"INFO\",\n" +
-				 "         \"type\":\"NEXT_THROW_DIRECTION\",\n" +
-				 "         \"message\":\"Go left 1 blocks, or right 1 blocks, for ~95% certainty after next measurement.\"\n" +
-				 "      }\n" +
-				 "   ]\n" +
-				 "}").replaceAll("\\s+", "");
+		String expectedResult = ("data: {\"informationMessages\":[]}\n" +
+				"\n" +
+				"data: {\n" +
+				"   \"informationMessages\":[\n" +
+				"      {\n" +
+				"         \"severity\":\"WARNING\",\n" +
+				"         \"type\":\"MISMEASURE\",\n" +
+				"         \"message\":\"Detected unusually large errors, you probably mismeasured or your standard deviation is too low.\"\n"
+				+
+				"      },\n" +
+				"      {\n" +
+				"         \"severity\":\"WARNING\",\n" +
+				"         \"type\":\"PORTAL_LINKING\",\n" +
+				"         \"message\":\"You might not be able to nether travel into the stronghold due to portal linking.\"\n"
+				+
+				"      },\n" +
+				"      {\n" +
+				"         \"severity\":\"INFO\",\n" +
+				"         \"type\":\"COMBINED_CERTAINTY\",\n" +
+				"         \"message\":\"Nether coords (300, 3) have <span style=\\\"color:#00CE29;\\\">86.0%<\\/span> chance to hit the stronghold (it is between the top 2 offsets).\"\n"
+				+
+				"      },\n" +
+				"      {\n" +
+				"         \"severity\":\"INFO\",\n" +
+				"         \"type\":\"NEXT_THROW_DIRECTION\",\n" +
+				"         \"message\":\"Go left 1 blocks, or right 1 blocks, for ~95% certainty after next measurement.\"\n"
+				+
+				"      }\n" +
+				"   ]\n" +
+				"}").replaceAll("\\s+", "");
 		Assertions.assertEquals(expectedResult, exchange.getResponseBodyAsString().replaceAll("\\s+", ""));
 	}
 

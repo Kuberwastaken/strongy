@@ -3,7 +3,8 @@ package strongy.util;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Iterator;
 
-import javax.swing.SwingUtilities;
+import javafx.application.Platform;
+import java.util.concurrent.CountDownLatch;
 
 import strongy.gui.style.SizePreference;
 import strongy.gui.style.StyleManager;
@@ -60,6 +61,11 @@ public class TestUtils {
 	}
 
 	public static StyleManager createStyleManager() {
+		try {
+			Platform.startup(() -> {
+			});
+		} catch (Exception ignored) {
+		}
 		return new StyleManager(new TestTheme(), SizePreference.REGULAR);
 	}
 
@@ -71,9 +77,10 @@ public class TestUtils {
 
 	public static void awaitSwingEvents() {
 		try {
-			SwingUtilities.invokeAndWait(() -> {
-			});
-		} catch (InterruptedException | InvocationTargetException e) {
+			CountDownLatch latch = new CountDownLatch(1);
+			Platform.runLater(latch::countDown);
+			latch.await();
+		} catch (InterruptedException e) {
 			throw new RuntimeException(e);
 		}
 	}

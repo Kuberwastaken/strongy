@@ -9,8 +9,7 @@ public class EnderEyePanelTestAdapter {
 	}
 
 	public ThrowPanelTestAdapter getPanel(int index) {
-		return new ThrowPanelTestAdapter(enderEyePanel.throwPanels[index]);
+		return new ThrowPanelTestAdapter((ThrowPanel) enderEyePanel.throwsList.getChildren().get(index));
 	}
-
 
 }

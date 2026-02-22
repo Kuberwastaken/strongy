@@ -2,7 +2,7 @@ package strongy.integrationtests;
 
 import java.util.Locale;
 
-import javax.swing.SwingUtilities;
+import javafx.application.Platform;
 
 import strongy.gui.frames.ThemeEditorDialog;
 import strongy.gui.frames.ThemedDialog;
@@ -23,8 +23,10 @@ public class ThemeEditorIntegrationTests {
 
 		// Act + Assert
 		try {
-			SwingUtilities.invokeAndWait(() -> {
-				ThemedDialog dialog = new ThemeEditorDialog(TestUtils.createStyleManager(), integrationTestBuilder.preferences, null, new CustomTheme());
+
+			Platform.runLater(() -> {
+				ThemeEditorDialog dialog = new ThemeEditorDialog(TestUtils.createStyleManager(),
+						integrationTestBuilder.preferences, null, new CustomTheme());
 			});
 		} catch (Exception e) {
 			Assertions.fail(e);

@@ -1,99 +1,152 @@
 package strongy.gui.frames;
 
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
-import java.net.URL;
-
-import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import strongy.Main;
 import strongy.event.DisposeHandler;
 import strongy.event.IDisposable;
-import strongy.gui.buttons.FlatButton;
-import strongy.gui.buttons.TitleBarButton;
-import strongy.gui.components.RefreshWindowOnMonitorChangeListener;
-import strongy.gui.components.labels.ThemedLabel;
-import strongy.gui.components.panels.TitleBarPanel;
-import strongy.gui.style.SizePreference;
 import strongy.gui.style.StyleManager;
-import strongy.gui.style.theme.WrappedColor;
 import strongy.io.preferences.StrongyPreferences;
 
-public abstract class ThemedFrame extends JFrame implements IDisposable {
+import java.io.InputStream;
 
-	protected final TitleBarPanel titlebarPanel;
-	protected final ThemedLabel titletextLabel;
+/**
+ * Base class for themed JavaFX windows (replaces Swing ThemedFrame which
+ * extended JFrame).
+ */
+public abstract class ThemedFrame implements IDisposable {
 
-	final WrappedColor bgCol;
+	protected final Stage stage;
+	protected final VBox root;
+	protected final HBox titleBar;
+	protected final Label titleLabel;
+	protected final StyleManager styleManager;
 
 	protected final DisposeHandler disposeHandler = new DisposeHandler();
-	private final StyleManager styleManager;
+
+	// For window dragging
+	private double dragOffsetX;
+	private double dragOffsetY;
 
 	public ThemedFrame(StyleManager styleManager, StrongyPreferences preferences, String title) {
-		super(title);
 		this.styleManager = styleManager;
-		styleManager.registerThemedFrame(this);
-		setUndecorated(true); // Remove borders
-		setAlwaysOnTop(preferences.alwaysOnTop.get()); // Always focused
-		setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
-		titlebarPanel = new TitleBarPanel(styleManager, this);
-		add(titlebarPanel);
-		titletextLabel = new ThemedLabel(styleManager, title, true) {
-			@Override
-			public int getTextSize(SizePreference p) {
-				return p.TEXT_SIZE_TITLE_LARGE;
+		this.stage = new Stage(StageStyle.UNDECORATED);
+		stage.setTitle(title);
+		stage.setAlwaysOnTop(preferences.alwaysOnTop.get());
+
+		// Set icon
+		try {
+			InputStream is = Main.class.getResourceAsStream("/icon.png");
+			if (is != null) {
+				stage.getIcons().add(new Image(is));
 			}
-		};
-		titletextLabel.setForegroundColor(styleManager.currentTheme.TEXT_COLOR_TITLE);
-		titlebarPanel.add(titletextLabel);
-		titlebarPanel.addButton(createExitButton(styleManager));
+		} catch (Exception ignored) {
+		}
 
-		bgCol = styleManager.currentTheme.COLOR_NEUTRAL;
+		// Root layout
+		root = new VBox();
+		root.getStyleClass().add("themed-panel");
 
-		addComponentListener(new RefreshWindowOnMonitorChangeListener(this));
+		// Title bar
+		titleBar = new HBox();
+		titleBar.getStyleClass().add("title-bar");
+		titleBar.setAlignment(Pos.CENTER_LEFT);
+
+		// Drag support
+		titleBar.setOnMousePressed(e -> {
+			dragOffsetX = e.getScreenX() - stage.getX();
+			dragOffsetY = e.getScreenY() - stage.getY();
+		});
+		titleBar.setOnMouseDragged(e -> {
+			stage.setX(e.getScreenX() - dragOffsetX);
+			stage.setY(e.getScreenY() - dragOffsetY);
+		});
+
+		// Title text
+		titleLabel = new Label(title);
+		titleLabel.getStyleClass().add("title-text");
+
+		// Spacer
+		Region spacer = new Region();
+		HBox.setHgrow(spacer, Priority.ALWAYS);
+
+		// Exit button
+		Button exitButton = createExitButton();
+
+		titleBar.getChildren().addAll(titleLabel, spacer, exitButton);
+		root.getChildren().add(titleBar);
 	}
 
-	private FlatButton createExitButton(StyleManager styleManager) {
-		URL iconURL = Main.class.getResource("/exit_icon.png");
-		ImageIcon img = new ImageIcon(iconURL);
-		FlatButton button = new TitleBarButton(styleManager, img);
-		button.setHoverColor(styleManager.currentTheme.COLOR_EXIT_BUTTON_HOVER);
-		button.addActionListener(__ -> onExitButtonClicked());
+	private Button createExitButton() {
+		Button button = new Button("✕");
+		button.getStyleClass().addAll("title-bar-button", "exit-button");
+		button.setOnAction(e -> onExitButtonClicked());
 		return button;
 	}
 
 	protected abstract void onExitButtonClicked();
 
-	public TitleBarPanel getTitleBar() {
-		return titlebarPanel;
+	public Stage getStage() {
+		return stage;
 	}
 
-	public void updateBounds(StyleManager styleManager) {
-		int titlebarHeight = titlebarPanel.getPreferredSize().height;
-		titletextLabel.setBounds((titlebarHeight - styleManager.size.TEXT_SIZE_TITLE_LARGE) / 2, 0, titletextLabel.getPreferredSize().width, titlebarHeight);
+	public VBox getRoot() {
+		return root;
 	}
 
-	public void updateFontsAndColors() {
-		getContentPane().setBackground(bgCol.color());
-		setBackground(bgCol.color());
+	public HBox getTitleBar() {
+		return titleBar;
+	}
+
+	public void setVisible(boolean visible) {
+		if (visible) {
+			stage.show();
+		} else {
+			stage.hide();
+		}
+	}
+
+	public boolean isVisible() {
+		return stage.isShowing();
+	}
+
+	public int getX() {
+		return (int) stage.getX();
+	}
+
+	public int getY() {
+		return (int) stage.getY();
+	}
+
+	public void setLocation(int x, int y) {
+		stage.setX(x);
+		stage.setY(y);
 	}
 
 	public void checkIfOffScreen() {
-		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-		for (GraphicsDevice gd : ge.getScreenDevices()) {
-			if (gd.getDefaultConfiguration().getBounds().contains(getBounds())) {
-				return;
-			}
+		javafx.stage.Screen primary = javafx.stage.Screen.getPrimary();
+		javafx.geometry.Rectangle2D bounds = primary.getVisualBounds();
+		if (stage.getX() < bounds.getMinX() || stage.getX() > bounds.getMaxX()
+				|| stage.getY() < bounds.getMinY() || stage.getY() > bounds.getMaxY()) {
+			stage.setX(100);
+			stage.setY(100);
 		}
-		setLocation(100, 100);
 	}
 
 	@Override
 	public void dispose() {
-		super.dispose();
 		disposeHandler.dispose();
+		stage.close();
 	}
-
 }

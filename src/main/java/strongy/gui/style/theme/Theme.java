@@ -1,6 +1,7 @@
 package strongy.gui.style.theme;
 
-import java.awt.Color;
+import javafx.scene.paint.Color;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -195,6 +196,38 @@ public abstract class Theme {
 
 	public ISubscribable<String> whenNameChanged() {
 		return name;
+	}
+
+	/**
+	 * Generate a CSS override string from this theme's colors.
+	 */
+	public String toCssString() {
+		if (!loaded)
+			loadTheme();
+		StringBuilder sb = new StringBuilder();
+		sb.append(".root {\n");
+		sb.append("  -strongy-bg-strongest: ").append(COLOR_STRONGEST.hex()).append(";\n");
+		sb.append("  -strongy-bg-strong: ").append(COLOR_STRONG.hex()).append(";\n");
+		sb.append("  -strongy-bg-slightly-strong: ").append(COLOR_SLIGHTLY_STRONG.hex()).append(";\n");
+		sb.append("  -strongy-bg-neutral: ").append(COLOR_NEUTRAL.hex()).append(";\n");
+		sb.append("  -strongy-bg-slightly-weak: ").append(COLOR_SLIGHTLY_WEAK.hex()).append(";\n");
+		sb.append("  -strongy-bg-divider: ").append(COLOR_DIVIDER.hex()).append(";\n");
+		sb.append("  -strongy-bg-divider-dark: ").append(COLOR_DIVIDER_DARK.hex()).append(";\n");
+		sb.append("  -strongy-text-title: ").append(TEXT_COLOR_TITLE.hex()).append(";\n");
+		sb.append("  -strongy-text-header: ").append(TEXT_COLOR_HEADER.hex()).append(";\n");
+		sb.append("  -strongy-text-slightly-strong: ").append(TEXT_COLOR_SLIGHTLY_STRONG.hex()).append(";\n");
+		sb.append("  -strongy-text-neutral: ").append(TEXT_COLOR_NEUTRAL.hex()).append(";\n");
+		sb.append("  -strongy-text-slightly-weak: ").append(TEXT_COLOR_SLIGHTLY_WEAK.hex()).append(";\n");
+		sb.append("  -strongy-text-weak: ").append(TEXT_COLOR_WEAK.hex()).append(";\n");
+		sb.append("  -strongy-accent: ").append(COLOR_SATURATED.hex()).append(";\n");
+		sb.append("  -strongy-positive: ").append(COLOR_POSITIVE.hex()).append(";\n");
+		sb.append("  -strongy-negative: ").append(COLOR_NEGATIVE.hex()).append(";\n");
+		sb.append("  -strongy-exit-hover: ").append(COLOR_EXIT_BUTTON_HOVER.hex()).append(";\n");
+		sb.append("  -strongy-gradient-0: ").append(COLOR_GRADIENT_0.hex()).append(";\n");
+		sb.append("  -strongy-gradient-50: ").append(COLOR_GRADIENT_50.hex()).append(";\n");
+		sb.append("  -strongy-gradient-100: ").append(COLOR_GRADIENT_100.hex()).append(";\n");
+		sb.append("}\n");
+		return sb.toString();
 	}
 
 	protected abstract void loadTheme();

@@ -1,38 +1,23 @@
 package strongy.gui.components.layout;
 
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-
-import javax.swing.Box;
-import javax.swing.JComponent;
-
-import strongy.gui.components.labels.ThemedLabel;
-import strongy.gui.components.panels.ThemedPanel;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 import strongy.gui.style.StyleManager;
 
-public class LabeledField extends ThemedPanel {
+/**
+ * A layout component that pairs a label with another Node.
+ */
+public class LabeledField extends HBox {
 
-	public LabeledField(StyleManager styleManager, String label, JComponent component, boolean stretchComponent) {
-		super(styleManager);
-		setLayout(new GridBagLayout());
-		GridBagConstraints gbc = new GridBagConstraints();
+	public LabeledField(StyleManager styleManager, String labelText, Node field) {
+		setAlignment(Pos.CENTER_LEFT);
+		setSpacing(8);
 
-		gbc.anchor = GridBagConstraints.WEST;
-		gbc.fill = GridBagConstraints.HORIZONTAL;
-		gbc.gridx = GridBagConstraints.RELATIVE;
-		gbc.gridy = 0;
-		gbc.ipadx = 5;
-		gbc.weightx = 0;
-		add(new ThemedLabel(styleManager, label), gbc);
+		Label label = new Label(labelText);
+		label.getStyleClass().add("themed-label-strong");
 
-		if (stretchComponent) {
-			gbc.weightx = 1;
-			add(component, gbc);
-		} else {
-			add(component, gbc);
-			gbc.weightx = 1;
-			gbc.ipadx = 0;
-			add(Box.createGlue(), gbc);
-		}
+		getChildren().addAll(label, field);
 	}
 }

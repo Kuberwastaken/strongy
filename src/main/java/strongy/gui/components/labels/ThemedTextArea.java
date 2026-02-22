@@ -1,77 +1,24 @@
 package strongy.gui.components.labels;
 
-import java.awt.Color;
-import java.awt.Dimension;
-
-import javax.swing.JTextArea;
-
+import javafx.scene.control.TextArea;
 import strongy.gui.components.ThemedComponent;
-import strongy.gui.style.SizePreference;
 import strongy.gui.style.StyleManager;
-import strongy.gui.style.theme.WrappedColor;
 
-public class ThemedTextArea extends JTextArea implements ThemedComponent {
-
-	public final boolean bold;
-
-	private WrappedColor bgCol;
-	private WrappedColor fgCol;
+/**
+ * A themed multi-line text area — JavaFX replacement.
+ */
+public class ThemedTextArea extends TextArea implements ThemedComponent {
 
 	public ThemedTextArea(StyleManager styleManager) {
-		this(styleManager, "");
+		getStyleClass().add("themed-text-field");
+		setEditable(false);
+		setWrapText(true);
 	}
 
 	public ThemedTextArea(StyleManager styleManager, String text) {
-		this(styleManager, text, false);
-	}
-
-	public ThemedTextArea(StyleManager styleManager, String text, boolean bold) {
 		super(text);
-		styleManager.registerThemedComponent(this);
-		this.bold = bold;
+		getStyleClass().add("themed-text-field");
 		setEditable(false);
-		setLineWrap(false);
-
-		bgCol = styleManager.currentTheme.COLOR_HEADER;
-		fgCol = styleManager.currentTheme.TEXT_COLOR_HEADER;
+		setWrapText(true);
 	}
-
-	public void updateSize(StyleManager styleManager) {
-		setFont(styleManager.fontSize(getTextSize(styleManager.size), !bold));
-	}
-
-	public void updateColors() {
-		Color bg = getBackgroundColor();
-		if (bg != null)
-			setBackground(bg);
-		Color fg = getForegroundColor();
-		if (fg != null)
-			setForeground(fg);
-	}
-
-	public int getTextSize(SizePreference p) {
-		return p.TEXT_SIZE_SMALL;
-	}
-
-	public void setBackgroundColor(WrappedColor color) {
-		bgCol = color;
-	}
-
-	public void setForegroundColor(WrappedColor color) {
-		fgCol = color;
-	}
-
-	protected Color getBackgroundColor() {
-		return bgCol.color();
-	}
-
-	protected Color getForegroundColor() {
-		return fgCol.color();
-	}
-
-	@Override
-	public Dimension getPreferredSize() {
-		return new Dimension(0, super.getPreferredSize().height);
-	}
-
 }

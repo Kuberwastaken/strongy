@@ -1,0 +1,130 @@
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/StrongyFrame.java:[109,75] unmappable character (0x8F) for encoding windows-1252
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/options/sections/OptionalFeaturesPanel.java:[9,8] duplicate class: strongy.gui.options.OptionalFeaturesPanel
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/OptionsFrame.java:[14,36] cannot access strongy.gui.options.sections.OptionalFeaturesPanel
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/StrongyFrame.java:[69,29] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/mainwindow/alladvancements/StructurePanel.java:[7,47] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/mainwindow/alladvancements/StructurePanel.java:[10,58] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/themeeditor/panels/ConfigurableColorPanel.java:[8,107] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/mainwindow/boateye/BoatIcon.java:[10,83] package strongy.model.datastate.boateye does not exist
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/components/preferences/RadioButtonPanel.java:[10,30] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/components/preferences/RadioButtonPanel.java:[11,30] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/components/preferences/RadioButtonPanel.java:[17,73] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/mainwindow/information/InformationTextPanel.java:[12,33] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/mainwindow/information/InformationTextPanel.java:[42,36] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/GUI.java:[144,51] incompatible types: strongy.gui.frames.StrongyFrame cannot be converted to javax.swing.JFrame
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/StrongyFrame.java:[160,61] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/StrongyFrame.java:[160,69] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/StrongyFrame.java:[160,77] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/OptionsFrame.java:[36,17] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/OptionsFrame.java:[38,17] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/OptionsFrame.java:[46,79] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/OptionsFrame.java:[49,17] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/OptionsFrame.java:[52,88] invalid method reference
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/OptionsFrame.java:[58,38] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/OptionsFrame.java:[59,45] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/OptionsFrame.java:[60,17] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/OptionsFrame.java:[61,22] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/OptionsFrame.java:[62,27] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/OptionsFrame.java:[63,17] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/OptionsFrame.java:[64,60] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/OptionsFrame.java:[64,72] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/OptionsFrame.java:[64,17] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/io/overlay/OBSOverlay.java:[104,75] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/io/overlay/OBSOverlay.java:[104,100] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/io/overlay/OBSOverlay.java:[119,75] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/io/overlay/OBSOverlay.java:[119,100] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/io/overlay/OBSOverlay.java:[122,45] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/mainwindow/information/InformationListPanel.java:[18,75] incompatible types: strongy.event.IReadOnlyList<strongy.model.information.InformationMessage> cannot be converted to java.util.List<strongy.model.information.InformationMessage>
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/splash/Progress.java:[16,23] method setProgress in class strongy.gui.splash.Splash cannot be applied to given types;
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/splash/Progress.java:[21,23] method setProgress in class strongy.gui.splash.Splash cannot be applied to given types;
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/options/ThemePanel.java:[13,50] name has protected access in strongy.gui.style.theme.Theme
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/mainwindow/main/MainButtonPanel.java:[19,60] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/mainwindow/main/MainButtonPanel.java:[23,61] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/buttons/NotificationsButton.java:[26,58] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/buttons/NotificationsButton.java:[38,75] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/ThemedDialog.java:[39,29] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/ThemedDialog.java:[44,65] incompatible types: strongy.gui.frames.ThemedDialog cannot be converted to javafx.stage.Window
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/ThemedDialog.java:[45,17] no suitable method found for add(strongy.gui.components.panels.TitleBarPanel)
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/ThemedDialog.java:[54,30] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/ThemedDialog.java:[65,37] no suitable constructor found for TitleBarButton(strongy.gui.style.StyleManager,javax.swing.ImageIcon)
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/ThemedDialog.java:[67,23] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/ThemedDialog.java:[78,51] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/ThemedDialog.java:[79,123] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/ThemedDialog.java:[83,59] incompatible types: javafx.scene.paint.Color cannot be converted to java.awt.Color
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/ThemedDialog.java:[84,42] incompatible types: javafx.scene.paint.Color cannot be converted to java.awt.Color
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/ThemedDialog.java:[101,29] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/components/layout/TitledDivider.java:[14,17] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/components/layout/TitledDivider.java:[23,17] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/components/layout/TitledDivider.java:[25,17] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/components/layout/TitledDivider.java:[26,17] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/mainwindow/eyethrows/ThrowPanel.java:[14,60] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/mainwindow/eyethrows/ThrowPanel.java:[15,60] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/components/preferences/RadioButtonPanel.java:[29,22] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/mainwindow/information/InformationTextPanel.java:[44,30] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/mainwindow/information/InformationTextPanel.java:[45,30] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/mainwindow/information/InformationTextPanel.java:[46,30] constant string expression required
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/StrongyFrame.java:[109,75] unmappable character (0x8F) for encoding windows-1252
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/options/sections/OptionalFeaturesPanel.java:[9,8] duplicate class: strongy.gui.options.OptionalFeaturesPanel
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/OptionsFrame.java:[14,36] cannot access strongy.gui.options.sections.OptionalFeaturesPanel
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/StrongyFrame.java:[69,29] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/mainwindow/alladvancements/StructurePanel.java:[7,47] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/mainwindow/alladvancements/StructurePanel.java:[10,58] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/themeeditor/panels/ConfigurableColorPanel.java:[8,107] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/mainwindow/boateye/BoatIcon.java:[10,83] package strongy.model.datastate.boateye does not exist
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/components/preferences/RadioButtonPanel.java:[10,30] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/components/preferences/RadioButtonPanel.java:[11,30] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/components/preferences/RadioButtonPanel.java:[17,73] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/mainwindow/information/InformationTextPanel.java:[12,33] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/mainwindow/information/InformationTextPanel.java:[42,36] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/GUI.java:[144,51] incompatible types: strongy.gui.frames.StrongyFrame cannot be converted to javax.swing.JFrame
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/StrongyFrame.java:[160,61] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/StrongyFrame.java:[160,69] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/StrongyFrame.java:[160,77] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/OptionsFrame.java:[36,17] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/OptionsFrame.java:[38,17] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/OptionsFrame.java:[46,79] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/OptionsFrame.java:[49,17] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/OptionsFrame.java:[52,88] invalid method reference
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/OptionsFrame.java:[58,38] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/OptionsFrame.java:[59,45] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/OptionsFrame.java:[60,17] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/OptionsFrame.java:[61,22] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/OptionsFrame.java:[62,27] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/OptionsFrame.java:[63,17] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/OptionsFrame.java:[64,60] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/OptionsFrame.java:[64,72] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/OptionsFrame.java:[64,17] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/io/overlay/OBSOverlay.java:[104,75] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/io/overlay/OBSOverlay.java:[104,100] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/io/overlay/OBSOverlay.java:[119,75] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/io/overlay/OBSOverlay.java:[119,100] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/io/overlay/OBSOverlay.java:[122,45] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/mainwindow/information/InformationListPanel.java:[18,75] incompatible types: strongy.event.IReadOnlyList<strongy.model.information.InformationMessage> cannot be converted to java.util.List<strongy.model.information.InformationMessage>
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/splash/Progress.java:[16,23] method setProgress in class strongy.gui.splash.Splash cannot be applied to given types;
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/splash/Progress.java:[21,23] method setProgress in class strongy.gui.splash.Splash cannot be applied to given types;
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/options/ThemePanel.java:[13,50] name has protected access in strongy.gui.style.theme.Theme
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/mainwindow/main/MainButtonPanel.java:[19,60] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/mainwindow/main/MainButtonPanel.java:[23,61] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/buttons/NotificationsButton.java:[26,58] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/buttons/NotificationsButton.java:[38,75] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/ThemedDialog.java:[39,29] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/ThemedDialog.java:[44,65] incompatible types: strongy.gui.frames.ThemedDialog cannot be converted to javafx.stage.Window
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/ThemedDialog.java:[45,17] no suitable method found for add(strongy.gui.components.panels.TitleBarPanel)
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/ThemedDialog.java:[54,30] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/ThemedDialog.java:[65,37] no suitable constructor found for TitleBarButton(strongy.gui.style.StyleManager,javax.swing.ImageIcon)
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/ThemedDialog.java:[67,23] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/ThemedDialog.java:[78,51] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/ThemedDialog.java:[79,123] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/ThemedDialog.java:[83,59] incompatible types: javafx.scene.paint.Color cannot be converted to java.awt.Color
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/ThemedDialog.java:[84,42] incompatible types: javafx.scene.paint.Color cannot be converted to java.awt.Color
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/frames/ThemedDialog.java:[101,29] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/components/layout/TitledDivider.java:[14,17] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/components/layout/TitledDivider.java:[23,17] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/components/layout/TitledDivider.java:[25,17] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/components/layout/TitledDivider.java:[26,17] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/mainwindow/eyethrows/ThrowPanel.java:[14,60] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/mainwindow/eyethrows/ThrowPanel.java:[15,60] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/components/preferences/RadioButtonPanel.java:[29,22] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/mainwindow/information/InformationTextPanel.java:[44,30] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/mainwindow/information/InformationTextPanel.java:[45,30] cannot find symbol
+[ERROR] /X:/Bigger-Projects/Ninjabrain-Bot/src/main/java/strongy/gui/mainwindow/information/InformationTextPanel.java:[46,30] constant string expression required

@@ -1,75 +1,60 @@
 package strongy.gui.components.preferences;
 
-import java.awt.Color;
-import java.util.function.Consumer;
-
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-
-import strongy.gui.components.labels.ThemedLabel;
-import strongy.gui.components.panels.ThemedPanel;
-import strongy.gui.style.SizePreference;
+import javafx.geometry.Pos;
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
+import strongy.gui.components.ThemedComponent;
 import strongy.gui.style.StyleManager;
-import strongy.gui.style.theme.WrappedColor;
 import strongy.io.preferences.IMultipleChoicePreferenceDataType;
 import strongy.io.preferences.MultipleChoicePreference;
 
-public class RadioButtonPanel extends ThemedPanel {
+public class RadioButtonPanel extends VBox implements ThemedComponent {
 
-	final ThemedLabel descLabel;
-	final RadioButtonGroup<?> radioButtonGroup;
+	private final ToggleGroup toggleGroup = new ToggleGroup();
 
-	WrappedColor disabledCol;
+	public RadioButtonPanel(StyleManager styleManager, String text, MultipleChoicePreference<?> preference) {
+		getStyleClass().add("preference-row");
+		setAlignment(Pos.CENTER_LEFT);
+		setSpacing(4);
 
-	public <T extends IMultipleChoicePreferenceDataType> RadioButtonPanel(StyleManager styleManager, String description, MultipleChoicePreference<T> preference) {
-		this(styleManager, description, preference.getChoices(), preference.get(), preference::set);
-	}
+		Label titleLabel = new Label(text);
+		titleLabel.getStyleClass().add("themed-label-strong");
+		getChildren().add(titleLabel);
 
-	public <T extends IMultipleChoicePreferenceDataType> RadioButtonPanel(StyleManager styleManager, String description, MultipleChoicePreference<T> preference, boolean verticalRadioButtons) {
-		this(styleManager, description, preference.getChoices(), preference.get(), preference::set, verticalRadioButtons);
-	}
+		VBox radioBox = new VBox(4);
+		radioBox.setAlignment(Pos.CENTER_LEFT);
 
-	public <T extends IMultipleChoiceOption> RadioButtonPanel(StyleManager styleManager, String description, T[] choices, T selectedValue, Consumer<T> onChanged) {
-		this(styleManager, description, choices, selectedValue, onChanged, choices.length >= 4);
-	}
-
-	public <T extends IMultipleChoiceOption> RadioButtonPanel(StyleManager styleManager, String description, T[] choices, T selectedValue, Consumer<T> onChanged, boolean verticalRadioButtons) {
-		super(styleManager);
-		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-		descLabel = new ThemedLabel(styleManager, description) {
-			@Override
-			public int getTextSize(SizePreference p) {
-				return p.TEXT_SIZE_SMALL;
+		for (IMultipleChoicePreferenceDataType option : preference.getChoices()) {
+			RadioButton rb = new RadioButton(option.choiceName());
+			rb.getStyleClass().add("radio-button");
+			rb.setToggleGroup(toggleGroup);
+			if (option == preference.get()) {
+				rb.setSelected(true);
 			}
 
-			@Override
-			public Color getForegroundColor() {
-				if (radioButtonGroup.isEnabled()) {
-					return super.getForegroundColor();
+			rb.setOnAction(e -> {
+				if (rb.isSelected()) {
+					((MultipleChoicePreference<IMultipleChoicePreferenceDataType>) preference).set(option);
 				}
-				return disabledCol.color();
-			}
-		};
-		radioButtonGroup = new RadioButtonGroup<T>(styleManager, choices, selectedValue, verticalRadioButtons) {
-			@Override
-			public void onChanged(T newValue) {
-				onChanged.accept(newValue);
-			}
-		};
-		descLabel.setAlignmentX(0);
-		radioButtonGroup.setAlignmentX(0);
-		add(descLabel);
-		add(Box.createVerticalStrut(2));
-		add(radioButtonGroup);
-		setOpaque(true);
+			});
 
-		disabledCol = styleManager.currentTheme.TEXT_COLOR_WEAK;
-	}
+			radioBox.getChildren().add(rb);
+		}
 
-	@Override
-	public void setEnabled(boolean enabled) {
-		super.setEnabled(enabled);
-		radioButtonGroup.setEnabled(enabled);
-		descLabel.updateColors();
+		getChildren().add(radioBox);
+
+		preference.whenModified().subscribe(val -> {
+			javafx.application.Platform.runLater(() -> {
+				for (javafx.scene.control.Toggle toggle : toggleGroup.getToggles()) {
+					RadioButton rb = (RadioButton) toggle;
+					if (rb.getText().equals(val.choiceName())) {
+						toggleGroup.selectToggle(rb);
+						break;
+					}
+				}
+			});
+		});
 	}
 }

@@ -1,65 +1,54 @@
 package strongy.gui.mainwindow.information;
 
-import java.awt.BorderLayout;
-import java.util.Objects;
-
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.border.MatteBorder;
-
+import javafx.geometry.Pos;
+import javafx.scene.layout.HBox;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.Image;
 import strongy.Main;
-import strongy.gui.components.labels.SmallThemedLabel;
 import strongy.gui.components.panels.ThemedPanel;
 import strongy.gui.style.StyleManager;
-import strongy.gui.style.theme.WrappedColor;
 import strongy.model.information.InformationMessage;
 import strongy.model.information.InformationMessageSeverity;
+import java.io.InputStream;
 
-public class InformationTextPanel extends ThemedPanel {
+public class InformationTextPanel extends HBox {
 
-	private static final int iconMarginsHorizontal = 6, iconMarginsVertical = 4;
+	public InformationTextPanel(StyleManager styleManager, InformationMessage message) {
+		getStyleClass().add("info-panel");
+		setSpacing(6);
+		setAlignment(Pos.CENTER_LEFT);
 
-	private final WrappedColor borderColor;
-	private final JLabel icon;
-	private final JLabel textLabel;
-
-	public InformationTextPanel(StyleManager styleManager) {
-		super(styleManager);
-		setLayout(new BorderLayout(0, 0));
-		borderColor = styleManager.currentTheme.COLOR_DIVIDER;
-		icon = new JLabel();
-		icon.setBorder(new EmptyBorder(iconMarginsVertical, iconMarginsHorizontal, iconMarginsVertical, iconMarginsHorizontal));
-		textLabel = new SmallThemedLabel(styleManager);
-		add(icon, BorderLayout.WEST);
-		add(textLabel, BorderLayout.CENTER);
-	}
-
-	public void setInformationMessage(InformationMessage informationMessage) {
-		icon.setIcon(getIcon(informationMessage.severity));
-		textLabel.setText("<html>" + informationMessage.message + "</html>");
-	}
-
-	@Override
-	public void updateColors() {
-		super.updateColors();
-		setBorder(new MatteBorder(0, 0, 1, 0, borderColor.color()));
-	}
-
-	private ImageIcon getIcon(InformationMessageSeverity informationMessageSeverity) {
-		String imagePath = null;
-		switch (informationMessageSeverity) {
-			case INFO:
-				imagePath = "/info_icon.png";
-				break;
-			case WARNING:
-				imagePath = "/warning_icon.png";
-				break;
-			case ERROR:
-				imagePath = "/warning_icon.png";
-				break;
+		String iconPath = getIconPath(message.severity);
+		if (iconPath != null) {
+			try {
+				InputStream is = Main.class.getResourceAsStream(iconPath);
+				if (is != null) {
+					ImageView icon = new ImageView(new Image(is));
+					icon.setFitWidth(16);
+					icon.setFitHeight(16);
+					getChildren().add(icon);
+				}
+			} catch (Exception ignored) {
+			}
 		}
-		return new ImageIcon(Objects.requireNonNull(Main.class.getResource(imagePath)));
+
+		Label textLabel = new Label(message.message);
+		textLabel.getStyleClass().add("info-label");
+		textLabel.setWrapText(true);
+		getChildren().add(textLabel);
 	}
 
+	private String getIconPath(InformationMessageSeverity severity) {
+		switch (severity) {
+			case INFO:
+				return "/info_icon.png";
+			case WARNING:
+				return "/warning_icon.png";
+			case ERROR:
+				return "/warning_icon.png"; // Needs an error icon
+			default:
+				return null;
+		}
+	}
 }

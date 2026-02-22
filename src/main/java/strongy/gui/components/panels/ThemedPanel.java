@@ -1,64 +1,23 @@
 package strongy.gui.components.panels;
 
-import java.awt.Color;
-
-import javax.swing.JPanel;
-
+import javafx.scene.layout.VBox;
 import strongy.gui.components.ThemedComponent;
-import strongy.gui.style.SizePreference;
 import strongy.gui.style.StyleManager;
-import strongy.gui.style.theme.WrappedColor;
 
-public class ThemedPanel extends JPanel implements ThemedComponent {
-
-	public final boolean bold;
-
-	private WrappedColor bgCol;
-	private WrappedColor fgCol;
+/**
+ * A themed VBox panel — JavaFX replacement for the Swing JPanel subclass.
+ */
+public class ThemedPanel extends VBox implements ThemedComponent {
 
 	public ThemedPanel(StyleManager styleManager) {
-		this(styleManager, false);
+		getStyleClass().add("themed-panel");
 	}
 
-	public ThemedPanel(StyleManager styleManager, boolean bold) {
-		super();
-		styleManager.registerThemedComponent(this);
-		this.bold = bold;
-
-		bgCol = styleManager.currentTheme.COLOR_NEUTRAL;
-		fgCol = styleManager.currentTheme.TEXT_COLOR_NEUTRAL;
+	public ThemedPanel(StyleManager styleManager, boolean useStrongBg) {
+		if (useStrongBg) {
+			getStyleClass().add("header-panel");
+		} else {
+			getStyleClass().add("themed-panel");
+		}
 	}
-
-	public void updateSize(StyleManager styleManager) {
-		setFont(styleManager.fontSize(getTextSize(styleManager.size), !bold));
-	}
-
-	@Override
-	public void updateColors() {
-		Color bg = getBackgroundColor();
-		setBackground(bg);
-		Color fg = getForegroundColor();
-		setForeground(fg);
-	}
-
-	public int getTextSize(SizePreference p) {
-		return p.TEXT_SIZE_MEDIUM;
-	}
-
-	public void setBackgroundColor(WrappedColor color) {
-		bgCol = color;
-	}
-
-	public void setForegroundColor(WrappedColor color) {
-		fgCol = color;
-	}
-
-	protected Color getBackgroundColor() {
-		return bgCol.color();
-	}
-
-	protected Color getForegroundColor() {
-		return fgCol.color();
-	}
-
 }

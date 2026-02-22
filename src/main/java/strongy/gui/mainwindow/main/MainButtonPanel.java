@@ -1,85 +1,28 @@
 package strongy.gui.mainwindow.main;
 
-import java.awt.Dimension;
-
-import javax.swing.BorderFactory;
-import javax.swing.Box;
-import javax.swing.border.Border;
-import javax.swing.border.EmptyBorder;
-import javax.swing.border.MatteBorder;
-
-import strongy.gui.buttons.FlatButton;
-import strongy.gui.components.labels.ThemedLabel;
-import strongy.gui.components.layout.StretchPanel;
+import javafx.scene.layout.HBox;
+import javafx.scene.control.Button;
+import strongy.gui.components.panels.ThemedPanel;
 import strongy.gui.style.StyleManager;
-import strongy.gui.style.theme.WrappedColor;
 import strongy.model.input.IButtonInputHandler;
 import strongy.util.I18n;
 
-public class MainButtonPanel extends StretchPanel {
+public class MainButtonPanel extends ThemedPanel {
 
-	private final WrappedColor borderCol;
+	public MainButtonPanel(StyleManager styleManager, strongy.gui.frames.StrongyFrame frame,
+			IButtonInputHandler buttonInputHandler) {
+		super(styleManager);
+		HBox layout = new HBox(8);
 
-	public MainButtonPanel(StyleManager styleManager, IButtonInputHandler buttonInputHandler) {
-		super(styleManager, true);
-		setOpaque(true);
-//		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-		setAlignmentX(0);
-		ThemedLabel throwsLabel = new ThemedLabel(styleManager, I18n.get("ender_eye_throws"), true);
-		throwsLabel.setForegroundColor(styleManager.currentTheme.TEXT_COLOR_HEADER);
-		add(throwsLabel);
-		add(Box.createHorizontalGlue());
-		add(getUndoButton(styleManager, buttonInputHandler));
-		add(getRedoButton(styleManager, buttonInputHandler));
-		add(getResetButton(styleManager, buttonInputHandler));
+		Button btnUndo = new Button(I18n.get("undo"));
+		btnUndo.getStyleClass().add("flat-button");
+		btnUndo.setOnAction(e -> buttonInputHandler.onUndoButtonPressed());
 
-		borderCol = styleManager.currentTheme.COLOR_DIVIDER_DARK;
-		setBackgroundColor(styleManager.currentTheme.COLOR_HEADER);
+		Button btnReset = new Button(I18n.get("reset"));
+		btnReset.getStyleClass().add("flat-button");
+		btnReset.setOnAction(e -> buttonInputHandler.onResetButtonPressed());
+
+		layout.getChildren().addAll(btnUndo, btnReset);
+		getChildren().add(layout);
 	}
-
-	@Override
-	public void updateSize(StyleManager styleManager) {
-		setPreferredSize(new Dimension(0, 24));
-		setBorder(getBorder(styleManager.size.PADDING));
-		super.updateSize(styleManager);
-	}
-
-	@Override
-	public void updateColors() {
-		super.updateColors();
-		setBorder(getBorder(lastPadding));
-	}
-
-	private int lastPadding;
-
-	private Border getBorder(int padding) {
-		lastPadding = padding;
-		Border b1 = new MatteBorder(1, 0, 0, 0, borderCol.color());
-		Border b2 = new EmptyBorder(0, padding, 0, 0);
-		return BorderFactory.createCompoundBorder(b1, b2);
-	}
-
-	@Override
-	public void setBounds(int x, int y, int width, int height) {
-		super.setBounds(x, y, width, height);
-	}
-
-	private FlatButton getResetButton(StyleManager styleManager, IButtonInputHandler buttonInputHandler) {
-		FlatButton button = new FlatButton(styleManager, I18n.get("reset"), true);
-		button.addActionListener(p -> buttonInputHandler.onResetButtonPressed());
-		return button;
-	}
-
-	private FlatButton getUndoButton(StyleManager styleManager, IButtonInputHandler buttonInputHandler) {
-		FlatButton button = new FlatButton(styleManager, I18n.get("undo"), true);
-		button.addActionListener(p -> buttonInputHandler.onUndoButtonPressed());
-		return button;
-	}
-
-	private FlatButton getRedoButton(StyleManager styleManager, IButtonInputHandler buttonInputHandler) {
-		FlatButton button = new FlatButton(styleManager, I18n.get("redo"), true);
-		button.addActionListener(p -> buttonInputHandler.onRedoButtonPressed());
-		return button;
-	}
-
 }

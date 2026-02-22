@@ -1,48 +1,14 @@
 package strongy.gui.mainwindow.boateye;
 
-import java.util.HashMap;
-import java.util.Objects;
-
-import javax.swing.ImageIcon;
-
-import strongy.Main;
-import strongy.event.DisposeHandler;
-import strongy.event.IObservable;
+import javafx.scene.layout.VBox;
 import strongy.gui.components.labels.ThemedLabel;
+import strongy.gui.components.panels.ThemedPanel;
 import strongy.gui.style.StyleManager;
-import strongy.io.preferences.StrongyPreferences;
-import strongy.model.datastate.highprecision.BoatState;
 
-public class BoatIcon extends ThemedLabel {
-
-	public BoatIcon(StyleManager styleManager, IObservable<BoatState> boatState, StrongyPreferences preferences, DisposeHandler sh) {
+// Placeholder conversion. Will need proper JavaFX Canvas/ImageView logic.
+public class BoatIcon extends ThemedPanel {
+	public BoatIcon(StyleManager styleManager, strongy.model.datastate.highprecision.BoatState state) {
 		super(styleManager);
-		setIcon(getBoatIcon(boatState.get()));
-		setVisible(preferences.usePreciseAngle.get());
-
-		sh.add(boatState.subscribeEDT(b -> setIcon(getBoatIcon(b))));
-		sh.add(preferences.usePreciseAngle.whenModified().subscribeEDT(this::setVisible));
+		getChildren().add(new ThemedLabel(styleManager, "Boat"));
 	}
-
-	private static final HashMap<String, ImageIcon> cachedIcons = new HashMap<>();
-
-	public static ImageIcon getBoatIcon(BoatState boatState) {
-		switch (boatState) {
-			case ERROR:
-				return getOrCreateCachedIcon("/boat_red.png");
-			case MEASURING:
-				return getOrCreateCachedIcon("/boat_blue.png");
-			case VALID:
-				return getOrCreateCachedIcon("/boat_green.png");
-			default:
-				return getOrCreateCachedIcon("/boat_gray.png");
-		}
-	}
-
-	private static ImageIcon getOrCreateCachedIcon(String path) {
-		if (!cachedIcons.containsKey(path))
-			cachedIcons.put(path, new ImageIcon(Objects.requireNonNull(Main.class.getResource(path))));
-		return cachedIcons.get(path);
-	}
-
 }

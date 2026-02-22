@@ -1,12 +1,9 @@
 package strongy.gui.components.labels;
 
-import java.awt.Color;
-import java.awt.Font;
-
+/**
+ * Interface for label-like components.
+ */
 public interface ILabel {
-	void setFont(Font font);
-
-	void setForeground(Color color);
-
 	void setText(String text);
+	String getText();
 }

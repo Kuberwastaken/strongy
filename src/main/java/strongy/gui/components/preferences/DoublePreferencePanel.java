@@ -1,90 +1,47 @@
 package strongy.gui.components.preferences;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.text.DecimalFormat;
-import java.util.Collections;
-
-import javax.swing.JSpinner;
-
+import javafx.geometry.Pos;
+import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
+import strongy.gui.components.ThemedComponent;
 import strongy.gui.components.inputfields.DecimalTextField;
-import strongy.gui.components.labels.ThemedLabel;
-import strongy.gui.components.panels.ThemedPanel;
-import strongy.gui.style.SizePreference;
 import strongy.gui.style.StyleManager;
-import strongy.gui.style.theme.WrappedColor;
 import strongy.io.preferences.DoublePreference;
 
-public class DoublePreferencePanel extends ThemedPanel {
+public class DoublePreferencePanel extends HBox implements ThemedComponent {
 
-	public final ThemedLabel descLabel;
-	DecimalTextField textfield;
-	final DoublePreference preference;
-	DecimalFormat format;
+	private final DoublePreference preference;
+	private final DecimalTextField textField;
 
-	WrappedColor disabledCol;
-
-	public DoublePreferencePanel(StyleManager styleManager, String description, DoublePreference preference) {
-		super(styleManager);
+	public DoublePreferencePanel(StyleManager styleManager, String text, DoublePreference preference) {
 		this.preference = preference;
-		setLayout(new BorderLayout());
-		descLabel = new ThemedLabel(styleManager, "<html>" + description + "</html>") {
-			@Override
-			public int getTextSize(SizePreference p) {
-				return p.TEXT_SIZE_SMALL;
+		getStyleClass().add("preference-row");
+		setAlignment(Pos.CENTER_LEFT);
+
+		Label label = new Label(text);
+		label.getStyleClass().add("themed-label-strong");
+
+		textField = new DecimalTextField(styleManager);
+		textField.setPrefWidth(60);
+		textField.setText(String.valueOf(preference.get()));
+
+		textField.focusedProperty().addListener((obs, oldVal, newVal) -> {
+			if (!newVal) { // focus lost
+				updatePreference();
 			}
+		});
 
-			@Override
-			public Color getForegroundColor() {
-				if (textfield.isEnabled()) {
-					return super.getForegroundColor();
-				}
-				return disabledCol.color();
-			}
-		};
-		textfield = new DecimalTextField(styleManager, preference.get(), preference.min(), preference.max()) {
-			@Override
-			public void onChanged(double newValue) {
-				preference.set(Double.parseDouble(format.format(newValue)));
-			}
-		};
-		this.setDecimals(4);
+		textField.setOnAction(e -> updatePreference()); // Enter key
 
-		Dimension size = textfield.getPreferredSize();
-		size.width = 80;
-		textfield.setPreferredSize(size);
-		add(descLabel, BorderLayout.CENTER);
-		add(textfield, BorderLayout.EAST);
-		setOpaque(false);
-
-		disabledCol = styleManager.currentTheme.TEXT_COLOR_WEAK;
+		getChildren().addAll(label, textField);
 	}
 
-	public void updateValue() {
-		textfield.setValue(preference.get());
-	}
-
-	@Override
-	public void setEnabled(boolean enabled) {
-		super.setEnabled(enabled);
-		textfield.setEnabled(enabled);
-		descLabel.updateColors();
-	}
-
-	public void setWidth(int width) {
-		Dimension size = textfield.getPreferredSize();
-		size.width = width;
-		textfield.setPreferredSize(size);
-	}
-
-	public void setDecimals(int decimals) {
-		String newFormat = "#";
-		if (decimals > 0) {
-			newFormat += "." + String.join("", Collections.nCopies(decimals, "#"));
+	private void updatePreference() {
+		try {
+			double val = Double.parseDouble(textField.getText());
+			preference.set(val);
+		} catch (NumberFormatException ignored) {
+			textField.setText(String.valueOf(preference.get()));
 		}
-		this.format = new DecimalFormat(newFormat);
-		textfield.setEditor(new JSpinner.NumberEditor(textfield, newFormat));
 	}
-
 }

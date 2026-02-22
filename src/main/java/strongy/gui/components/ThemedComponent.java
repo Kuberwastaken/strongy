@@ -1,11 +1,11 @@
 package strongy.gui.components;
 
-import strongy.gui.style.StyleManager;
-
+/**
+ * Marker interface for themed JavaFX components.
+ * In the JavaFX version, styling is handled by CSS, so this interface
+ * is kept for backward compatibility but the methods are now no-ops.
+ */
 public interface ThemedComponent {
-
-	void updateSize(StyleManager styleManager);
-
-	void updateColors();
-
+	default void updateColors() {}
+	default void updateSize(Object styleManager) {}
 }

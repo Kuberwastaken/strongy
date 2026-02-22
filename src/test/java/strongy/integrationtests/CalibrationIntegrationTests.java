@@ -2,7 +2,7 @@ package strongy.integrationtests;
 
 import java.util.Locale;
 
-import javax.swing.SwingUtilities;
+import javafx.application.Platform;
 
 import strongy.gui.frames.CalibrationDialog;
 import strongy.model.datastate.calibrator.CalibratorFactory;
@@ -23,8 +23,10 @@ public class CalibrationIntegrationTests {
 
 		// Act + Assert
 		try {
-			SwingUtilities.invokeAndWait(() -> {
-				CalibrationDialog dialog = new CalibrationDialog(TestUtils.createStyleManager(), integrationTestBuilder.preferences, calibratorFactory, integrationTestBuilder.actionExecutor, null, false);
+
+			Platform.runLater(() -> {
+				CalibrationDialog dialog = new CalibrationDialog(TestUtils.createStyleManager(),
+						integrationTestBuilder.preferences, null, calibratorFactory);
 			});
 		} catch (Exception e) {
 			Assertions.fail(e);
@@ -41,8 +43,10 @@ public class CalibrationIntegrationTests {
 
 		// Act + Assert
 		try {
-			SwingUtilities.invokeAndWait(() -> {
-				CalibrationDialog dialog = new CalibrationDialog(TestUtils.createStyleManager(), integrationTestBuilder.preferences, calibratorFactory, integrationTestBuilder.actionExecutor, null, true);
+
+			Platform.runLater(() -> {
+				CalibrationDialog dialog = new CalibrationDialog(TestUtils.createStyleManager(),
+						integrationTestBuilder.preferences, null, calibratorFactory);
 			});
 		} catch (Exception e) {
 			Assertions.fail(e);

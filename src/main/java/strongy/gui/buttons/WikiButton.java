@@ -1,32 +1,18 @@
 package strongy.gui.buttons;
 
-import java.awt.Desktop;
-import java.net.URL;
-import java.util.Objects;
-
-import javax.swing.ImageIcon;
-
-import strongy.Main;
 import strongy.gui.style.StyleManager;
 
 public class WikiButton extends FlatButton {
 
-	private final String wikiUrl;
+	public WikiButton(StyleManager styleManager, String url) {
+		super(styleManager, "Wiki", "/help_icon.png");
+		getStyleClass().add("flat-button");
 
-	public WikiButton(StyleManager styleManager, String wikiUrl) {
-		super(styleManager, new ImageIcon(Objects.requireNonNull(Main.class.getResource("/help_icon.png"))));
-		this.wikiUrl = wikiUrl;
-		setBackgroundColor(styleManager.currentTheme.COLOR_NEUTRAL);
-		setHoverColor(styleManager.currentTheme.COLOR_NEUTRAL);
-		addActionListener(__ -> openWikiPageInBrowser());
+		setOnAction(e -> {
+			try {
+				java.awt.Desktop.getDesktop().browse(new java.net.URI(url));
+			} catch (Exception ignored) {
+			}
+		});
 	}
-
-	private void openWikiPageInBrowser() {
-		try {
-			Desktop.getDesktop().browse(new URL(wikiUrl).toURI());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
 }

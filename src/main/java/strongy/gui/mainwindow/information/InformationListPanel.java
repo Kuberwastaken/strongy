@@ -1,69 +1,28 @@
 package strongy.gui.mainwindow.information;
 
-import java.util.ArrayList;
+import javafx.scene.layout.VBox;
+import javafx.application.Platform;
 import java.util.List;
-
-import javax.swing.BoxLayout;
-import javax.swing.SwingUtilities;
-
-import strongy.event.ArrayListImplementingReadOnlyList;
-import strongy.event.IReadOnlyList;
-import strongy.gui.components.ThemedComponent;
-import strongy.gui.components.panels.ResizablePanel;
+import strongy.gui.components.panels.ThemedPanel;
 import strongy.gui.style.StyleManager;
-import strongy.model.information.InformationMessage;
 import strongy.model.information.InformationMessageList;
+import strongy.model.information.InformationMessage;
 
-public class InformationListPanel extends ResizablePanel implements ThemedComponent {
-
-	final StyleManager styleManager;
-
-	final List<InformationTextPanel> cachedInformationTextPanels = new ArrayList<>();
+public class InformationListPanel extends ThemedPanel {
 
 	public InformationListPanel(StyleManager styleManager, InformationMessageList informationMessageList) {
-		styleManager.registerThemedComponent(this);
-		setOpaque(true);
-		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-		setAlignmentX(0);
-		this.styleManager = styleManager;
+		super(styleManager);
+		setSpacing(4);
 
-		informationMessageList.subscribeEDT(this::onInformationMessageListChanged);
+		informationMessageList.subscribeEDT(messages -> {
+			Platform.runLater(() -> updateInformationMessages(messages, styleManager));
+		});
 	}
 
-	private void onInformationMessageListChanged(IReadOnlyList<InformationMessage> informationMessages) {
-		// avoid concurrent modification when messages are synchronized on the UI thread later by copying the list
-		ArrayListImplementingReadOnlyList<InformationMessage> informationMessagesCopy = new ArrayListImplementingReadOnlyList<>();
-		informationMessages.forEach(informationMessagesCopy::add);
-		SwingUtilities.invokeLater(() -> synchronizeInformationMessages(informationMessagesCopy));
-	}
-
-	private void synchronizeInformationMessages(IReadOnlyList<InformationMessage> informationMessages) {
-		for (InformationTextPanel informationTextPanel : cachedInformationTextPanels) {
-			informationTextPanel.setVisible(false);
+	private void updateInformationMessages(Iterable<InformationMessage> messages, StyleManager styleManager) {
+		getChildren().clear();
+		for (InformationMessage message : messages) {
+			getChildren().add(new InformationTextPanel(styleManager, message));
 		}
-		int messageIndex = 0;
-		for (InformationMessage informationMessage : informationMessages) {
-			if (cachedInformationTextPanels.size() <= messageIndex) {
-				InformationTextPanel newInformationTextPanel = new InformationTextPanel(styleManager);
-				cachedInformationTextPanels.add(newInformationTextPanel);
-				add(newInformationTextPanel);
-			}
-			InformationTextPanel informationTextPanel = cachedInformationTextPanels.get(messageIndex);
-			informationTextPanel.setInformationMessage(informationMessage);
-			informationTextPanel.setVisible(true);
-			messageIndex++;
-		}
-		whenSizeModified.notifySubscribers(this);
 	}
-
-	@Override
-	public void updateSize(StyleManager styleManager) {
-
-	}
-
-	@Override
-	public void updateColors() {
-
-	}
-
 }

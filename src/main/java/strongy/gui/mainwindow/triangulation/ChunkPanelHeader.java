@@ -1,117 +1,16 @@
 package strongy.gui.mainwindow.triangulation;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-import javax.swing.border.MatteBorder;
-
-import strongy.event.IDisposable;
-import strongy.event.Subscription;
+import javafx.scene.layout.HBox;
+import strongy.gui.components.labels.ThemedLabel;
 import strongy.gui.components.panels.ThemedPanel;
-import strongy.gui.style.SizePreference;
 import strongy.gui.style.StyleManager;
-import strongy.gui.style.theme.ColumnLayout;
-import strongy.gui.style.theme.WrappedColor;
-import strongy.io.preferences.StrongyPreferences;
-import strongy.io.preferences.enums.StrongholdDisplayType;
 import strongy.util.I18n;
 
-public class ChunkPanelHeader extends ThemedPanel implements IDisposable {
-
-	private final JLabel location;
-	private final JLabel angle;
-	private final JLabel[] labels;
-
-	final StyleManager styleManager;
-
-	final Subscription strongholdDisplayTypeChangedSubscription;
-
-	private final WrappedColor borderCol;
-
-	public ChunkPanelHeader(StyleManager styleManager, StrongyPreferences preferences) {
+public class ChunkPanelHeader extends ThemedPanel {
+	public ChunkPanelHeader(StyleManager styleManager) {
 		super(styleManager, true);
-		this.styleManager = styleManager;
-		setOpaque(true);
-		location = new JLabel("", SwingConstants.CENTER);
-		JLabel certainty = new JLabel(I18n.get("certainty_2"), SwingConstants.CENTER);
-		JLabel distance = new JLabel(I18n.get("dist"), SwingConstants.CENTER);
-		JLabel nether = new JLabel(I18n.get("nether"), SwingConstants.CENTER);
-		angle = new JLabel(I18n.get("angle"), SwingConstants.CENTER);
-		labels = new JLabel[] { location, certainty, distance, nether, angle };
-		ColumnLayout layout = new ColumnLayout(0);
-		layout.setRelativeWidth(location, 2f);
-		layout.setRelativeWidth(nether, 1.8f);
-		layout.setRelativeWidth(angle, 2.5f);
-		setLayout(layout);
-		add(location);
-		add(certainty);
-		add(distance);
-		add(nether);
-		setAngleUpdatesEnabled(preferences.showAngleUpdates.get());
-		updateHeaderText(preferences.strongholdDisplayType.get());
-		strongholdDisplayTypeChangedSubscription = preferences.strongholdDisplayType.whenModified().subscribeEDT(this::updateHeaderText);
-
-		borderCol = styleManager.currentTheme.COLOR_DIVIDER_DARK;
-		setBackgroundColor(styleManager.currentTheme.COLOR_HEADER);
-		setForegroundColor(styleManager.currentTheme.TEXT_COLOR_HEADER);
+		HBox layout = new HBox(8);
+		layout.getChildren().add(new ThemedLabel(styleManager, I18n.get("location_x_z")));
+		getChildren().add(layout);
 	}
-
-	@Override
-	public void setFont(Font font) {
-		super.setFont(font);
-		if (labels != null) {
-			for (JLabel l : labels) {
-				l.setFont(font);
-			}
-		}
-	}
-
-	@Override
-	public void setForeground(Color fg) {
-		super.setForeground(fg);
-		if (labels != null) {
-			for (JLabel l : labels) {
-				if (l != null)
-					l.setForeground(fg);
-			}
-		}
-	}
-
-	public void updateHeaderText(StrongholdDisplayType sdt) {
-		location.setText(sdt == StrongholdDisplayType.CHUNK ? I18n.get("chunk") : I18n.get("location"));
-	}
-
-	public void setAngleUpdatesEnabled(boolean b) {
-		if (b) {
-			add(angle);
-		} else {
-			remove(angle);
-		}
-	}
-
-	@Override
-	public void updateColors() {
-		setBorder(new MatteBorder(0, 0, 2, 0, borderCol.color()));
-		super.updateColors();
-	}
-
-	@Override
-	public void updateSize(StyleManager styleManager) {
-		super.updateSize(styleManager);
-		setPreferredSize(new Dimension(styleManager.size.WIDTH, styleManager.size.TEXT_SIZE_MEDIUM + styleManager.size.PADDING_THIN * 2));
-	}
-
-	@Override
-	public int getTextSize(SizePreference p) {
-		return p.TEXT_SIZE_MEDIUM;
-	}
-
-	@Override
-	public void dispose() {
-		strongholdDisplayTypeChangedSubscription.dispose();
-	}
-
 }

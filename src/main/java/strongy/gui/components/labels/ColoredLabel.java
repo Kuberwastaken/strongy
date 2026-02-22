@@ -1,35 +1,28 @@
 package strongy.gui.components.labels;
 
-import java.awt.Color;
-
+import javafx.scene.paint.Color;
 import strongy.gui.style.StyleManager;
-import strongy.gui.style.theme.ColorMap;
-import strongy.util.Wrapper;
+import strongy.gui.style.theme.WrappedColor;
 
+/**
+ * A label whose text color can be dynamically set.
+ */
 public class ColoredLabel extends ThemedLabel {
 
-	final Wrapper<ColorMap> colorMap;
-
-	private double lastColor = 0.0;
-
 	public ColoredLabel(StyleManager styleManager) {
-		this(styleManager, false);
+		super(styleManager);
 	}
 
-	public ColoredLabel(StyleManager styleManager, boolean centered) {
-		super(styleManager, centered);
-		colorMap = styleManager.currentTheme.CERTAINTY_COLOR_MAP;
+	public ColoredLabel(StyleManager styleManager, String text) {
+		super(styleManager, text);
 	}
 
-	public void setText(String text, float color) {
-		lastColor = color;
-		setText(text);
-		updateColors();
+	public void setColor(Color color) {
+		if (color != null) {
+			setStyle(String.format("-fx-text-fill: #%02X%02X%02X;",
+					(int)(color.getRed() * 255),
+					(int)(color.getGreen() * 255),
+					(int)(color.getBlue() * 255)));
+		}
 	}
-
-	@Override
-	public Color getForegroundColor() {
-		return colorMap.get().get(lastColor);
-	}
-
 }

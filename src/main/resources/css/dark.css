@@ -1,0 +1,33 @@
+/* Strongy — Dark Theme
+ * Color tokens derived from the original DarkTheme in StandardThemes.java
+ */
+
+.root {
+    /* Background colors */
+    -strongy-bg-strongest: #212529;
+    -strongy-bg-strong: #2D3238;
+    -strongy-bg-slightly-strong: #31353A;
+    -strongy-bg-neutral: #33383D;
+    -strongy-bg-slightly-weak: #373C42;
+    -strongy-bg-divider: #2A2E32;
+    -strongy-bg-divider-dark: #212529;
+
+    /* Text colors */
+    -strongy-text-title: #FFFFFF;
+    -strongy-text-header: #E5E5E5;
+    -strongy-text-slightly-strong: #E5E5E5;
+    -strongy-text-neutral: #C8C8C8;
+    -strongy-text-slightly-weak: #FFFFFF;
+    -strongy-text-weak: #808080;
+
+    /* Semantic colors */
+    -strongy-accent: #57EBA3;
+    -strongy-positive: #75CC6C;
+    -strongy-negative: #CC6E72;
+    -strongy-exit-hover: #F04747;
+
+    /* Certainty gradient */
+    -strongy-gradient-0: #FF0000;
+    -strongy-gradient-50: #FFFF00;
+    -strongy-gradient-100: #00CE29;
+}

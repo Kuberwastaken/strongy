@@ -11,19 +11,15 @@ public class TitledDivider extends ThemedPanel {
 
 	public TitledDivider(StyleManager styleManager, String title) {
 		super(styleManager);
-		setLayout(new GridBagLayout());
+		javafx.scene.layout.HBox layout = new javafx.scene.layout.HBox(5);
+		layout.setAlignment(javafx.geometry.Pos.CENTER_LEFT);
 
-		GridBagConstraints gbc = new GridBagConstraints();
-		gbc.gridx = GridBagConstraints.RELATIVE;
-		gbc.gridy = 0;
-		gbc.anchor = GridBagConstraints.CENTER;
-		gbc.fill = GridBagConstraints.HORIZONTAL;
-		gbc.weightx = 0;
-		gbc.ipadx = 5;
-		add(new ThemedLabel(styleManager, title), gbc);
-		gbc.weightx = 1;
-		add(new Divider(styleManager), gbc);
-		setBackgroundColor(styleManager.currentTheme.COLOR_NEUTRAL);
+		ThemedLabel label = new ThemedLabel(styleManager, title);
+		Divider divider = new Divider(styleManager);
+		javafx.scene.layout.HBox.setHgrow(divider, javafx.scene.layout.Priority.ALWAYS);
+
+		layout.getChildren().addAll(label, divider);
+		getChildren().add(layout);
 	}
 
 }

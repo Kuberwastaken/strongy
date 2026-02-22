@@ -1,5 +1,7 @@
 package strongy.gui.style.theme;
 
+import javafx.scene.paint.Color;
+
 import strongy.event.ISubscribable;
 import strongy.event.ObservableProperty;
 import strongy.event.Subscription;
@@ -51,7 +53,10 @@ public class CurrentTheme {
 		COLOR_POSITIVE.set(theme.COLOR_POSITIVE);
 		COLOR_NEGATIVE.set(theme.COLOR_NEGATIVE);
 
-		CERTAINTY_COLOR_MAP.set(new ColorMap(theme.COLOR_GRADIENT_0.color(), theme.COLOR_GRADIENT_50.color(), theme.COLOR_GRADIENT_100.color()));
+		CERTAINTY_COLOR_MAP.set(new ColorMap(
+				theme.COLOR_GRADIENT_0.color(),
+				theme.COLOR_GRADIENT_50.color(),
+				theme.COLOR_GRADIENT_100.color()));
 
 		updateSubscription(theme);
 		whenModified.notifySubscribers(this);
@@ -63,7 +68,7 @@ public class CurrentTheme {
 		theme = newTheme;
 		if (themeSubscription != null)
 			themeSubscription.dispose();
-		themeSubscription = newTheme.whenModified().subscribeEDT(this::setTheme);
+		themeSubscription = newTheme.whenModified().subscribe(this::setTheme);
 	}
 
 	public boolean isTheme(Theme theme) {

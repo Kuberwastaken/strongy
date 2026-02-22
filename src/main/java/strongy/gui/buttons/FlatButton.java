@@ -1,177 +1,45 @@
 package strongy.gui.buttons;
 
-import java.awt.Color;
-import java.awt.Cursor;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.image.BufferedImage;
-
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.border.EmptyBorder;
-
+import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import strongy.Main;
 import strongy.gui.components.ThemedComponent;
-import strongy.gui.style.SizePreference;
 import strongy.gui.style.StyleManager;
 import strongy.gui.style.theme.WrappedColor;
 
-/**
- * Custom button with 'flat' graphics, otherwise behaves like a JButton.
- */
-public class FlatButton extends JButton implements ThemedComponent {
+import java.io.InputStream;
 
-	private final boolean dimTextWhenNotHovered;
-	private final ImageIcon img;
-	protected Color bgCol, hoverCol, fgCol, fgHoverCol;
-
-	private WrappedColor bgColor;
-	private WrappedColor fgHoverColor;
-	private WrappedColor hoverColor;
-	private final WrappedColor iconColor;
-
-	public FlatButton(StyleManager styleManager, ImageIcon img) {
-		super();
-		this.img = img;
-		dimTextWhenNotHovered = false;
-		setBorderPainted(false);
-		setFocusPainted(false);
-		setContentAreaFilled(false);
-		setBorder(null);
-		setFocusable(false);
-		setOpaque(true);
-
-		bgColor = styleManager.currentTheme.COLOR_HEADER;
-		fgHoverColor = styleManager.currentTheme.TEXT_COLOR_HEADER;
-		hoverColor = styleManager.currentTheme.COLOR_SLIGHTLY_STRONG;
-		iconColor = styleManager.currentTheme.TEXT_COLOR_TITLE;
-
-		setCursor(new Cursor(Cursor.HAND_CURSOR));
-		addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseEntered(java.awt.event.MouseEvent evt) {
-				setBackground(isEnabled() ? hoverCol : bgCol);
-			}
-
-			public void mouseExited(java.awt.event.MouseEvent evt) {
-				setBackground(bgCol);
-			}
-		});
-		styleManager.registerThemedComponent(this);
-	}
+public class FlatButton extends Button implements ThemedComponent {
 
 	public FlatButton(StyleManager styleManager, String text) {
-		this(styleManager, text, false);
-	}
-
-	public FlatButton(StyleManager styleManager, String text, boolean dimTextWhenNotHovered) {
 		super(text);
-		this.dimTextWhenNotHovered = dimTextWhenNotHovered;
-		this.img = null;
-		setBorderPainted(false);
-		setFocusPainted(false);
-		setContentAreaFilled(false);
-		setBorder(new EmptyBorder(4, 8, 4, 8));
-		setFocusable(false);
-		setOpaque(true);
+		getStyleClass().add("flat-button");
+	}
 
-		bgColor = styleManager.currentTheme.COLOR_HEADER;
-		fgHoverColor = styleManager.currentTheme.TEXT_COLOR_HEADER;
-		hoverColor = styleManager.currentTheme.COLOR_SLIGHTLY_STRONG;
-		iconColor = styleManager.currentTheme.TEXT_COLOR_TITLE;
-
-		setForeground(Color.WHITE);
-		setCursor(new Cursor(Cursor.HAND_CURSOR));
-		// Change color on hover
-		addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseEntered(java.awt.event.MouseEvent evt) {
-				setBackground(isEnabled() ? hoverCol : bgCol);
-				setForeground(isEnabled() ? fgHoverCol : fgCol);
+	public FlatButton(StyleManager styleManager, String text, String iconPath) {
+		super(text);
+		getStyleClass().add("flat-button");
+		try {
+			InputStream is = Main.class.getResourceAsStream(iconPath);
+			if (is != null) {
+				ImageView iv = new ImageView(new Image(is));
+				iv.setFitWidth(16);
+				iv.setFitHeight(16);
+				setGraphic(iv);
 			}
-
-			public void mouseExited(java.awt.event.MouseEvent evt) {
-				setBackground(bgCol);
-				setForeground(fgCol);
-			}
-		});
-		styleManager.registerThemedComponent(this);
-	}
-
-	@Override
-	public void setFont(Font font) {
-		super.setFont(font);
-	}
-
-	private void setColors(final Color backgroundColor, final Color hoverColor, final Color foregroundColor, final Color foregroundHoverColor) {
-		setBackground(backgroundColor);
-		this.bgCol = backgroundColor;
-		this.hoverCol = hoverColor;
-		this.fgCol = foregroundColor;
-		this.fgHoverCol = foregroundHoverColor;
-	}
-
-	public void setBackgroundColor(final Color backgroundColor) {
-		setBackground(backgroundColor);
-		this.bgCol = backgroundColor;
-	}
-
-	@Override
-	public void updateSize(StyleManager styleManager) {
-		setFont(styleManager.fontSize(getTextSize(styleManager.size), true));
-	}
-
-	@Override
-	public void updateColors() {
-		Color bg = getBackgroundColor();
-		Color hg = getHoverColor();
-		setColors(bg, hg, fgHoverColor.interpolate(getBackgroundColor(), dimTextWhenNotHovered ? 0.3f : 0), getForegroundColor());
-		setForeground(fgCol);
-		if (img != null)
-			setIcon(createIcon(img, iconColor.color()));
-	}
-
-	public int getTextSize(SizePreference p) {
-		return p.TEXT_SIZE_MEDIUM;
-	}
-
-	public void setBackgroundColor(WrappedColor color) {
-		bgColor = color;
+		} catch (Exception ignored) {
+		}
 	}
 
 	public void setHoverColor(WrappedColor color) {
-		hoverColor = color;
+		// Custom hover colors handled via CSS classes globally in JavaFX,
+		// but this method stub is needed for source compatibility
 	}
 
-	public void setForegroundColor(WrappedColor color) {
-		fgHoverColor = color;
-	}
-
-	protected Color getBackgroundColor() {
-		return bgColor.color();
-	}
-
-	protected Color getHoverColor() {
-		return hoverColor.color();
-	}
-
-	protected Color getForegroundColor() {
-		return fgHoverColor.color();
-	}
-
-	private ImageIcon createIcon(ImageIcon img, Color c) {
-		BufferedImage bi = new BufferedImage(img.getIconWidth(), img.getIconHeight(), BufferedImage.TRANSLUCENT);
-		Graphics graphics = bi.createGraphics();
-		img.paintIcon(null, graphics, 0, 0);
-		for (int i = 0; i < bi.getWidth(); i++) {
-			for (int j = 0; j < bi.getHeight(); j++) {
-				int argb = bi.getRGB(i, j);
-				int a = c.getAlpha() * (argb >> 24);
-				int r = c.getRed() * ((argb >> 16) & 0b11111111);
-				int g = c.getGreen() * ((argb >> 8) & 0b11111111);
-				int b = c.getBlue() * (argb & 0b11111111);
-				bi.setRGB(i, j, (a / 255 << 24) | (r / 255 << 16) | (g / 255 << 8) | (b / 255));
-			}
+	public void setBackgroundColor(WrappedColor color) {
+		if (color != null && color.color() != null) {
+			setStyle("-fx-background-color: " + color.hex() + ";");
 		}
-		graphics.dispose();
-		return new ImageIcon(bi);
 	}
-
 }
