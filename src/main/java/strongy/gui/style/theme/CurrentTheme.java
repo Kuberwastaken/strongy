@@ -12,7 +12,7 @@ public class CurrentTheme {
 	public final WrappedColor COLOR_STRONGEST = new WrappedColor();
 	public final WrappedColor COLOR_DIVIDER = new WrappedColor();
 	public final WrappedColor COLOR_DIVIDER_DARK = new WrappedColor();
-	public final WrappedColor COLOR_HEADER = new WrappedColor();
+	public final WrappedColor COLOR_STRONG = new WrappedColor();
 	public final WrappedColor COLOR_SLIGHTLY_STRONG = new WrappedColor();
 	public final WrappedColor COLOR_NEUTRAL = new WrappedColor();
 	public final WrappedColor COLOR_SLIGHTLY_WEAK = new WrappedColor();
@@ -38,7 +38,7 @@ public class CurrentTheme {
 		COLOR_STRONGEST.set(theme.COLOR_STRONGEST);
 		COLOR_DIVIDER.set(theme.COLOR_DIVIDER);
 		COLOR_DIVIDER_DARK.set(theme.COLOR_DIVIDER_DARK);
-		COLOR_HEADER.set(theme.COLOR_STRONG);
+		COLOR_STRONG.set(theme.COLOR_STRONG);
 		COLOR_SLIGHTLY_STRONG.set(theme.COLOR_SLIGHTLY_STRONG);
 		COLOR_NEUTRAL.set(theme.COLOR_NEUTRAL);
 		COLOR_SLIGHTLY_WEAK.set(theme.COLOR_SLIGHTLY_WEAK);
